@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2.03322in" height="2.02083in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1998.3 1986.12"
+xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+    <![CDATA[
+      .circle {
+        animation: rotate 5s linear infinite;
+      }
+      .path1 {
+        animation: colorchange 3s infinite;
+      }
+      .path2 {
+        animation: scalemove 2s infinite alternate;
+      }
+      @keyframes rotate {
+        0% {transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+      }
+      @keyframes colorchange {
+        0%, 100% {fill: #01A89E;}
+        50% {fill: #FE893C;}
+      }
+      @keyframes scalemove {
+        0% {transform: scale(1);}
+        100% {transform: scale(1.2);}
+      }
+    ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <circle class="circle" cx="1005.24" cy="993.06" r="993.06" fill="#FEFEFE"/>
+  <path class="path1" d="M1704.63 919.3l-9.83 -103.16c..." />
+  <path class="path2" d="M879.12 123.45c..." />
+ </g>
+</svg>
