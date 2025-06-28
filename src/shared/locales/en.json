@@ -1,0 +1,72 @@
+{
+  "form": {
+    "phoneSubmit": "Get verification code",
+    "send": "Send",
+    "cancel": "Cancel",
+    "next": "Next",
+    "back": "Back",
+    "upload": "Upload photo",
+    "search": "search"
+  },
+  "fields": {
+    "phone": "Phone number:"
+  },
+  "messages": {
+    "success": "Successfully saved.",
+    "error": "Error.",
+    "loading": "Loading..."
+  },
+  "login": {
+    "welcome": "Welcome to the online marketplace",
+    "enter_phone": "Please enter your phone number",
+    "have_account": "Don't have an account? Sign up",
+    "terms": "By continuing, you agree to the",
+    "terms_link": "Terms of Use",
+    "privacy_link": "Privacy Policy",
+    "accepted": "statement.",
+    "and": "and"
+  },
+  "validation": {
+    "required": "This field is required.",
+    "email": "Please enter a valid email address.",
+    "phone": "Enter a valid phone number.",
+    "numeric": "Only numbers are allowed.",
+    "invalid_format": "Invalid format.",
+    "invalid_phone": "Please enter a valid 9-digit phone number."
+  },
+  "otp": {
+    "title": "Phone Number Verification",
+    "enter_code": "Enter the 6-digit code sent to you",
+    "checking": "Verifying...",
+    "confirm": "Verify Code",
+    "time_left": "⏱ Time remaining:",
+    "expired": "⏱ Time expired",
+    "seconds": "seconds",
+    "resend": "Resend Code",
+    "invalid_code": "The entered code is incorrect.",
+    "enter_6_digits": "Please enter a 6-digit code."
+  },
+  "user_register": {
+    "title": "Create New Account",
+    "full_name": "Full Name:",
+    "full_name_placeholder": "Enter your full name",
+    "district": "District:",
+    "province": "Province:",
+    "province_placeholder": "Select",
+    "address": "Address:",
+    "address_placeholder": "Short address",
+    "submit_button": "Register",
+    "fill_all_fields": "Please fill out all fields.",
+    "registration_failed": "Registration failed.",
+    "registration_successful": "Registration successful."
+  },
+    "onboardingItem": {
+    "title": "Welcome to the Online Marketplace",
+    "description": "You can easily buy, sell, and find what you need.",
+    "details": "Easily access products and services, communicate with sellers quickly and securely; save your favorite items to find them later, and personalize your shopping experience with tailored recommendations based on your interests.",
+    "button_text": "Get Started →",
+    "sikip": "Skip →"
+  }
+
+
+}

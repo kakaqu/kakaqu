@@ -1,0 +1,75 @@
+{
+  "form": {
+    "phoneSubmit": "Doğrulama kodu al",
+    "send": "Gönder",
+    "cancel": "İptal",
+    "next": "İleri",
+    "back": "Geri",
+    "upload": "Fotoğraf yükle",
+    "search": "ara"
+    
+  },
+  "fields": {
+    "phone": "Telefon numarası:"
+  },
+  "messages": {
+    "success": "Başarıyla kaydedildi.",
+    "error": "Hata oldu.",
+    "loading": "Yükleniyor..."
+  },
+  "login": {
+    "welcome": "Online pazara hoş geldiniz",
+    "enter_phone": "Lütfen telefon numaranızı girin",
+    "have_account": "Hesabınız yok mu? Kayıt olun",
+    "terms": "Devam ederek,",
+    "terms_link": "Kullanım Şartları",
+    "privacy_link": "Gizlilik Politikası",
+    "accepted": "kabul ettiğinizi beyan edersiniz.",
+    "and": "ve"
+  },
+  "validation": {
+    "required": "Bu alan zorunludur.",
+    "email": "Lütfen geçerli bir e-posta adresi girin.",
+    "phone": "Geçerli bir telefon numarası girin.",
+    "numeric": "Sadece sayılar girilebilir.",
+    "invalid_format": "Format geçersiz.",
+    "invalid_phone": "Lütfen 9 haneli geçerli bir numara girin.",
+    "name_short": "İsim en az 3 karakter olmalı.",
+    "province": "Lütfen bir vilayet seçin.",
+    "district": "Lütfen bir ilçe seçin."
+  },
+  "otp": {
+    "title": "Telefon Numarası Doğrulama",
+    "enter_code": "Gönderilen altı haneli kodu giriniz",
+    "checking": "Kontrol ediliyor...",
+    "confirm": "Kodu Doğrula",
+    "time_left": "⏱ Kalan süre:",
+    "expired": "⏱ Süre doldu",
+    "seconds": "saniye",
+    "resend": "Kodu tekrar gönder",
+    "invalid_code": "Girilen kod yanlış.",
+    "enter_6_digits": "Lütfen 6 haneli bir kod giriniz."
+  },
+  "user_register": {
+    "title": "Yeni Hesap Oluştur",
+    "full_name": "Ad / Soyad:",
+    "full_name_placeholder": "Adınızı ve soyadınızı girin",
+    "district": "İlçe:",
+    "province": "İl:",
+    "province_placeholder": "Seçiniz",
+    "address": "Adres:",
+    "address_placeholder": "Kısa adres",
+    "submit_button": "Kaydet",
+    "fill_all_fields": "Lütfen tüm alanları doldurun.",
+    "registration_failed": "Kayıt başarısız oldu.",
+    "registration_successful": "Kayıt başarılı oldu."
+  },
+  "onboardingItem": {
+    "title": "Online Pazara Hoş Geldiniz",
+    "description": "Kolayca alışveriş yapabilir, satış yapabilir ve ihtiyaçlarınızı bulabilirsiniz.",
+    "details": "Ürün ve hizmetlere kolayca ulaşın, satıcılarla hızlı ve güvenli şekilde iletişim kurun; favori ürünlerinizi kaydedip daha sonra kolayca bulun ve ilgi alanlarınıza göre size özel önerilerle alışveriş deneyiminizi kişiselleştirin.",
+    "button_text": "Başla →",
+    "sikip": "Geç →"
+  }
+
+}

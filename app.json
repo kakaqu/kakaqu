@@ -4,34 +4,46 @@
     "slug": "busenden",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/app_icon.png",
+    "icon": "./src/assets/logo/app_icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": false,
+    "jsEngine": "hermes",
+
     "splash": {
-      "image": "./assets/app_logo_icon.png",
+      "image": "./src/assets/logo/app_logo_icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#01A89E"
     },
+
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Uygulama QR kodları taramak için kamera erişimi gerektirir."
+      }
     },
+
     "android": {
+      "package": "com.iweb.busenden",
+      "permissions": ["CAMERA"],
       "adaptiveIcon": {
-        "foregroundImage": "./assets/bLogo.png",
+        "foregroundImage": "./src/assets/logo/app_icon.png",
         "backgroundColor": "#01A89E"
-      },
-      "package": "com.iweb.busenden"
+      }
     },
+
     "web": {
-      "favicon": "./assets/app_icon.png"
+      "favicon": "./src/assets/logo/app_icon.png"
     },
+
     "extra": {
       "eas": {
         "projectId": "e0cc3120-7511-4976-9f27-473b93267683"
       }
     },
+
     "plugins": [
+      "expo-camera",
       "expo-secure-store"
     ]
   }
-} 
+}

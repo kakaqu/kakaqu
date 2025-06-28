@@ -14,6 +14,10 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     persistSession: true,
     detectSessionInUrl: false,
   },
+  // ✅ Realtime devre dışı bırakılıyor
+  realtime: {
+    enabled: false,
+  },
 });
 
 export default supabase;
