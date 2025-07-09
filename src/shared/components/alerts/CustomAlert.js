@@ -4,8 +4,6 @@ import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import CustomTheme from '../../styles/CustomThems';
 
-
-
 const typeConfig = {
   info: {
     icon: 'info',
@@ -30,40 +28,43 @@ const typeConfig = {
 };
 
 const CustomAlert = ({
-  isVisible,
+  isVisible = false,
   type = 'info',
-  title = 'Uyarı',
+  title = '',
   message = '',
-  submitText = 'Tamam',
-  cancelText = 'İptal',
+  submitText = 'OK',
+  cancelText = 'Cancel',
   showCancel = false,
-  onSubmit,
-  onCancel,
+  onSubmit = () => {},
+  onCancel = () => {},
 }) => {
-  const { icon, iconBackground, iconColor } = typeConfig[type] || typeConfig.info;
+  const config = typeConfig[type] || typeConfig.info;
 
   return (
     <Modal
       isVisible={isVisible}
       animationIn="zoomIn"
       animationOut="zoomOut"
+      backdropOpacity={0.5}
+      useNativeDriver
       onBackdropPress={onCancel}
-      backdropTransitionOutTiming={0}
+      style={styles.modal}
     >
-      <View style={[styles.container, { backgroundColor: '#fff' }]}> 
-        <View style={[styles.iconContainer, { backgroundColor: iconBackground }]}> 
-          <Icon name={icon} size={30} color={iconColor} /> 
+      <View style={styles.alertBox}>
+        <View style={[styles.iconWrapper, { backgroundColor: config.iconBackground }]}>
+          <Icon name={config.icon} size={30} color={config.iconColor} />
         </View>
+
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.message}>{message}</Text>
 
-        <TouchableOpacity style={[styles.button, { backgroundColor: iconBackground }]} onPress={onSubmit}>
+        <TouchableOpacity style={[styles.button, { backgroundColor: config.iconBackground }]} onPress={onSubmit}>
           <Text style={styles.buttonText}>{submitText}</Text>
         </TouchableOpacity>
 
         {showCancel && (
           <TouchableOpacity style={styles.cancelButton} onPress={onCancel}>
-            <Text style={[styles.buttonText, { color: CustomTheme.colors.darkGray }]}>{cancelText}</Text>
+            <Text style={styles.cancelText}>{cancelText}</Text>
           </TouchableOpacity>
         )}
       </View>
@@ -72,52 +73,66 @@ const CustomAlert = ({
 };
 
 const styles = StyleSheet.create({
-  container: {
-    borderRadius: 16,
-    padding: 20,
-    alignItems: 'center',
-  },
-  iconContainer: {
-    position: 'absolute',
-    top: -30,
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+  modal: {
+    margin: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 4,
+    zIndex: 9999,
+  },
+  alertBox: {
+    width: '80%',
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 24,
+    alignItems: 'center',
+    elevation: 6,
+  },
+  iconWrapper: {
+    position: 'absolute',
+    top: -28,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    borderWidth: 3,
     borderColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
-    marginTop: 40,
+    marginTop: 36,
     fontSize: 20,
     fontWeight: '600',
-    marginBottom: 10,
     textAlign: 'center',
+    marginBottom: 10,
   },
   message: {
-    fontSize: 16,
+    fontSize: 15,
     textAlign: 'center',
+    color: '#444',
     marginBottom: 20,
   },
   button: {
     width: '100%',
     paddingVertical: 12,
-    borderRadius: 8,
+    borderRadius: 10,
     alignItems: 'center',
-  },
-  cancelButton: {
-    width: '100%',
-    paddingVertical: 12,
-    marginTop: 10,
-    borderRadius: 8,
-    alignItems: 'center',
-    backgroundColor: '#f2f2f2',
   },
   buttonText: {
-    fontWeight: '600',
     fontSize: 16,
-    color: 'white',
+    color: '#fff',
+    fontWeight: '600',
+  },
+  cancelButton: {
+    marginTop: 10,
+    width: '100%',
+    paddingVertical: 12,
+    borderRadius: 10,
+    backgroundColor: '#f2f2f2',
+    alignItems: 'center',
+  },
+  cancelText: {
+    fontSize: 15,
+    color: '#444',
   },
 });
 

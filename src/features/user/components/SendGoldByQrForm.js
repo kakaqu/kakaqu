@@ -1,253 +1,207 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   Alert,
   ActivityIndicator,
+  StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import * as ExpoCamera from 'expo-camera';
-import QRCode from 'react-native-qrcode-svg';
-import { Ionicons } from '@expo/vector-icons';
 import { useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
-import { sendGoldByQr } from '../services/sendGoldService';
-import { findUserByPhone } from '../services/userService';
-import { normalizePhone } from '../../../shared/utils/normalize/normalizePhone';
-
-import CustomInput from '../../../shared/components/forms/CustomInput';
-import CustomButton from '../../../shared/components/buttons/CustomButton';
+import CircularQrCode from '../components/CircularQrCode';
+import SendGoldToUser from './SendGoldToUser';
 import CustomTheme from '../../../shared/styles/CustomThems';
+// import { sendGoldByPhone } from '../services/sendGoldService';
+// import { validatePhoneGoldForm } from '../validators/sendGoldValidator';
+import { dispatchAlert } from '../../../shared/utils/alerts/alertUtils';
+import { useTranslation } from 'react-i18next';
+
+
 
 export default function SendGoldByQrForm({ onSuccess }) {
-  const currentUser = useSelector((state) => state.user);
-  const [hasPermission, setHasPermission] = useState(null);
+  const navigation = useNavigation();
+  const currentUserId = useSelector((state) => state.user.id);
+  const phoneNumber = useSelector((state) => state.user.mobile);
+  const name = useSelector((state) => state.user.name || 'GoldApp Kullanıcısı');
   const [scannedData, setScannedData] = useState(null);
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
-  const [foundUser, setFoundUser] = useState(null);
-  const [cameraActive, setCameraActive] = useState(false);
+  const { t } = useTranslation();
 
-  useEffect(() => {
-    (async () => {
-      const { status } = await ExpoCamera.requestCameraPermissionsAsync();
-      setHasPermission(status === 'granted');
-    })();
-  }, []);
-
-  const handleBarCodeScanned = async ({ data }) => {
-    const phone = normalizePhone(data);
-    setLoading(true);
-    try {
-      const user = await findUserByPhone(phone);
-      if (!user) throw new Error('Kullanıcı bulunamadı');
-      if (user.id === currentUser.id) {
-        Alert.alert('Uyarı', 'Kendinize gönderim yapamazsınız.');
-        setLoading(false);
-        return;
-      }
-
-      setFoundUser(user);
-      setScannedData(user.id);
-      setCameraActive(false);
-    } catch {
-      Alert.alert('Hata', 'Kullanıcı bulunamadı.');
-    } finally {
-      setLoading(false);
-    }
+  const handleScanComplete = async (scannedPhone) => {
+      dispatchAlert(dispatch, {
+        type: 'success',
+        title: t("info.successTitle"),
+        message: t("messages.successMessage"),
+        submitText: t("form.ok"),
+        onSubmit: () => {
+          onSuccess?.();
+        },
+      });
   };
+  const validatePhoneGoldForm = {};
 
-  const handleSend = async () => {
-    if (!scannedData || !amount) {
-      Alert.alert('Uyarı', 'Lütfen tüm alanları doldurun.');
-      return;
-    }
+// Altın gönderme örneği
+const handleSend = async () => {
+  const error = validatePhoneGoldForm({ phone: scannedData?.mobile, amount });
+  if (error) {
+    dispatchAlert(dispatch, {
+      type: 'error',
+      title: t("info.error"),
+      message: error,
+      submitText: t("form.ok"),
+    });
+    return;
+  }
 
-    setLoading(true);
-    const success = await sendGoldByQr({ targetId: scannedData, amount });
-    setLoading(false);
+  try {
+    // const success = await sendGoldByPhone({
+    //   fromUserId: currentUserId,
+    //   phone: scannedData.mobile,
+    //   amount,
+    // });
+    const success = true;
 
     if (success) {
-      Alert.alert('Başarılı', 'Altın gönderildi.');
-      onSuccess?.();
+      dispatchAlert(dispatch, {
+        type: 'success',
+        title: t("info.successTitle"),
+        message: t("messages.successMessage"),
+        submitText: t("form.ok"),
+        onSubmit: () => {
+          onSuccess?.();
+        },
+      });
     } else {
-      Alert.alert('Hata', 'Gönderim sırasında bir hata oluştu.');
+      dispatchAlert(dispatch, {
+        type: 'error',
+        title: t("info.error"),
+        message: t("messages.errorMessage"),
+        submitText: t("form.ok"),
+      });
     }
-  };
+  } catch (err) {
+    console.error('❌ Altın gönderme hatası:', err);
 
-  if (hasPermission === null) {
-    return (
-      <View style={styles.centered}>
-        <ActivityIndicator size="large" />
-        <Text style={styles.centerText}>Kamera izni isteniyor...</Text>
-      </View>
-    );
+    dispatchAlert(dispatch, {
+      type: 'error',
+      title: t("info.error"),
+      message: t("messages.tryAgainMessage"),
+      submitText: t("form.ok"),
+    });
   }
+};
 
-  if (hasPermission === false) {
-    return (
-      <View style={styles.centered}>
-        <Text style={styles.centerText}>Kamera izni reddedildi. Ayarlardan izin veriniz.</Text>
-      </View>
-    );
-  }
-
-  if (cameraActive) {
-    return (
-      <View style={styles.cameraWrapper}>
-        <ExpoCamera.Camera
-          onBarCodeScanned={handleBarCodeScanned}
-          style={StyleSheet.absoluteFillObject}
-          ratio="1:1"
-        />
-        <TouchableOpacity
-          onPress={() => setCameraActive(false)}
-          style={styles.cameraCloseButton}
-        >
-          <Text style={styles.cameraCloseText}>İptal</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.form}>
       {!scannedData ? (
         <>
-          <View style={styles.qrHeader}>
-            <Text style={styles.phoneText}>{currentUser?.phone || ''}</Text>
-            <TouchableOpacity onPress={() => setCameraActive(true)} style={styles.iconButton}>
-              <Ionicons name="scan-outline" size={24} color="black" />
-            </TouchableOpacity>
-          </View>
+          <Text style={styles.title}>{t("sendGold.qr_title")}</Text>
 
           <View style={styles.qrWrapper}>
-            <QRCode
-              value={currentUser?.phone || 'null'}
-              size={240}
-              logoBackgroundColor="transparent"
-              logoSize={48}
-              // logo={{ uri: 'https://yourcdn.com/logo.png' }}
-            />
+            <View style={styles.glowCircle} />
+            <View style={styles.qrCircleContainer}>
+              <View style={styles.qrCircle}>
+                <CircularQrCode phone={phoneNumber} name={name} />
+              </View>
+            </View>
           </View>
 
-          <TouchableOpacity onPress={() => setCameraActive(true)} style={styles.qrReadButton}>
-            <Text style={styles.qrReadText}>QR Kod Oku</Text>
+          <TouchableOpacity
+            style={styles.qrButton}
+            onPress={handleScanComplete} //() => navigation.navigate('QrReaderScreen')
+            activeOpacity={0.8}
+          >
+            <Ionicons name="qr-code-outline" size={20} color={CustomTheme.colors.white} />
+            <Text style={styles.qrButtonText}>{t("sendGold.qr_scan")}</Text>
           </TouchableOpacity>
+
+          {loading && (
+            <ActivityIndicator
+              size="large"
+              color={CustomTheme.colors.primary}
+              style={styles.loader}
+            />
+          )}
         </>
       ) : (
-        <View style={styles.resultBox}>
-          <Text style={styles.label}>Alıcı:</Text>
-          <Text style={styles.value}>{foundUser?.fullName || 'Bilinmeyen Kullanıcı'}</Text>
-          <CustomInput
-            placeholder="Altın Miktarı"
-            value={amount}
-            onChangeText={setAmount}
-            keyboardType="numeric"
-          />
-          <CustomButton title="Gönder" onPress={handleSend} />
-          <CustomButton
-            title="Yeniden Tara"
-            onPress={() => {
-              setScannedData(null);
-              setAmount('');
-              setFoundUser(null);
-            }}
-            type="outline"
-          />
-        </View>
+        <SendGoldToUser
+          user={scannedData}
+          amount={amount}
+          setAmount={setAmount}
+          onSend={handleSend}
+        />
       )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 24,
-    backgroundColor: '#F9F9F9',
-    flex: 1,
+  form: {
+    gap: 20,
+    padding: 20,
+    backgroundColor: CustomTheme.colors.background,
+    borderRadius: 16,
   },
-  centered: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  loader: {
+    marginVertical: 16,
   },
-  centerText: {
-    fontSize: 16,
-    textAlign: 'center',
-    marginTop: 16,
-  },
-  qrHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    padding: 12,
-    borderRadius: 12,
-    gap: 12,
-  },
-  phoneText: {
-    fontSize: 18,
+  title: {
+    fontSize: 20,
     fontWeight: 'bold',
-  },
-  iconButton: {
-    padding: 6,
-    backgroundColor: '#EFEFEF',
-    borderRadius: 8,
-  },
-  qrWrapper: {
-    padding: 16,
-    backgroundColor: 'white',
-    borderRadius: 160,
-    elevation: 4,
-  },
-  qrReadButton: {
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 12,
-    backgroundColor: 'white',
-  },
-  qrReadText: {
-    fontSize: 16,
-    color: '#555',
-  },
-  resultBox: {
-    width: '100%',
-    backgroundColor: CustomTheme.colors.white,
-    padding: 16,
-    borderRadius: 12,
-    gap: 12,
-  },
-  label: {
-    fontWeight: 'bold',
-    fontSize: 14,
-    textAlign: 'center',
-  },
-  value: {
-    fontSize: 16,
     marginBottom: 8,
     textAlign: 'center',
+    color: CustomTheme.colors.primary,
   },
-  cameraWrapper: {
-    flex: 1,
-    width: '100%',
-    backgroundColor: '#000',
+  qrWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 24,
   },
-  cameraCloseButton: {
+  glowCircle: {
     position: 'absolute',
-    top: 40,
-    right: 20,
-    padding: 10,
-    backgroundColor: '#fff',
-    borderRadius: 8,
+    width: 280,
+    height: 280,
+    borderRadius: 140,
+    backgroundColor: CustomTheme.colors.primary,
+    opacity: 0.05,
   },
-  cameraCloseText: {
-    fontSize: 14,
-    fontWeight: 'bold',
+  qrCircleContainer: {
+    padding: 12,
+    backgroundColor: 'white',
+    borderRadius: 140,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  qrCircle: {
+    width: 220,
+    height: 220,
+    borderRadius: 110,
+    backgroundColor: 'white',
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  qrButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: CustomTheme.colors.primary,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 100,
+    alignSelf: 'center',
+    gap: 8,
+  },
+  qrButtonText: {
+    color: CustomTheme.colors.white,
+    fontWeight: '600',
+    fontSize: 16,
   },
 });

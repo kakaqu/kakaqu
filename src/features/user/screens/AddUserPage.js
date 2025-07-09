@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  SafeAreaView, ScrollView, KeyboardAvoidingView, Platform, ActivityIndicator, Image, TouchableOpacity
+  SafeAreaView, ScrollView, KeyboardAvoidingView, Platform, Image, TouchableOpacity
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +16,7 @@ import { CreateUserDTO } from '../dto/CreateUserDTO';
 import { registerUser } from '../actions/registerUser';
 import { validateCreateUserDTO } from '../validators/validateCreateUserDTO';
 import supabase from '../../../../supabase';
+import { showLoading, hideLoading } from '../../../shared/slices/loadingSlice';
 
 const AddUserPage = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -25,13 +26,11 @@ const AddUserPage = ({ navigation }) => {
   const selectedLanguage = useSelector((state) => state.language.selected);
 
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [selectedProvinceId, setSelectedProvinceId] = useState(null);
   const [selectedDistrictId, setSelectedDistrictId] = useState(null);
   const [errors, setErrors] = useState({});
-
 
   useEffect(() => {
     supabase.from('provinces').select('id, name').then(({ data }) => setProvinces(data || []));
@@ -52,41 +51,39 @@ const AddUserPage = ({ navigation }) => {
     if (!result.canceled) dispatch(setAvatar(result.assets[0].uri));
   };
 
-const handleSubmit = async () => {
-  setSubmitted(true);
+  const handleSubmit = async () => {
+    setSubmitted(true);
 
-  const dto = new CreateUserDTO({
-    name,
-    phoneNumber,
-    avatar,
-    provinceId: selectedProvinceId,
-    districtId: selectedDistrictId,
-    languageId: selectedLanguage?.id,
-  });
+    const dto = new CreateUserDTO({
+      name,
+      phoneNumber,
+      avatar,
+      provinceId: selectedProvinceId,
+      districtId: selectedDistrictId,
+      languageId: selectedLanguage?.id,
+    });
 
-  const result = validateCreateUserDTO(dto, t);
-  setErrors(result.errors); // ❗ önemli
+    const result = validateCreateUserDTO(dto, t);
+    setErrors(result.errors);
 
-  if (!result.isValid) {
-    console.warn('Validation errors:', result.errors);
-    return;
-  }
+    if (!result.isValid) {
+      console.warn('Validation errors:', result.errors);
+      return;
+    }
 
-  setLoading(true);
-  await registerUser({ dto, dispatch, navigation, t });
-  setLoading(false);
-};
-
+    dispatch(showLoading());
+    await registerUser({ dto, dispatch, navigation, t });
+    dispatch(hideLoading());
+  };
 
   const validateProvince = () => selectedProvinceId !== null;
   const validateDistrict = () => selectedDistrictId !== null;
 
   const handleNameChange = (text) => {
     dispatch(setName(text));
-
     if (errors.name) {
-      setErrors((prevErrors) => {
-        const updated = { ...prevErrors };
+      setErrors((prev) => {
+        const updated = { ...prev };
         delete updated.name;
         return updated;
       });
@@ -136,11 +133,7 @@ const handleSubmit = async () => {
             validateDistrict={validateDistrict}
           />
 
-          {loading ? (
-            <ActivityIndicator size="large" />
-          ) : (
-            <CustomButton buttonText={t('user_register.submit_button')} onPress={handleSubmit} />
-          )}
+          <CustomButton buttonText={t('user_register.submit_button')} onPress={handleSubmit} />
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>

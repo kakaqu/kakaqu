@@ -6,18 +6,21 @@ import supabase from '../../../../supabase';
 import { setPhoneNumber } from '../../user/slices/userSlice';
 import { setLanguages, setSelectedLanguage } from '../../language/slices/languageSlice';
 import LanguagePicker from '../../../shared/components/pickers/languagePicker';
-import { dispatchAlert } from '../../../shared/utils/upload/alertUtils';
+import { dispatchAlert } from '../../../shared/utils/alerts/alertUtils';
 import LoginForm from '../components/LoginForm';
 import TermsAndConditions from '../components/TermsAndConditions';
 import styles from '../styles/loginStyles';
-import {normalizePhone} from '../../../shared/utils/normalize/normalizePhone'
+import { normalizePhone } from '../../../shared/utils/normalize/normalizePhone'
+import { hideLoading, showLoading } from '../../../shared/slices/loadingSlice'
 
 const LoginPage = ({ navigation }) => {
-  const [loading, setLoading] = useState(false);
+
   const { phoneNumber } = useSelector(state => state.user);
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const { languages, selected } = useSelector((state) => state.language);
+  
+  
 
   const validatePhone = () => phoneNumber.replace(/\D/g, '').length === 9;
 
@@ -32,12 +35,11 @@ const LoginPage = ({ navigation }) => {
       
       return;
     }
-    const normalized = normalizePhone(phoneNumber);    
-
-    setLoading(true);
+    const normalized = normalizePhone(phoneNumber);
+    dispatch(showLoading());
     setTimeout(() => {
-      setLoading(false);
-      navigation.navigate('QrCodeScreen', {
+      dispatch(hideLoading());
+      navigation.navigate('OTPPage', {
         phoneNumber: normalized,
       });
     }, 1200);
@@ -80,7 +82,6 @@ const LoginPage = ({ navigation }) => {
             phoneNumber={phoneNumber}
             setPhoneNumber={val => dispatch(setPhoneNumber(val))}
             validatePhone={validatePhone}
-            loading={loading}
             handleLogin={handleLogin}
             t={t}
             styles={styles}

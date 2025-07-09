@@ -6,7 +6,8 @@
     "next": "Next",
     "back": "Back",
     "upload": "Upload photo",
-    "search": "search"
+    "search": "search",
+    "ok": "OK"
   },
   "fields": {
     "phone": "Phone number:"
@@ -14,7 +15,11 @@
   "messages": {
     "success": "Successfully saved.",
     "error": "Error.",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "warning": "Warning",
+    "tryAgainMessage": "An error occurred. Please try again.",
+    "successMessage": "Altin was sent successfully.",
+    "errorMessage": "Altin sending failed."
   },
   "login": {
     "welcome": "Welcome to the online marketplace",
@@ -32,7 +37,23 @@
     "phone": "Enter a valid phone number.",
     "numeric": "Only numbers are allowed.",
     "invalid_format": "Invalid format.",
-    "invalid_phone": "Please enter a valid 9-digit phone number."
+    "invalid_phone": "Please enter a valid 9-digit phone number.",
+    "name_short": "Name must be at least 3 characters long.",
+    "province": "Please select a province.",
+    "district": "Please select a district.",  
+    "fake_phone": "Please enter a real phone number.",
+    "invalid_prefix": "Phone number must start with 7.",
+    "own_phone": "You cannot send Altin to your own number.",
+    "userNotFound": "Account not found.",
+    
+    "amount_required": "Amount cannot be empty.",
+    "amount_invalid": "Invalid amount.",
+    "min_amount": "You must send at least 1 Altin.",
+    "max_amount": "You can send up to 1000 Altin at once.",
+    "daily_limit_exceeded": "You cannot exceed the daily limit of 5000 Altin.",
+    "insufficient_balance": "Your Altin balance is insufficient.",
+    "description_required": "Description cannot be empty.",
+    "description_short": "Description must be at least 5 characters."
   },
   "otp": {
     "title": "Phone Number Verification",
@@ -66,7 +87,63 @@
     "details": "Easily access products and services, communicate with sellers quickly and securely; save your favorite items to find them later, and personalize your shopping experience with tailored recommendations based on your interests.",
     "button_text": "Get Started →",
     "sikip": "Skip →"
-  }
+  },
+  "info": {
+    "repeat": "Please try again.",
+    "warning": "Warning",
+    "submit": "Submitted.",
+    "error": "Error",
+    "loading": "Loading...",
+    "success": "succeeded",
+    "no_data": "No records found",
+    "view_all": "View All"
+  },
+  "wallet": {
+    "title": "My Wallet",
+    "gold_unit": "Altin",
+    "history": "Transactions",
+    "send": "Send Altin"
+  },
+  "profileMenu": {
+    "goToShop": "Go to Shop",
+    "shopStats": "Shop Statistics",
+    "favorites": "My Favorites",
+    "myListings": "My Listings",
+    "myOrders": "My Orders",
+    "settings": "Settings",
+    "help": "Help",
+    "logout": "Log Out"
+  },
+  "bottomTabs": {
+    "home": "Home",
+    "market": "Market",
+    "messages": "Messages",
+    "profile": "Profile"
+  },
+  "sendGold": {
+    "title": "Send Altin",
+    "method_qr": "QR Code",
+    "method_phone": "Phone",
+    "qr_title": "Send via QR",
+    "qr_scan": "Scan QR Code",
+    "phone_title": "Send Altin by Phone Number",
+    "check_account": "Check Account",
+    "amount_label": "Amount:",
+    "amount_placeholder": "Gold amount",
+    "description_label": "Description:",
+    "description_placeholder": "Enter description",
+    "send_button": "Send Gold",
+    "success_message": "Altin sent successfully.",
+    "fail_message": "Failed to send Altin."
+  },
+"transactions": {
+  "sent_to": "You sent {{amount}} {{gold}} to {{name}}",
+  "received_from": "{{name}} sent you {{amount}} {{gold}}",
+  "system_transaction": "System transaction",
+  "title": "Past Transactions",
+  "seeAll": "See All",
+  "nothingFound": "No data found"
+}
 
 
 }

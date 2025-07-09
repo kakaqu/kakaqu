@@ -6,44 +6,41 @@
     "orientation": "portrait",
     "icon": "./src/assets/logo/app_icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "jsEngine": "hermes",
-
     "splash": {
       "image": "./src/assets/logo/app_logo_icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#01A89E"
     },
-
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "Uygulama QR kodları taramak için kamera erişimi gerektirir."
       }
     },
-
     "android": {
       "package": "com.iweb.busenden",
-      "permissions": ["CAMERA"],
+      "permissions": [
+        "CAMERA"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/logo/app_icon.png",
         "backgroundColor": "#01A89E"
       }
     },
-
     "web": {
       "favicon": "./src/assets/logo/app_icon.png"
     },
-
     "extra": {
       "eas": {
         "projectId": "e0cc3120-7511-4976-9f27-473b93267683"
       }
     },
-
     "plugins": [
       "expo-camera",
-      "expo-secure-store"
+      "expo-secure-store",
+      "expo-barcode-scanner"
     ]
   }
 }

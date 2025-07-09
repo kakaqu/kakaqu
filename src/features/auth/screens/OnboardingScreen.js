@@ -18,6 +18,8 @@ import appIcon from '../../../assets/logo/app_logo_icon.png';
 import { useTranslation } from 'react-i18next';
 import { loginSuccess } from '../slices/authSlice';
 import { useDispatch } from 'react-redux';
+import { updateIsOnboarded } from '../services/updateIsOnboarded';
+import { setIsOnboarded } from '../../user/slices/userSlice';
 
 
 
@@ -60,46 +62,37 @@ const OnboardingScreen = () => {
 }, []);
 
 
-  // useEffect(() => {
-  //   const loadData = async () => {
-  //     try {
-  //       const data = await fetchOnboardingScreens();
-  //             // Son sayfa: elle ekleniyor
-  //       const manualLastScreen = {
-  //         id: 'custom-last',
-  //         title: t('onboardingItem.title'),
-  //         description: t('onboardingItem.description'),
-  //         details: t('onboardingItem.details'),
-  //         image_url: appIcon
-  //       };
-
-
-  //     setScreens([...data, manualLastScreen]); // 🎯 son sayfayı en sona ekle
-
-  //       // setScreens(data);
-  //     } catch (error) {
-  //       console.error('Veri alınamadı:', error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-  //   loadData();
-  // }, []);
-
   const scrollHandler = useAnimatedScrollHandler({
     onScroll: (event) => {
       scrollX.value = event.contentOffset.x;
     },
   });
+  
 
-  const handlePress = () => navigation.navigate('Main', { screen: 'Home' });
-  // const handlePress = () => {
-  //   dispatch(loginSuccess());
-  // };
-
-  const handleSikipPress = () => {
-    flatListRef.current?.scrollToIndex({ index: screens.length - 1 });
+    // ✅ BAŞLA butonuna basıldığında:
+  const handlePress = async () => {
+    try {
+     // await updateIsOnboarded(user.id);        // Supabase güncelle
+      dispatch(setIsOnboarded(true));          // Redux güncelle
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Main' }],
+      });
+    } catch (e) {
+      console.error('Onboarding güncelleme hatası:', e.message || e);
+    }
   };
+
+
+  // const handleSikipPress = () => {
+  //   flatListRef.current?.scrollToIndex({ index: screens.length - 1 });
+  // };
+  const handleSikipPress = () => {
+  setTimeout(() => {
+    flatListRef.current?.scrollToIndex({ index: screens.length - 1 });
+  }, 50);
+};
+
 
   // 🎯 Başla butonu sadece son sayfada görünür
   const animatedStartButtonStyle = useAnimatedStyle(() => {

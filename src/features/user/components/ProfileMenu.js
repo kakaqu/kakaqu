@@ -1,21 +1,35 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import ProfileButton from './ProfileButton';
+import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../auth/slices/authSlice';
+import { resetUser } from '../slices/userSlice';
+
+
 
 export default function ProfileMenu({ navigation }) {
+  const {t} = useTranslation();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());      // auth.isAuth = false, auth.user = null
+    dispatch(resetUser());   // user bilgilerini sıfırla
+  };
   return (
     <View style={styles.menuSection}>
-      <ProfileButton icon="storefront-outline" label="Dükkana Git" onPress={() => navigation.navigate('MyShop')} />
-      <ProfileButton icon="bar-chart-outline" label="Mağaza İstatistikleri" onPress={() => navigation.navigate('ShopStats')} />
-      <ProfileButton icon="heart-outline" label="Favorilerim" onPress={() => navigation.navigate('Favorites')} />
-      <ProfileButton icon="list-outline" label="İlanlarım" onPress={() => navigation.navigate('MyListings')} />
-      <ProfileButton icon="cart-outline" label="Siparişlerim" onPress={() => navigation.navigate('MyOrders')} />
-      <ProfileButton icon="settings-outline" label="Ayarlar" onPress={() => navigation.navigate('Settings')} />
-      <ProfileButton icon="information-circle-outline" label="Yardım" onPress={() => navigation.navigate('Help')} />
-      <View style={{ marginBottom: 48 }}>
-        <ProfileButton icon="log-out-outline" label="Çıkış Yap" onPress={() => navigation.navigate('Logout')} />
-      </View>
+    <ProfileButton icon="storefront-outline" label={t("profileMenu.goToShop")} onPress={() => navigation.navigate('AddShop')} />
+    <ProfileButton icon="bar-chart-outline" label={t("profileMenu.shopStats")} onPress={() => navigation.navigate('ShopStats')} />
+    <ProfileButton icon="heart-outline" label={t("profileMenu.favorites")} onPress={() => navigation.navigate('Favorites')} />
+    <ProfileButton icon="list-outline" label={t("profileMenu.myListings")} onPress={() => navigation.navigate('MyListings')} />
+    <ProfileButton icon="cart-outline" label={t("profileMenu.myOrders")} onPress={() => navigation.navigate('MyOrders')} />
+    <ProfileButton icon="settings-outline" label={t("profileMenu.settings")} onPress={() => navigation.navigate('Settings')} />
+    <ProfileButton icon="information-circle-outline" label={t("profileMenu.help")} onPress={() => navigation.navigate('Help')} />
+    <View style={{ marginBottom: 48 }}>
+      <ProfileButton icon="log-out-outline" label={t("profileMenu.logout")} onPress={handleLogout} />
     </View>
+  </View>
+
   );
 }
 

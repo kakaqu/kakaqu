@@ -1,4 +1,4 @@
-import { dispatchAlert } from "../../../shared/utils/upload/alertUtils";
+import { dispatchAlert } from "../../../shared/utils/alerts/alertUtils";
 import uploadImageToSupabase from "../../../shared/utils/upload/uploadImageToSupabase";
 import insertOnboarding from "../services/insertOnboarding";
 import insertOnboardingTranslation from "../services/insertOnboardingTranslation";

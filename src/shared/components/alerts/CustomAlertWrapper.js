@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CustomAlert from './CustomAlert';
 import { hideAlert } from '../../../features/core/alertSlice';
-import { getAlertCallbacks } from '../../utils/upload/alertUtils';
+import { getAlertCallbacks } from '../../utils/alerts/alertUtils';
 
 
 
@@ -22,6 +22,7 @@ const CustomAlertWrapper = () => {
   };
 
   return (
+    <>
     <CustomAlert
       isVisible={alert.visible}
       type={alert.type}
@@ -33,6 +34,7 @@ const CustomAlertWrapper = () => {
       onSubmit={handleSubmit}
       onCancel={handleCancel}
     />
+    </>
   );
 };
 

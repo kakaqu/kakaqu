@@ -6,8 +6,8 @@
     "next": "اوگنه گیت",
     "back": "ایزه غید",
     "upload": "سورات یۆكله",
-    "search": "اخترنگ"
-
+    "search": "اخترنگ",
+    "ok": "بولدی"
   },
   "fields": {
     "phone": "تلفون نمبر:"
@@ -15,7 +15,11 @@
   "messages": {
     "success": "باشارلی بر شکلنده ثبت ادلدی",
     "error": "بیر ینگلیش بولدی.",
-    "loading": "یۆكلنی یور..."
+    "loading": "یۆكلنی یور...",
+    "warning": "دیققت",
+    "tryAgainMessage": "بیر خطا بولدی، ینه دنگه.",
+    "successMessage": "آلتین باشاری بلن یوللاندی.",
+    "errorMessage": "آلتین یولما ناکام بولدی."
   },
   "login": {
     "welcome": "آنلایـن بازارا خوش گلدینیز",
@@ -33,7 +37,22 @@
     "phone": "دوغری بر تلفون نمبری یازینیگ.",
     "numeric": "یکجه رقملر یازیلار.",
     "invalid_format": "فورماتی دوغری دال.",
-    "invalid_phone": "۹ رقملی دوغری تلفون نمبری یازینیگ."
+    "invalid_phone": "۹ رقملی دوغری تلفون نمبری یازینیگ.",
+    "name_short": "آدی اڭ آز ۳ حرف بولمالی.",
+    "province": "لطفاً ولایت سچینگ.",
+    "district": "لطفاً ولسوالی سچینگ.",
+    "fake_phone": "زاهمت بولماسا حقیقی بیر نمبر یازین.",
+    "invalid_prefix": "تلفون نمبری ۷ بیله باشلامالی.",
+    "own_phone": "اوز نمبرینگزا آلتین گؤندرلماز.",
+    "userNotFound": "حساب تاپیل‌ مادی.",
+    "amount_required": "مقداری گئرکلی.",
+    "amount_invalid": "نادرست مقدار.",
+    "min_amount": "این آز ۱ آلتین گؤندرپ بولیر.",
+    "max_amount": "بیرده ۱۰۰۰ آلتین‌دن کوپ گؤندرپ بولماز.",
+    "daily_limit_exceeded": "گونلیک ۵۰۰۰ آلتین کوپ گؤندرلماز.",
+    "insufficient_balance": "آلتین مبلغی یئترلی دال.",
+    "description_required": "آچقلاما بوش بولماز.",
+    "description_short": "آچقلاما ۵ حرف‌ دن آز بولماز."
   },
   "otp": {
     "title": "تلفون نمبری دوغر لا",
@@ -60,6 +79,70 @@
     "fill_all_fields": "براۏ، هممه ساحالاری تولدۇرڭ.",
     "registration_failed": "ثبت بولمادی.",
     "registration_successful": "ثبت یاشلری بولدی."
-  }
+  },
+  "onboardingItem": {
+    "title": "آنلاین بازارا خوش گلدینیز",
+    "description": "آسانجا آل و سات قیلالارسینیز، و لازم شییلری تاپا بیلرسینیز.",
+    "details": "محصوللارا و خزمتلره آسانجا یتیشلینگ، ساتیجی‌لر بلند تیز و گؤرچلی باغلانینگ؛ یاخشی گؤرنه‌ن شییلری ساقلایین و سونرا تاپینگ، علاقه‌لری‌نگزه گؤره خصوص پیشنهادلر بلند آلور-ورات تجربه‌نگزه خصوصلیک قاتیینگ.",
+    "button_text": "باشلا →",
+    "sikip": "گئچ →"
+  },
+  "info": {
+    "repeat": "تکرار کوشش ادینگ.",
+    "warning": "دیققت",
+    "submit": "ثبت بولدی.",
+    "error": "خطأ",
+    "loading": "آز غرشنگ...",
+    "success": "باشاریلی",
+    "no_data": "یازغی تاپیلمادی",
+    "view_all": "هممه‌ سینی گؤر"
+  },
+  "wallet": {
+    "title": "منیگ غفجغم",
+    "gold_unit": "آلتین",
+    "history": "حرکتلر",
+    "send": "آلتین یوللا"
+  },
+  "profileMenu": {
+    "goToShop": "دوکانَ گیت",
+    "shopStats": "دوكان ستاتیستیک",
+    "favorites": "حالانلاریم",
+    "myListings": "بیلدیرم لر",
+    "myOrders": "سارغتلاریم",
+    "settings": "ایارلار",
+    "help": "کؤمک",
+    "logout": "چیقیش"
+  },
+  "bottomTabs": {
+    "home": "باش صحیپا",
+    "market": "بازار",
+    "messages": "پیاملر",
+    "profile": "پروفیل"
+  },
+  "sendGold": {
+    "title": "آلتین یوللا",
+    "method_qr": "QR کود",
+    "method_phone": "تلفون",
+    "qr_title": "QR بلن یوللا",
+    "qr_scan": "QR کودنی سکاند آد",
+    "phone_title": "تلفون بلن آلتین یوللا",
+    "check_account": "حسابنی کنترول اد",
+    "amount_label": "مقدار:",
+    "amount_placeholder": "آلتین مقدارنی یازینیگ",
+    "description_label": "تشریح:",
+    "description_placeholder": "تشریح یاز",
+    "send_button": "آلتین یوللا",
+    "success_message": "آلتین باشاری لی گؤندرلدی.",
+    "fail_message": "آلتین گؤندرمه‌ده خاتالیق بولدی."
+  },
+"transactions": {
+  "sent_to": "{{name}} {{amount}} {{gold}} ایبردینگ",
+  "received_from": "{{name}} سنگه {{amount}} {{gold}} ایبردی",
+  "system_transaction": "سیستم معامله سی",
+  "title": "گچن معامله لر",
+  "seeAll": "همه سینی گؤر",
+  "nothingFound": "هیچ ذات تابلمادی"
+}
+
 
 }

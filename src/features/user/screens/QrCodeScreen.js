@@ -1,44 +1,51 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import QRCode from 'react-native-qrcode-svg';
 import CustomTheme from '../../../shared/styles/CustomThems';
+import CircularQrCode from '../components/CircularQrCode';
 
 export default function QrCodeScreen() {
   const route = useRoute();
+  const navigation = useNavigation();
+
   const phoneNumber = route?.params?.phoneNumber || '+93 000 000 00 00';
+  const name = route?.params?.name || 'GoldApp Kullanıcısı';
 
   return (
     <View style={styles.container}>
-      {/* Phone Info */}
+      {/* Başlık */}
       <Text style={styles.title}>Telefon Numarası</Text>
+
+      {/* Telefon baloncuğu */}
       <View style={styles.phoneBubble}>
         <Ionicons name="call-outline" size={18} color={CustomTheme.colors.primary} />
         <Text style={styles.phoneText}>{phoneNumber}</Text>
       </View>
 
-      {/* QR Kod Alanı */}
+      {/* QR kod alanı */}
       <View style={styles.qrWrapper}>
         <View style={styles.glowCircle} />
-        <View style={styles.qrContainer}>
-          <QRCode
-            value={phoneNumber}
-            size={200}
-            color={CustomTheme.colors.primary}
-            backgroundColor="transparent"
-            logo={require('../../../assets/logo/app_icon.png')}
-            logoSize={50}
-            logoBackgroundColor="transparent"
-          />
+        <View style={styles.qrCircleContainer}>
+          <View style={styles.qrCircle}>
+            <CircularQrCode
+              phone={phoneNumber}
+              name={name}
+            />
+          </View>
         </View>
       </View>
 
-      {/* Oku Butonu */}
-      <TouchableOpacity style={styles.readButton}>
+      {/* QR okuma yönlendirme */}
+      <TouchableOpacity
+        style={styles.readButton}
+        onPress={() => navigation.navigate('QrReaderScreen')}
+        activeOpacity={0.8}
+      >
         <Ionicons name="qr-code-outline" size={20} color={CustomTheme.colors.primary} />
         <Text style={styles.readButtonText}>QR Kodunu Oku</Text>
       </TouchableOpacity>
+
     </View>
   );
 }
@@ -88,20 +95,26 @@ const styles = StyleSheet.create({
     height: 280,
     borderRadius: 140,
     backgroundColor: CustomTheme.colors.primary,
-    opacity: 0.06,
+    opacity: 0.05,
   },
-  qrContainer: {
+  qrCircleContainer: {
+    padding: 12,
+    backgroundColor: 'white',
+    borderRadius: 140,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  qrCircle: {
     width: 220,
     height: 220,
-    backgroundColor: CustomTheme.colors.white,
-    justifyContent: 'center',
+    borderRadius: 110,
+    backgroundColor: 'white',
+    overflow: 'hidden',
     alignItems: 'center',
-    padding: 10,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 10,
-    elevation: 6,
+    justifyContent: 'center',
   },
   readButton: {
     flexDirection: 'row',

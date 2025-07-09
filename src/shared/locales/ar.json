@@ -6,7 +6,8 @@
     "next": "التالي",
     "back": "السابق",
     "upload": "تحميل الصورة",
-    "search": "بحث"
+    "search": "بحث",
+    "ok": "موافق"
   },
   "fields": {
     "phone": "رقم الهاتف:"
@@ -14,7 +15,11 @@
   "messages": {
     "success": "تم الحفظ بنجاح.",
     "error": "خطأ.",
-    "loading": "جاري التحميل..."
+    "loading": "جاري التحميل...",
+    "warning": "تحذير",
+    "tryAgainMessage": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+    "successMessage": "تم إرسال آلتین بنجاح.",
+    "errorMessage": "فشل في إرسال آلتین."
   },
   "login": {
     "welcome": "مرحبًا بك في السوق الإلكتروني",
@@ -32,7 +37,23 @@
     "phone": "يرجى إدخال رقم هاتف صالح.",
     "numeric": "الأرقام فقط مسموح بها.",
     "invalid_format": "تنسيق غير صحيح.",
-    "invalid_phone": "يرجى إدخال رقم صحيح مكون من 9 أرقام."
+    "invalid_phone": "يرجى إدخال رقم صحيح مكون من 9 أرقام.",
+    "name_short": "الاسم يجب أن يكون على الأقل 3 أحرف.",
+    "province": "يرجى اختيار الولاية.",
+    "district": "يرجى اختيار المديرية.",
+    "fake_phone": "يرجى إدخال رقم حقيقي.",
+    "invalid_prefix": "يجب أن يبدأ رقم الهاتف بـ 7.",
+    "own_phone": "لا يمكنك إرسال آلتین إلى رقمك الخاص.",
+    "userNotFound": "لم يتم العثور على الحساب.",
+    
+    "amount_required": "المبلغ مطلوب.",
+    "amount_invalid": "مبلغ غير صالح.",
+    "min_amount": "يجب إرسال آلتين واحد على الأقل.",
+    "max_amount": "لا يمكن إرسال أكثر من ١٠٠٠ آلتين دفعة واحدة.",
+    "daily_limit_exceeded": "لا يمكنك تجاوز حد إرسال ٥٠٠٠ آلتين يومياً.",
+    "insufficient_balance": "رصيدك من آلتين غير كافٍ.",
+    "description_required": "الوصف مطلوب.",
+    "description_short": "يجب أن يكون الوصف ٥ أحرف على الأقل."
   },
   "otp": {
     "title": "تأكيد رقم الهاتف",
@@ -66,5 +87,68 @@
     "details": "احصل على المنتجات والخدمات بسهولة، وتواصل مع البائعين بسرعة وأمان؛ احفظ المنتجات المفضلة لديك لتصل إليها لاحقًا، وخصص تجربة التسوق حسب اهتماماتك من خلال التوصيات المخصصة.",
     "button_text": "ابدأ →",
     "sikip": "تخطي →"
-  }
+  },
+  "info": {
+    "submit": "تم الإرسال.",
+    "warning": "تحذير",
+    "repeat": "يرجى المحاولة مرة أخرى.",
+    "error": "خطأ",
+    "loading": "...جاري التحميل",
+    "success": "تم بنجاح",
+    "no_data": "لا توجد سجلات",
+    "view_all": "عرض الكل"
+  },
+  "wallet": {
+    "title": "محفظتي",
+    "gold_unit": "آلتین",
+    "history": "الحركات",
+    "send": "إرسال آلتین"
+  },
+  "profileMenu": {
+    "goToShop": "اذهب إلى المتجر",
+    "shopStats": "إحصاءات المتجر",
+    "favorites": "المفضلة",
+    "myListings": "إعلاناتي",
+    "myOrders": "طلباتي",
+    "settings": "الإعدادات",
+    "help": "مساعدة",
+    "logout": "تسجيل الخروج"
+  },
+  "bottomTabs": {
+    "home": "الرئيسية",
+    "market": "السوق",
+    "messages": "الرسائل",
+    "profile": "الملف الشخصي"
+  },
+  "sendGold": {
+    "title": "إرسال آلتین",
+    "method_qr": "رمز QR",
+    "method_phone": "الهاتف",
+    "qr_title": "الإرسال عبر QR",
+    "qr_scan": "امسح رمز QR",
+    "phone_title": "إرسال آلتین برقم الهاتف",
+    "check_account": "تحقق من الحساب",
+    "amount_label": "المقدار:",
+    "amount_placeholder": "مقدار آلتین",
+    "description_label": "الوصف:",
+    "description_placeholder": "اكتب الوصف",
+    "send_button": "إرسال آلتین",
+    "success_message": "تم إرسال الآلتين بنجاح.",
+    "fail_message": "فشل في إرسال الآلتين."
+  },
+"transactions": {
+  "sent_to": "أرسلت {{amount}} {{gold}} إلى {{name}}",
+  "received_from": "{{name}} أرسل إليك {{amount}} {{gold}}",
+  "system_transaction": "معاملة النظام",
+  "title": "المعاملات السابقة",
+  "seeAll": "عرض الكل",
+  "nothingFound": "لم يتم العثور على بيانات"
+}
+
+
+
+
+
+
+
 }

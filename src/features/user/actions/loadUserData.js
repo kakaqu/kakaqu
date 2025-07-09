@@ -1,6 +1,6 @@
-import { setName, setAvatar, setAddress, setPhoneNumber } from '../slices/userSlice';
-import { setGold } from '../slices/userBalanceSlice';
+import { setName, setAvatar, setAddress, setPhoneNumber, setWalletBalance } from '../slices/userSlice';
 import supabase from '../../../../supabase';
+
 
 export const loadUserData = (userId) => async (dispatch) => {
   try {
@@ -80,5 +80,5 @@ const loadGold = async (userId, dispatch) => {
 
   if (error) throw error;
 
-  dispatch(setGold(data.balance));
+  dispatch(setWalletBalance(data.balance));
 };

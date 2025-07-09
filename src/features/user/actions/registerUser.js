@@ -1,24 +1,16 @@
 import { insertUser } from '../services/insertUser';
 import { initializeUserData } from './initializeUserData';
-
 import uploadImageToSupabase from '../../../shared/utils/upload/uploadImageToSupabase';
-import { dispatchAlert } from '../../../shared/utils/upload/alertUtils';
+import { dispatchAlert } from '../../../shared/utils/alerts/alertUtils';
+import { setIsOnboarded, setUserAll } from '../../user/slices/userSlice';
+import { loginSuccess } from '../../auth/slices/authSlice';
+import { getDailyTransferTotal } from '../services/gets/getDailyTransferTotal';
 
-import {
-  setId,
-  setPhoneNumber,
-  setName,
-  setAvatar,
-  setAddress,
-  setCountryCode,
-  setLanguageId,
-} from '../../user/slices/userSlice';
-
-import { loginSuccess } from '../../auth/slices/authSlice'; // sadece isAuth + token
 
 export const registerUser = async ({ dto, dispatch, navigation, t }) => {
   const now = new Date().toISOString();
 
+  
   try {
     // 📤 1. Avatar yükle (varsa)
     const uploadedUrl = dto.avatar
@@ -32,8 +24,11 @@ export const registerUser = async ({ dto, dispatch, navigation, t }) => {
       languageId: dto.languageId,
       now,
     });
+    
+    const dailyTotal = await getDailyTransferTotal(userId);
 
-    // ✅ 3. user_data / adres / ilçe vb. bilgileri ekle
+
+    // ✅ 3. user_data / adres / bakiye vb. bilgileri ekle
     await initializeUserData({
       userId,
       uploadedUrl,
@@ -45,28 +40,36 @@ export const registerUser = async ({ dto, dispatch, navigation, t }) => {
     });
 
     // ✅ 4. Redux'a kullanıcı bilgilerini kaydet
-    dispatch(setId(userId));
-    dispatch(setName(dto.name || ''));
-    dispatch(setPhoneNumber(dto.phoneNumber));
-    dispatch(setAvatar(uploadedUrl));
-    dispatch(setAddress(dto.address || ''));
-    dispatch(setCountryCode('+93')); // normalizePhone zaten bu formatta
-    dispatch(setLanguageId(dto.languageId));
+    dispatch(setUserAll({
+      id: userId,
+      phoneNumber: dto.phoneNumber,
+      name: dto.name,
+      avatar: uploadedUrl,
+      address: dto.address,
+      countryCode: '+93',
+      languageId: dto.languageId,
+      walletBalance: dto.tokenAmount,
+      isOnboarded: false, // ✅ burada belirtiyoruz
+      dailyTransferTotal: dailyTotal,
+    }));
 
-    // ✅ 5. Giriş durumu aktif et (token yoksa parametre gönderilmez)
+    // ✅ 5. Giriş durumu aktif et
     dispatch(loginSuccess());
 
     // ✅ 6. Başarılı mesajı göster ve yönlendir
     dispatchAlert(dispatch, {
       type: 'success',
-      title: 'Success',
-      message: 'User created',
-      submitText: 'Tamam',
+      title: t('messages.success'),
+      message: t('user_register.registration_successful'),
+      submitText: t('form.ok'),
       onSubmit: () => {
-        navigation.navigate('Onboarding');
+        navigation.replace('Onboarding'); 
+        // navigation.reset({
+        //   index: 0,
+        //   routes: [{ name: 'Onboarding' }],
+        // });
       },
     });
-
 
   } catch (err) {
     console.error('❌ Kullanıcı kayıt hatası:', err);
@@ -75,7 +78,7 @@ export const registerUser = async ({ dto, dispatch, navigation, t }) => {
       type: 'error',
       title: t('info.error'),
       message: t('messages.error'),
-      submitText: 'Tamam',
+      submitText: t('form.ok'),
     });
 
     throw err;

@@ -3,12 +3,13 @@ import { ActivityIndicator, TouchableOpacity, Text, View } from 'react-native';
 import CustomInput from '../../../shared/components/forms/CustomInput';
 import CustomButton from '../../../shared/components/buttons/CustomButton';
 import CustomTheme from '../../../shared/styles/CustomThems';
+import { useSelector } from 'react-redux';
+
 
 const LoginForm = ({
   phoneNumber,
   setPhoneNumber,
   validatePhone,
-  loading,
   handleLogin,
   t,
   styles,
@@ -30,22 +31,12 @@ const LoginForm = ({
             : ''
         }
       />
-
-      {loading ? (
-        <ActivityIndicator
-          size="large"
-          color= {CustomTheme.colors.primary}
-          style={styles.loader}
-        />
-      ) : (
         <CustomButton
           buttonText={t('form.phoneSubmit')}
           onPress={handleLogin}
           style={styles.button}
           textStyle={styles.buttonText}
         />
-      )}
-
       <TouchableOpacity
         onPress={() => navigation.navigate('Register')}
         style={styles.registerBox}
