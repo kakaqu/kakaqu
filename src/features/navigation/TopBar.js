@@ -1,104 +1,155 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
-  Platform,
+  Keyboard,
+  Pressable,
+  Modal,
 } from 'react-native';
-import { Ionicons, Feather } from '@expo/vector-icons';
-import Constants from 'expo-constants';
+import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
+import { useFocusEffect } from '@react-navigation/native';
+import SearchInput from '../../shared/components/forms/SearchInput';
+import CustomTheme from '../../shared/styles/CustomThems';
+import styles from './styles/topBarStyles';
 
-export default function TopBar({
-  navigation,
-  context = 'products', // 'products', 'shops', 'conversations'
-  hasUnreadNotifications = false,
-}) {
-  const handleSearchPress = () => {
-    switch (context) {
-      case 'products':
-        navigation.navigate('SearchProducts');
-        break;
-      case 'shops':
-        navigation.navigate('SearchShops');
-        break;
-      case 'conversations':
-        navigation.navigate('SearchMessages');
-        break;
-      default:
-        break;
+const TopBar = ({
+  title,
+  showSearch = false,
+  onSearch,
+  showAdvancedSearch = false,
+  onAdvancedSearchPress,
+  notificationCount = 0,
+  onNotificationPress,
+  showMoreOptions = false,
+  moreOptionsItems = [],
+  onMoreOptionSelect,
+  dismissSearchOnScroll = false,
+  moreOptionsIcon = 'more-vert', // 👈 her ekran için özelleştirilebilir
+  searchPlaceholder = '',
+}) => {
+  const { t } = useTranslation();
+  const [searchText, setSearchText] = useState('');
+  const [showSearchPopup, setShowSearchPopup] = useState(false);
+  const [moreMenuVisible, setMoreMenuVisible] = useState(false);
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+    const showSub = Keyboard.addListener('keyboardDidShow', () => setKeyboardVisible(true));
+    const hideSub = Keyboard.addListener('keyboardDidHide', () => setKeyboardVisible(false));
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
+  }, []);
+
+  useFocusEffect(
+    useCallback(() => {
+      setSearchText('');
+      onSearch?.('');
+      setShowSearchPopup(false);
+      setMoreMenuVisible(false);
+    }, [])
+  );
+
+
+  useEffect(() => {
+    if (dismissSearchOnScroll) {
+      setShowSearchPopup(false);
     }
+  }, [dismissSearchOnScroll]);
+
+  const handleSearchChange = (text) => {
+    setSearchText(text);
+    onSearch?.(text);
   };
+
+  const renderIconButton = (icon, onPress, color = CustomTheme.colors.primary, size = 26) => (
+    <TouchableOpacity onPress={onPress} style={styles.iconButton}>
+      <MaterialIcons name={icon} size={size} color={color} />
+    </TouchableOpacity>
+  );
 
   return (
     <View style={styles.wrapper}>
-      <View style={styles.inner}>
-        <Text style={styles.logo}>BAZAAR</Text>
-
-        <View style={styles.iconGroup}>
-          {/* Arama */}
-          <TouchableOpacity onPress={handleSearchPress} style={styles.icon}>
-            <Ionicons name="search" size={22} color="#333" />
-          </TouchableOpacity>
-
-          {/* Detaylı Arama (sadece ürün sayfasında görünür) */}
-          {context === 'products' && (
-            <TouchableOpacity
-              onPress={() => navigation.navigate('AdvancedSearch')}
-              style={styles.icon}
-            >
-              <Feather name="filter" size={20} color="#333" />
-            </TouchableOpacity>
+      <View style={styles.container}>
+        <Text style={styles.title}>{title}</Text>
+        <View style={styles.rightItems}>
+          {showSearch && renderIconButton('search', () => setShowSearchPopup(true))}
+          {showAdvancedSearch && renderIconButton('filter-list', onAdvancedSearchPress, CustomTheme.colors.secondary)}
+          {renderIconButton(
+            notificationCount > 0 ? 'notifications' : 'notifications-none',
+            onNotificationPress,
+            notificationCount > 0 ? CustomTheme.colors.primary : '#aaa'
           )}
-
-          {/* Bildirim */}
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Notifications')}
-            style={styles.icon}
-          >
-            <Ionicons
-              name="notifications-outline"
-              size={22}
-              color={hasUnreadNotifications ? '#FE893C' : '#333'}
-            />
-          </TouchableOpacity>
+          {showMoreOptions && moreOptionsItems.length > 0 &&
+            renderIconButton(moreOptionsIcon, () => setMoreMenuVisible(true), CustomTheme.colors.primary, 28)}
         </View>
       </View>
+
+      {showSearchPopup && (
+        <View style={styles.popupContainer}>
+          <View style={styles.searchRow}>
+            <SearchInput
+              placeholder={searchPlaceholder || 'Ara...'}
+              value={searchText}
+              onChangeText={handleSearchChange}
+              style={styles.searchInput}
+              autoFocus
+            />
+            <TouchableOpacity
+              onPress={() => {
+                setSearchText('');
+                onSearch?.('');
+                setShowSearchPopup(false);
+              }}
+              style={styles.closeButton}
+            >
+              <MaterialIcons name="close" size={24} color="#999" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+
+
+      {/* 3 Nokta Menüsü */}
+      <Modal
+        visible={moreMenuVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setMoreMenuVisible(false)}
+      >
+        <Pressable
+          style={styles.modalOverlay}
+          onPress={() => setMoreMenuVisible(false)}
+        >
+          <View style={styles.moreMenuContainer}>
+            {moreOptionsItems.map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.menuItem}
+                onPress={() => {
+                  onMoreOptionSelect?.(item);
+                  setMoreMenuVisible(false);
+                }}
+              >
+                {item.icon && (
+                  <Ionicons
+                    name={item.icon}
+                    size={22}
+                    color={CustomTheme.colors.primary}
+                    style={styles.menuItemIcon}
+                  />
+                )}
+                <Text style={styles.menuItemText}>{item.label}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </Pressable>
+      </Modal>
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  wrapper: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#fff',
-    zIndex: 999,
-    elevation: 5,
-    paddingTop: Platform.OS === 'ios' ? 50 : Constants.statusBarHeight + 10,
-    paddingBottom: 12,
-    borderBottomColor: '#eee',
-    borderBottomWidth: 1,
-  },
-  inner: {
-    paddingHorizontal: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  logo: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#01A89E',
-  },
-  iconGroup: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-  },
-  icon: {
-    marginLeft: 16,
-  },
-});
+export default TopBar;

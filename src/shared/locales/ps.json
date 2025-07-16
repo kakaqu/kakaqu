@@ -7,7 +7,8 @@
     "back": "شاته",
     "upload": "انځور پورته کړئ",
     "search": "لټون",
-    "ok": "سمه"
+    "ok": "سمه",
+    "continue": "ادامه ورکړئ"
   },
   "fields": {
     "phone": "د اړیکې شمېره:"
@@ -53,7 +54,16 @@
     "daily_limit_exceeded": "تاسو نشئ کولای له ۵۰۰۰ آلتین څخه زیات ولیږئ.",
     "insufficient_balance": "ستاسو د آلتین بیلانس بسنه نه کوي.",
     "description_required": "تشریح باید ورکړل شي.",
-    "description_short": "تشریح باید لږ تر لږه ۵ توری ولري."
+    "description_short": "تشریح باید لږ تر لږه ۵ توری ولري.",
+
+    
+    "name_short_shop": "دکان نوم باید لږ تر لږه ۳ توري ولري.",
+    "category_required": "مهرباني وکړئ یوه وېشنيزه وټاکئ.",
+    "location_required": "د ځای معلومات باید وټاکل شي.",
+    "address_required": "مهرباني وکړئ پته وليکئ.",
+    
+    "empty": "دا ځای باید ډک شي.",
+    "minLength": "لږ تر لږه ۱۵ توری ولیکئ."
   },
   "otp": {
     "title": "د تلیفون شمېره تایید",
@@ -143,7 +153,54 @@
   "title": "تېرې لیږدونې",
   "seeAll": "ټول وګورئ",
   "nothingFound": "هیڅ معلومات ونه موندل شول"
-}
+},
+  "shop_register": {
+    "name": "دکان نوم",
+    "name_placeholder": "د دکان نوم ولیکئ",
+    "shop_mobile": "دکان د اړیکې شمېره:",
+    "category": "وېشنيزه:",
+    "choose_location": "له نقشې څخه موقعیت غوره کړئ",
+    "registration_successful": "دکان په بریالیتوب سره ثبت شو.",
+    "step1_description": "خپل دکان معلومات داخل کړئ تر څو پېرودونکي مو وپېژني او باوري اړیکه ونیسي.",
+    "avatar_hint": "د دکان لوګو اضافه کړئ تر څو پېرودونکي مو اسانه وپېژني.",
+    "step2_description": "د خپلو مراجعينو د اسانه لاسرسي لپاره تر ټولو مناسب کټګورۍ او ځای وټاکئ."
+  },
+  "shop_cart": {
+    "Comment": "نظر",
+    "Followers": "پیروان",
+    "Rating": "درجه بندي",
+
+    
+    "blockSuccess": "پلورنځی په بریالیتوب سره بند شو.",
+    "reportSuccess": "پلورنځی په بریالیتوب سره راپور شو.",
+    "unfollowSuccess": "د تعقیب څخه ووتل.",
+    "followSuccess": "پلورنځی تعقیب شو.",
+    "error": "یوه تېروتنه رامنځته شوه. مهرباني وکړئ بیا هڅه وکړئ."
+  },
+  "shop_reason_modal": {
+    "blockQuestion": "ایا غواړئ دا پلورنځی بند کړئ؟",
+    "reportQuestion": "ایا غواړئ دا پلورنځی راپور کړئ؟",
+    "blockLabel": "د بندیدو دلیل:",
+    "reportLabel": "د راپور ورکولو دلیل:",
+    "blockPlaceholder": "د بندیدو دلیل ولیکئ...",
+    "reportPlaceholder": "د راپور ورکولو دلیل ولیکئ...",
+    "cancelButton": "لغوه",
+    "confirmButton": "تایید"
+  },
+  "shop_options": {
+    "viewProfile": "پروفایل وګوره",
+    "follow": "تعقیب کړه",
+    "following": "تعقیب کوونکي",
+    "share": "شریک کړه",
+    "report": "راپور ورکړه",
+    "block": "بند کړه"
+  },
+  "market_screen": {
+    "title": "پلورنځي",
+    "no_shops": "هیڅ پلورنځي ونه موندل شول.",
+    "loading_error": "پلورنځي بارول ونه شول.",
+    "search_placeholder": "پلورنځي ولټوه..."
+  }
 
 
 

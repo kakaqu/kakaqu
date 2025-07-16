@@ -1,14 +1,17 @@
+// 📁 dto/CreateShopDTO.js
+
 export class CreateShopDTO {
   constructor({
     name,
     description,
-    avatar,
+    avatar = null,
     categoryId,
     provinceId,
     districtId,
     addressLine = '',
     latitude = null,
     longitude = null,
+    mobile = '',
   }) {
     this.name = name;
     this.description = description;
@@ -19,5 +22,6 @@ export class CreateShopDTO {
     this.addressLine = addressLine;
     this.latitude = latitude;
     this.longitude = longitude;
+    this.mobile = mobile;
   }
 }

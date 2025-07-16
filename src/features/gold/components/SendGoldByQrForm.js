@@ -11,11 +11,9 @@ import { useSelector } from 'react-redux';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
-import CircularQrCode from '../components/CircularQrCode';
-import SendGoldToUser from './SendGoldToUser';
+import CircularQrCode from './CircularQrCode';
+import SendGoldToUser from '../../gold/components/SendGoldToUser';
 import CustomTheme from '../../../shared/styles/CustomThems';
-// import { sendGoldByPhone } from '../services/sendGoldService';
-// import { validatePhoneGoldForm } from '../validators/sendGoldValidator';
 import { dispatchAlert } from '../../../shared/utils/alerts/alertUtils';
 import { useTranslation } from 'react-i18next';
 
@@ -58,11 +56,6 @@ const handleSend = async () => {
   }
 
   try {
-    // const success = await sendGoldByPhone({
-    //   fromUserId: currentUserId,
-    //   phone: scannedData.mobile,
-    //   amount,
-    // });
     const success = true;
 
     if (success) {
@@ -113,7 +106,7 @@ const handleSend = async () => {
 
           <TouchableOpacity
             style={styles.qrButton}
-            onPress={handleScanComplete} //() => navigation.navigate('QrReaderScreen')
+            onPress={handleScanComplete}
             activeOpacity={0.8}
           >
             <Ionicons name="qr-code-outline" size={20} color={CustomTheme.colors.white} />

@@ -11,6 +11,8 @@ import i18n from '../../shared/locales/i18n';
 import getLanguageCode from '../../shared/services/getLanguageCode';
 import goldTransactionsScreen from '../../features/gold/screens/goldTransactionsScreen';
 import AddShopScreen from '../../features/shops/screens/AddShopScreen';
+import ShopDashboard from '../../features/shops/screens/ShopDashboard';
+
 
 
 
@@ -44,8 +46,9 @@ export default function UserStack() {
       )}
       <Stack.Screen name="Main" component={BottomTabs} />
       <Stack.Screen name="AddOnboarding" component={AddOnboardingScreen} />
-      <Stack.Screen name="transactions" component={goldTransactionsScreen} />
+      {/* <Stack.Screen name="transactions" component={goldTransactionsScreen} /> */}
       <Stack.Screen name="AddShop" component={AddShopScreen} />
+      <Stack.Screen name="ShopDashboard" component={ShopDashboard} />
     </Stack.Navigator>
   );
 }
@@ -57,30 +60,3 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-
-// import { StyleSheet } from 'react-native'
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import AddOnboardingScreen from '../../features/auth/screens/AddOnboardingScreen';
-// import BottomTabs from '../../features/navigation/BottomTabs';
-// import OnboardingScreen from '../../features/auth/screens/OnboardingScreen';
-// import QrReaderScreen from '../../features/user/components/QrReaderScreen';
-
-
-
-
-// const Stack = createNativeStackNavigator();
-// const UserStack = () => {
-//   return (
-//     <Stack.Navigator initialRouteName='Onboarding' screenOptions={{ headerShown: false }}>
-//     <Stack.Screen name="Main" component={BottomTabs} />
-//     <Stack.Screen name="AddOnboarding" component={AddOnboardingScreen} options={{title: 'Welcome'}}/>
-//     <Stack.Screen name='Onboarding' component={OnboardingScreen} options={{title: 'Onboarding Screen'}}/>
-//     <Stack.Screen name='QrReaderScreen' component={QrReaderScreen} options={{title: 'QrReader Screen'}}/>
-//     </Stack.Navigator>
-//   )
-// }
-
-// export default UserStack
-
-// const styles = StyleSheet.create({})

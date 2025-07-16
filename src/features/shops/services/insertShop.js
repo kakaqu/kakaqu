@@ -1,6 +1,6 @@
 import supabase from '../../../../supabase';
 
-export const insertShop = async ({ name, description, categoryId, userId, now }) => {
+export const insertShop = async ({ name, description, categoryId, userId, mobile, now }) => {
   const { data, error } = await supabase
     .from('shops')
     .insert({
@@ -8,6 +8,7 @@ export const insertShop = async ({ name, description, categoryId, userId, now })
       description,
       category_id: categoryId,
       user_id: userId,
+      mobile, // ✅ yeni alan
       created_at: now,
       update_at: now,
       status: true,

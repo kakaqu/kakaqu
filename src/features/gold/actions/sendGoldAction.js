@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { insertUserTransfer } from "../services/insertUserTransfer";
-import { insertTokenTransaction } from "../services/insertTokenTransaction";
-import { insertBalance } from "../services/insertBalance";
+import { insertUserTransfer } from "../../user/services/insertUserTransfer";
+import { insertTokenTransaction } from "../../user/services/insertTokenTransaction";
+import { insertBalance } from "../../user/services/insertBalance";
 
 import { createSendGoldDto } from "../dto/createSendGoldDto";
 import { validateSendGoldDto } from "../validators/validateSendGoldDto";
-import { fetchUserBalance, fetchDailySentTotal } from "../services/userService";
-import { insertNotification } from "../services/insertNotification";
+import { fetchUserBalance, fetchDailySentTotal } from "../../user/services/userService";
+import { insertNotification } from "../../notifications/services/insertNotification";
 
 export const sendGold = createAsyncThunk(
   "user/sendGold",

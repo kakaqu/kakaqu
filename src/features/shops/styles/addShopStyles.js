@@ -7,14 +7,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 40,
   },
-  contentContainer: {
-    alignItems: 'center',
+    contentContainer: {
     paddingVertical: 20,
     paddingBottom: 50,
     width: '100%',
+    // alignItems: 'center', ⛔ bunu kaldır!
   },
+
   title: {
     color: CustomTheme.colors.primary,
     fontSize: 24,
@@ -25,11 +28,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   avatar: {
-    width: 200,
-    height: 200,
-    borderRadius: 100,
-    backgroundColor: '#ddd',
-    marginTop: 60,
+    width: width * 0.5,
+    height: width * 0.5,
+    borderRadius: (width * 0.5) / 2,
+    backgroundColor: CustomTheme.colors.white,
+    marginTop: 40,
     marginBottom: 20,
     alignSelf: 'center',
   },
@@ -67,6 +70,34 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginTop: 20,
     marginBottom: 10,
+  },
+  errorText: {
+    color: CustomTheme.colors.secondary,
+    fontSize: 12,
+    marginTop: 4,
+    textAlign: 'right',
+  },
+  stepDescription: {
+    fontSize: 14,
+    color: CustomTheme.colors.text,
+    textAlign: 'right',
+    lineHeight: 22,
+    marginBottom: 15,
+    alignSelf: 'stretch',
+  },
+  avatarHint: {
+    fontSize: 12,
+    color: CustomTheme.colors.text,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  backText: {
+    fontSize: 14,
+    color: CustomTheme.colors.primary,
+    textAlign: 'center',
+    marginTop: 20,
+    textDecorationLine: 'underline',
+    fontWeight: '500',
   },
 });
 

@@ -47,7 +47,9 @@ const CustomAlert = ({
       animationOut="zoomOut"
       backdropOpacity={0.5}
       useNativeDriver
-      onBackdropPress={onCancel}
+      onBackdropPress={() => {}} // hiçbir şey yapma
+      onBackButtonPress={() => {}} // Android geri tuşu da çalışmasın
+      hideModalContentWhileAnimating={true}
       style={styles.modal}
     >
       <View style={styles.alertBox}>

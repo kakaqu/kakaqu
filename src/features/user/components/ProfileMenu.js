@@ -2,23 +2,34 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import ProfileButton from './ProfileButton';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../auth/slices/authSlice';
 import { resetUser } from '../slices/userSlice';
+
 
 
 
 export default function ProfileMenu({ navigation }) {
   const {t} = useTranslation();
   const dispatch = useDispatch();
+  const shop = useSelector(state => state.shop);
 
   const handleLogout = () => {
-    dispatch(logout());      // auth.isAuth = false, auth.user = null
-    dispatch(resetUser());   // user bilgilerini sıfırla
+    dispatch(logout());      
+    dispatch(resetUser());  
   };
+
+  const handleGoToShop = () => {
+    if (shop?.id) {
+      navigation.navigate('ShopDashboard');
+    } else {
+      navigation.navigate('AddShop');
+    }
+  };
+
   return (
     <View style={styles.menuSection}>
-    <ProfileButton icon="storefront-outline" label={t("profileMenu.goToShop")} onPress={() => navigation.navigate('AddShop')} />
+    <ProfileButton icon="storefront-outline" label={t("profileMenu.goToShop")} onPress={handleGoToShop} />
     <ProfileButton icon="bar-chart-outline" label={t("profileMenu.shopStats")} onPress={() => navigation.navigate('ShopStats')} />
     <ProfileButton icon="heart-outline" label={t("profileMenu.favorites")} onPress={() => navigation.navigate('Favorites')} />
     <ProfileButton icon="list-outline" label={t("profileMenu.myListings")} onPress={() => navigation.navigate('MyListings')} />

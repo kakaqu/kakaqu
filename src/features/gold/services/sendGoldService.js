@@ -14,7 +14,7 @@
 
 
 import supabase from '../../../../supabase';
-import { insertTokenTransaction } from './insertTokenTransaction';
+import { insertTokenTransaction } from '../../user/services/insertTokenTransaction';
 export const sendGoldService = async ({ fromUserId, toUserId, amount, description }) => {
   const now = new Date().toISOString();
 

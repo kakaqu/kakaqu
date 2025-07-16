@@ -52,7 +52,16 @@
     "daily_limit_exceeded": "گونلیک ۵۰۰۰ آلتین کوپ گؤندرلماز.",
     "insufficient_balance": "آلتین مبلغی یئترلی دال.",
     "description_required": "آچقلاما بوش بولماز.",
-    "description_short": "آچقلاما ۵ حرف‌ دن آز بولماز."
+    "description_short": "آچقلاما ۵ حرف‌ دن آز بولماز.",
+
+    
+    "name_short_shop": "دوكان آدی اینگ آزیندان ۳ حرف بولمالی.",
+    "category_required": "لطفاً بیر بولوم ساییلانگ.",
+    "location_required": "دوکانینگ یرلشیان یرینلی بللی بولسین .",
+    "address_required": "آدرېس معلوماتی یازمالیدیر.",
+
+    "empty": "بویری بوش غالماز.",
+    "minLength": "اینگ آزیندان ۱۵ حرف یازینیگ."
   },
   "otp": {
     "title": "تلفون نمبری دوغر لا",
@@ -142,7 +151,51 @@
   "title": "گچن معامله لر",
   "seeAll": "همه سینی گؤر",
   "nothingFound": "هیچ ذات تابلمادی"
-}
-
-
+},
+"shop_register": {
+  "category": "بولوم لر:",
+  "name": "دوكانینگ آدی:",
+  "name_placeholder": "دوكان آدینگی یزینگ",
+  "shop_mobile": "دوکان تلفون نمبری:",
+  "choose_location": "نقشه‌دن جای‌ ساییلانگ",
+  "registration_successful": "دوكان باشارلی ثبت بولدی.",
+  "step1_description": "دوكان معلوماتلرینگر گیرنگ، مشتری لرینگ سیزی تانیماسی و تاپیب بلماسی اچین.",
+  "avatar_hint": "دوكان لوگوتىپى قوشۇڭ، مشتېرىلەر سىزى آسان تاناسىن.",
+  "step2_description": "مشتری لارینگ سیزی انگ  ساد تپماسی اچین بر بولوم و آدرس بولمالی."
+},
+"shop_cart": {
+  "Comment": "دوشنجه لر",
+  "Followers": "ایزلیون لر",
+  "Rating": "درجه لمه",
+  
+  "blockSuccess": "دوکان باشارلی بر شکلنده غید ادلدی.",
+  "reportSuccess": "دوکان باشارلی بر شکلنده حبر برلدی.",
+  "unfollowSuccess": "دوکانی ایزلیما دان چقدینگ.",
+  "followSuccess": "دوکان ایزلیما الندی.",
+  "error": "ینگلیش لیق اوتا گلدی ینه دان دنگه."
+},
+"shop_reason_modal": {
+  "blockQuestion": "دوکانی غیداتماک استیورسنگز می?",
+  "reportQuestion": "بو دوکان حبر برمگ استیورسنگز می?",
+  "blockLabel": "غیداتماک سببی:",
+  "reportLabel": "خبر برمگ سببی:",
+  "blockPlaceholder": "غیداتماک سببی یازینیگ...",
+  "reportPlaceholder": "حبر برمگ سببی نی یازینیگ...",
+  "cancelButton": "ایزه غیتر",
+  "confirmButton": "قبول ات"
+},
+  "shop_options": {
+    "viewProfile": "پروفایل گور",
+    "follow": "ایزلیما بشلا",  
+    "following": "ایزلنیور",
+    "share": "پیلاش",
+    "report": "شکایت ات",
+    "block": "غید ات"
+  },
+  "market_screen": {
+    "title": "دوکان لر",
+    "no_shops": "دوکان تاپیلمادی",
+    "loading_error": "دوکان لر گلمادی",
+    "search_placeholder": "دوکان گوزله..."
+  }
 }

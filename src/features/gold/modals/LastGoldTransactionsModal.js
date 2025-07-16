@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { hideModal } from '../../../shared/slices/globalModalSlice';
 import CustomTheme from '../../../shared/styles/CustomThems';
-import { getLastTransactions } from '../services/gets/getLastTransactions';
+import { getLastTransactions } from '../../user/services/gets/getLastTransactions';
 import CustomButton from '../../../shared/components/buttons/CustomButton';
 import { convertToAfghanDate, formatTime12Hour } from '../../../shared/utils/date/dateConverter';
 import { useNavigation } from '@react-navigation/native';
@@ -91,10 +91,8 @@ export default function LastGoldTransactionsModal() {
         />
         <CustomButton
           buttonText={t('transactions.seeAll') || "Tümünü Gör"}
-          // onPress={() => navigation.navigate('transactions')}
           onPress={() => {
             dispatch(hideModal());
-            // setTimeout(() => navigation.navigate('transactions'), 250);
           }}
 
           style={styles.showAllCustomButton}

@@ -7,7 +7,8 @@
     "back": "السابق",
     "upload": "تحميل الصورة",
     "search": "بحث",
-    "ok": "موافق"
+    "ok": "موافق",
+    "continue": "متابعة"
   },
   "fields": {
     "phone": "رقم الهاتف:"
@@ -53,7 +54,16 @@
     "daily_limit_exceeded": "لا يمكنك تجاوز حد إرسال ٥٠٠٠ آلتين يومياً.",
     "insufficient_balance": "رصيدك من آلتين غير كافٍ.",
     "description_required": "الوصف مطلوب.",
-    "description_short": "يجب أن يكون الوصف ٥ أحرف على الأقل."
+    "description_short": "يجب أن يكون الوصف ٥ أحرف على الأقل.",
+
+    
+    "name_short_shop": "يجب أن يحتوي اسم المتجر على 3 أحرف على الأقل.",
+    "category_required": "يرجى اختيار فئة.",
+    "location_required": "يجب اختيار معلومات الموقع.",
+    "address_required": "يرجى إدخال العنوان.",
+    
+    "empty": "لا يمكن ترك هذا الحقل فارغًا.",
+    "minLength": "يجب إدخال 15 حرفًا على الأقل."
   },
   "otp": {
     "title": "تأكيد رقم الهاتف",
@@ -143,7 +153,53 @@
   "title": "المعاملات السابقة",
   "seeAll": "عرض الكل",
   "nothingFound": "لم يتم العثور على بيانات"
-}
+},
+  "shop_register": {
+    "name": "اسم المتجر",
+    "name_placeholder": "أدخل اسم المتجر",
+    "shop_mobile":  "رقم هاتف المتجر:",
+    "category": "الفئة:",
+    "choose_location": "اختر الموقع من الخريطة",
+    "registration_successful": "تم تسجيل المتجر بنجاح.",
+    "step1_description": "أدخل معلومات المتجر لمساعدة العملاء على التعرف عليك والوصول إليك بثقة.",
+    "avatar_hint": "أضف شعار المتجر ليسهل على العملاء التعرف عليك.",
+    "step2_description": "اختر الفئة والموقع الأنسب لتسهيل وصول العملاء إليك."
+  },
+  "shop_cart": {
+    "Comment": "تعليق",
+    "Followers": "متابعون",
+    "Rating": "تقييم",
+    
+    "blockSuccess": "تم حظر المتجر بنجاح.",
+    "reportSuccess": "تم الإبلاغ عن المتجر بنجاح.",
+    "unfollowSuccess": "تم إلغاء المتابعة.",
+    "followSuccess": "تم متابعة المتجر.",
+    "error": "حدث خطأ. يرجى المحاولة مرة أخرى."
+  },
+  "shop_reason_modal": {
+    "blockQuestion": "هل تريد حظر هذا المتجر؟",
+    "reportQuestion": "هل تريد الإبلاغ عن هذا المتجر؟",
+    "blockLabel": "سبب الحظر:",
+    "reportLabel": "سبب الإبلاغ:",
+    "blockPlaceholder": "اكتب سبب الحظر...",
+    "reportPlaceholder": "اكتب سبب الإبلاغ...",
+    "cancelButton": "إلغاء",
+    "confirmButton": "تأكيد"
+  },
+  "shop_options": {
+    "viewProfile": "عرض الملف الشخصي",
+    "follow": "تابع",
+    "following": "متابعة",
+    "share": "مشاركة",
+    "report": "الإبلاغ",
+    "block": "حظر"
+  },
+  "market_screen": {
+    "title": "المتاجر",
+    "no_shops": "لم يتم العثور على متاجر.",
+    "loading_error": "فشل في تحميل المتاجر.",
+    "search_placeholder": "ابحث في المتاجر..."
+  }
 
 
 

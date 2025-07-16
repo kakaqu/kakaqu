@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { sendGold } from '../actions/sendGoldAction';
+import { sendGold } from '../../gold/actions/sendGoldAction';
 
 const initialState = {
   id: null,

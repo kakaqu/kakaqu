@@ -1,25 +1,26 @@
 {
 "form": {
-"phoneSubmit":"گرفتن کد تأیید",
-"send": "ارسال",
-"cancel": "لغو",
-"next": "بعدی",
-"back": "قبلی",
-"upload": "آپلود عکس",
-"search": "جستجو",
-"ok": "تأیید"
+  "phoneSubmit":"گرفتن کد تأیید",
+  "send": "ارسال",
+  "cancel": "لغو",
+  "next": "بعدی",
+  "back": "قبلی",
+  "upload": "آپلود عکس",
+  "search": "جستجو",
+  "ok": "تأیید",
+  "continue": "ادامه"
 },
 "fields": {
-"phone": "شماره تماس:"
+  "phone": "شماره تماس:"  
 },
 "messages": {
-"success": "موفقانه ثبت گردید.",
-"error": "اشتباه رخ داد.",
-"warning": "هشدار",
-"loading": "در حال انتظار...",
-"tryAgainMessage": "خطایی رخ داد. لطفاً دوباره تلاش کنید.",
-"successMessage": "آلتین با موفقیت ارسال شد.",
-"errorMessage": "ارسال آلتین ناموفق بود."
+  "success": "موفقانه ثبت گردید.",
+  "error": "اشتباه رخ داد.",
+  "warning": "هشدار",
+  "loading": "در حال انتظار...",
+  "tryAgainMessage": "خطایی رخ داد. لطفاً دوباره تلاش کنید.",
+  "successMessage": "آلتین با موفقیت ارسال شد.",
+  "errorMessage": "ارسال آلتین ناموفق بود."
 },
 "info":{
 "submit": "ثبت گردید.",
@@ -43,39 +44,49 @@
 
 },
 "validation": {
-"required": "این فیلد ضروری است.",
-"email": "لطفاً یک ایمیل معتبر وارد کنید.",
-"phone": "شماره معتبر وارد کنید.",
-"numeric": "فقط عدد مجاز است.",
-"invalid_format": "فرمت نادرست است.",
-"invalid_phone": "لطفا یک شماره معتبر ۹ رقمی وارد کنید.",        
-"name_short": "نام باید حداقل ۳ حرف باشد.",
-"province": "لطفا ولایت را انتخاب کنید.",
-"district": "لطفا ولسوالی را انتخاب کنید.",
-"fake_phone": "لطفاً یک شماره واقعی وارد کنید.",
-"invalid_prefix": "شماره تماس باید با ۷ شروع شود.",
-"own_phone": "نمی‌توانید به خودتان آلتین ارسال کنید.",
-"userNotFound": "حسابی پیدا نشد.",
-"amount_required": "مقدار نباید خالی باشد.",
-"amount_invalid": "مقدار نامعتبر است.",
-"min_amount": "حداقل می‌توانید ۱ آلتین ارسال کنید.",
-"max_amount": "حداکثر می‌توانید ۱۰۰۰ آلتین ارسال کنید.",
-"daily_limit_exceeded": "محدودیت روزانه ارسال آلتین (۵۰۰۰) میباشد.",
-"insufficient_balance": "موجودی آلتین کافی نیست.",
-"description_required": "توضیحات نباید خالی باشد.",
-"description_short": "توضیحات باید حداقل ۵ حرف باشد."
+    "required": "این فیلد ضروری است.",
+    "email": "لطفاً یک ایمیل معتبر وارد کنید.",
+    "phone": "شماره معتبر وارد کنید.",
+    "numeric": "فقط عدد مجاز است.",
+    "invalid_format": "فرمت نادرست است.",
+    "invalid_phone": "لطفا یک شماره معتبر ۹ رقمی وارد کنید.",        
+    "name_short": "نام باید حداقل ۳ حرف باشد.",
+    "province": "لطفا ولایت را انتخاب کنید.",
+    "district": "لطفا ولسوالی را انتخاب کنید.",
+    "fake_phone": "لطفاً یک شماره واقعی وارد کنید.",
+    "invalid_prefix": "شماره تماس باید با ۷ شروع شود.",
+    "own_phone": "نمی‌توانید به خودتان آلتین ارسال کنید.",
+    "userNotFound": "حسابی پیدا نشد.",
+    "amount_required": "مقدار نباید خالی باشد.",
+    "amount_invalid": "مقدار نامعتبر است.",
+    "min_amount": "حداقل می‌توانید ۱ آلتین ارسال کنید.",
+    "max_amount": "حداکثر می‌توانید ۱۰۰۰ آلتین ارسال کنید.",
+    "daily_limit_exceeded": "محدودیت روزانه ارسال آلتین (۵۰۰۰) میباشد.",
+    "insufficient_balance": "موجودی آلتین کافی نیست.",
+    "description_required": "توضیحات نباید خالی باشد.",
+    "description_short": "توضیحات باید حداقل ۵ حرف باشد.",
+
+    
+    "name_short_shop": "نام فروشگاه باید حداقل ۳ حرف باشد.",
+    "category_required": "لطفاً یک بسته را انتخاب کنید.",
+    
+    "location_required": "اطلاعات موقعیت باید انتخاب شود.",
+    "address_required": "لطفاً آدرس را وارد کنید.",
+    
+    "empty": "این بخش نمی‌ تواند خالی باشد.",
+    "minLength": "حداقل باید ۱۵ حرف نوشته کنید."
 },
 "otp": {
-"title": "تأیید شماره تماس",
-"enter_code": "کد شش‌ رقمی ارسال‌شده را وارد کنید",
-"checking": "در حال بررسی...",
-"confirm": "تأیید کد",
-"time_left": "⏱ زمان باقی‌ مانده:",
-"expired": "⏱ زمان به پایان رسید",
-"seconds": "ثانیه",
-"resend": "ارسال مجدد کد",
-"invalid_code": "کد وارد شده اشتباه است.",
-"enter_6_digits": "لطفاً یک کد ۶ رقمی وارد کنید."
+    "title": "تأیید شماره تماس",
+    "enter_code": "کد شش‌ رقمی ارسال‌شده را وارد کنید",
+    "checking": "در حال بررسی...",
+    "confirm": "تأیید کد",
+    "time_left": "⏱ زمان باقی‌ مانده:",
+    "expired": "⏱ زمان به پایان رسید",
+    "seconds": "ثانیه",
+    "resend": "ارسال مجدد کد",
+    "invalid_code": "کد وارد شده اشتباه است.",
+    "enter_6_digits": "لطفاً یک کد ۶ رقمی وارد کنید."
 },
 "user_register": {
 "title": "ایجاد حساب جدید",
@@ -121,30 +132,75 @@
 "profile": "پروفایل"
 },
 "sendGold": {
-"title": "ارسال آلتین",
-"method_qr": "کد QR",
-"method_phone": "تلفن",
-"qr_title": "ارسال با QR",
-"qr_scan": "کد QR را اسکن کنید",
-"phone_title": "ارسال آلتین با شماره تماس",
-"check_account": "چک حساب",
-"amount_label": "مقدار:",
-"amount_placeholder": "مقدار آلتین",
-"description_label": "توضیحات:",
-"description_placeholder": "توضیحات:",
-"send_button": "ارسال آلتین",
-"success_message": "آلتین با موفقیت ارسال شد.",
-"fail_message": "ارسال آلتین ناموفق بود."
+    "title": "ارسال آلتین",
+    "method_qr": "کد QR",
+    "method_phone": "تلفن",
+    "qr_title": "ارسال با QR",
+    "qr_scan": "کد QR را اسکن کنید",
+    "phone_title": "ارسال آلتین با شماره تماس",
+    "check_account": "چک حساب",
+    "amount_label": "مقدار:",
+    "amount_placeholder": "مقدار آلتین",
+    "description_label": "توضیحات:",
+    "description_placeholder": "توضیحات:",
+    "send_button": "ارسال آلتین",
+    "success_message": "آلتین با موفقیت ارسال شد.",
+    "fail_message": "ارسال آلتین ناموفق بود."
 },
 "transactions": {
-"sent_to": "{{amount}} {{gold}} برای {{name}} فرستادید",
-"received_from": "{{name}} برای شما {{amount}} {{gold}} فرستاد",
-"system_transaction": "معامله سیستمی",
-"title": "معاملات گذشته",
-"seeAll": "مشاهده همه",
-"nothingFound": "دیتا پیدا نشد"
-}
-
+    "sent_to": "{{amount}} {{gold}} برای {{name}} فرستادید",
+    "received_from": "{{name}} برای شما {{amount}} {{gold}} فرستاد",
+    "system_transaction": "معامله سیستمی",
+    "title": "معاملات گذشته",
+    "seeAll": "مشاهده همه",
+    "nothingFound": "دیتا پیدا نشد"
+},
+  "shop_register": {
+    "name": "نام فروشگاه:",
+    "name_placeholder": "نام فروشگاه",
+    "shop_mobile": "شماره تماس دوکان:",
+    "category": "بسته بندی:",
+    "choose_location": "موقعیت را از روی نقشه انتخاب کنید",
+    "registration_successful": "فروشگاه با موفقیت ثبت شد.",
+    "step1_description": "با وارد کردن اطلاعات فروشگاه، مشتریان بتوانند شما را بهتر بشناسد و با اطمینان تماس بگیرند.",
+    "avatar_hint": "با افزودن لوگوی فروشگاه، مشتریان راحت‌تر شما را شناسایی می‌کنند.",
+    "step2_description": "با انتخاب یک بسته و موقعیت مناسب، دسترسی مشتریان به شما را آسان‌ تر کنید."
+  },
+  "shop_cart": {
+    "Comment": "نظر",
+    "Followers": "دنبال‌ کنند",
+    "Rating": "رتبه‌ بندی",
+    
+    "blockSuccess": "فروشگاه با موفقیت مسدود شد.",
+    "reportSuccess": "فروشگاه با موفقیت گزارش شد.",
+    "unfollowSuccess": "لغو دنبال‌کردن انجام شد.",
+    "followSuccess": "فروشگاه دنبال شد.",
+    "error": "خطایی رخ داد. لطفاً دوباره کوشش کنید."
+  },
+  "shop_reason_modal": {
+    "blockQuestion": "آیا می‌خواهید این فروشگاه را مسدود کنید؟",
+    "reportQuestion": "آیا می‌خواهید این فروشگاه را گزارش کنید؟",
+    "blockLabel": "دلیل مسدودسازی شما:",
+    "reportLabel": "دلیل گزارش شما:",
+    "blockPlaceholder": "دلیل مسدودسازی خود را بنویسید...",
+    "reportPlaceholder": "دلیل گزارش خود را بنویسید...",
+    "cancelButton": "لغو",
+    "confirmButton": "تأیید"
+  },
+  "shop_options": {
+    "viewProfile": "مشاهده پروفایل",
+    "follow": "دنبال کردن",
+    "following": "در حال دنبال",
+    "share": "اشتراک‌ گذاری",
+    "report": "گزارش دادن",
+    "block": "مسدود کردن"
+  },
+  "market_screen": {
+    "title": "فروشگاه‌ها",
+    "no_shops": "هیچ فروشگاهی پیدا نشد.",
+    "loading_error": "بارگذاری فروشگاه‌ها انجام نشد.",
+    "search_placeholder": "جستجوی فروشگاه..."
+  }
 
 
 

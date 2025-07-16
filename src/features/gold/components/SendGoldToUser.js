@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import UserCard from './UserCard';
+import UserCard from '../../user/components/UserCard';
 import CustomInput from '../../../shared/components/forms/CustomInput';
 import CustomButton from '../../../shared/components/buttons/CustomButton';
 import CustomTheme from '../../../shared/styles/CustomThems';

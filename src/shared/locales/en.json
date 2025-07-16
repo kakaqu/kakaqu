@@ -7,7 +7,8 @@
     "back": "Back",
     "upload": "Upload photo",
     "search": "search",
-    "ok": "OK"
+    "ok": "OK",
+    "continue": "Continue"
   },
   "fields": {
     "phone": "Phone number:"
@@ -53,7 +54,16 @@
     "daily_limit_exceeded": "You cannot exceed the daily limit of 5000 Altin.",
     "insufficient_balance": "Your Altin balance is insufficient.",
     "description_required": "Description cannot be empty.",
-    "description_short": "Description must be at least 5 characters."
+    "description_short": "Description must be at least 5 characters.",
+
+    
+    "name_short_shop": "Shop name must be at least 3 characters long.",
+    "category_required": "Category selection is required.",
+    "location_required": "Location information must be selected.",
+    "address_required": "Please enter an address.",
+  
+    "empty": "This field cannot be empty.",
+    "minLength": "You must enter at least 15 characters."
   },
   "otp": {
     "title": "Phone Number Verification",
@@ -143,7 +153,52 @@
   "title": "Past Transactions",
   "seeAll": "See All",
   "nothingFound": "No data found"
-}
+},
+  "shop_register": {
+    "name": "Shop Name",
+    "name_placeholder": "Enter shop name",
+    "shop_mobile": "Shop phone number:",
+    "category": "Category:",
+    "choose_location": "Select location from the map",
+    "registration_successful": "Shop registered successfully.",
+    "step1_description": "Enter your store details to help customers recognize and reach you with confidence.",
+    "avatar_hint": "Add a store logo to help customers identify you more easily.",
+    "step2_description": "Choose the most suitable category and location to help customers reach you easily."
 
-
+  },
+  "shop_cart": {
+    "Comment": "Comment",
+    "Followers": "Followers",
+    "Rating": "Rating",
+    
+    "blockSuccess": "The shop has been successfully blocked.",
+    "reportSuccess": "The shop has been successfully reported.",
+    "unfollowSuccess": "Unfollowed successfully.",
+    "followSuccess": "Followed the shop successfully.",
+    "error": "An error occurred. Please try again."
+  },
+  "shop_reason_modal": {
+    "blockQuestion": "Do you want to block this shop?",
+    "reportQuestion": "Do you want to report this shop?",
+    "blockLabel": "Your reason for blocking:",
+    "reportLabel": "Your reason for reporting:",
+    "blockPlaceholder": "Write your reason for blocking...",
+    "reportPlaceholder": "Write your reason for reporting...",
+    "cancelButton": "Cancel",
+    "confirmButton": "Confirm"
+  },
+  "shop_options": {
+    "viewProfile": "View Profile",
+    "follow": "Follow",
+    "following": "Following",
+    "share": "Share",
+    "report": "Report",
+    "block": "Block"
+  },
+  "market_screen": {
+    "title": "Shops",
+    "no_shops": "No shops found.",
+    "loading_error": "Failed to load shops.",
+    "search_placeholder": "Search shops..."
+  }
 }

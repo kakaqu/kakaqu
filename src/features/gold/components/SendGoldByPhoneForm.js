@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import CustomInput from '../../../shared/components/forms/CustomInput';
 import CustomButton from '../../../shared/components/buttons/CustomButton';
-import { findUserByMobile } from '../services/userService';
+import { findUserByMobile } from '../../user/services/userService';
 import CustomTheme from '../../../shared/styles/CustomThems';
 import { normalizePhone } from '../../../shared/utils/normalize/normalizePhone';
 import SendGoldToUser from './SendGoldToUser';
