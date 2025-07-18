@@ -12,6 +12,7 @@ export const shopOptions = (t, isSubscriber) => [
       type: 'Ionicons',
     },
   },
+  
   { key: 'share', label: t('shop_options.share'), icon: { name: 'share-social-outline', type: 'Ionicons' } },
   { key: 'report', label: t('shop_options.report'), icon: { name: 'report', type: 'MaterialIcons' } },
   { key: 'block', label: t('shop_options.block'), icon: { name: 'block', type: 'MaterialIcons' } },

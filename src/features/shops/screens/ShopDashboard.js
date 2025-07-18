@@ -1,112 +1,128 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, ScrollView, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
+import { useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
+import { getShopById } from '../services/get/getShopById';
+import getLanguageCode from '../../../shared/services/getLanguageCode';
 
-const ShopDashboard = ({ navigation }) => {
-  const { t } = useTranslation();
-  const shop = useSelector(state => state.shop);
+
+const ShopDashboard = () => {
+  const route = useRoute();
+  const { shopId } = route.params;
+
+  const [shop, setShop] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const userId = useSelector((state) => state.user?.id);
+  const languageId = useSelector((state) => state.user?.languageId);
+  const languageCode = getLanguageCode(languageId);
+
+  useEffect(() => {
+    const loadShop = async () => {
+      setLoading(true);
+      const result = await getShopById(shopId, userId, languageCode);
+      setShop(result);
+      setLoading(false);
+    };
+
+    loadShop();
+  }, [shopId]);
+
+  if (loading) return <ActivityIndicator size="large" style={{ marginTop: 50 }} />;
+  if (!shop) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Mağaza bulunamadı.</Text>
+      </View>
+    );
+  }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.header}>{t('shop_dashboard.title')}</Text>
-
-      <View style={styles.shopCard}>
-        {shop.avatar ? (
-          <Image source={{ uri: shop.avatar }} style={styles.logo} />
-        ) : (
-          <View style={styles.logoPlaceholder}>
-            <Text style={styles.logoText}>{shop.name?.[0] || '?'}</Text>
-          </View>
-        )}
-
-        <Text style={styles.shopName}>{shop.name}</Text>
-        <Text style={styles.shopDescription}>{shop.description}</Text>
-      </View>
-
-      <View style={styles.menu}>
-        <DashboardButton
-          title={t('shop_dashboard.add_product')}
-          onPress={() => navigation.navigate('AddProduct')}
-        />
-        <DashboardButton
-          title={t('shop_dashboard.orders')}
-          onPress={() => navigation.navigate('Orders')}
-        />
-        <DashboardButton
-          title={t('shop_dashboard.notifications')}
-          onPress={() => navigation.navigate('Notifications')}
-        />
-        <DashboardButton
-          title={t('shop_dashboard.settings')}
-          onPress={() => navigation.navigate('ShopSettings')}
-        />
-      </View>
+    <ScrollView style={{ flex: 1 }}>
+      <ShopHeader shop={shop} />
+      <ShopStats shop={shop} />
+      <ShopActions shop={shop} />
+      <ShopAddress address={shop.address} />
     </ScrollView>
   );
 };
 
-const DashboardButton = ({ title, onPress }) => (
-  <TouchableOpacity style={styles.button} onPress={onPress}>
-    <Text style={styles.buttonText}>{title}</Text>
-  </TouchableOpacity>
+// ------------------- Alt Bileşenler -------------------
+
+const ShopHeader = ({ shop }) => (
+  <View>
+    {shop.cover && (
+      <Image source={{ uri: shop.cover }} style={{ width: '100%', height: 180 }} resizeMode="cover" />
+    )}
+    <View style={{ flexDirection: 'row', padding: 16 }}>
+      <Image source={{ uri: shop.logo }} style={{ width: 80, height: 80, borderRadius: 40 }} />
+      <View style={{ marginLeft: 16, justifyContent: 'center' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{shop.name}</Text>
+        <Text style={{ fontSize: 14, color: 'gray' }}>{shop.category}</Text>
+      </View>
+    </View>
+    <Text style={{ paddingHorizontal: 16, fontSize: 14, marginBottom: 8 }}>{shop.description}</Text>
+  </View>
 );
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    backgroundColor: '#fff',
-  },
-  header: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    marginBottom: 16,
-  },
-  shopCard: {
-    alignItems: 'center',
-    marginBottom: 24,
-  },
-  logo: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-  },
-  logoPlaceholder: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: '#ccc',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logoText: {
-    fontSize: 32,
-    color: '#fff',
-  },
-  shopName: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 8,
-  },
-  shopDescription: {
-    fontSize: 14,
-    color: '#555',
-    textAlign: 'center',
-    marginTop: 4,
-  },
-  menu: {
-    gap: 12,
-  },
-  button: {
-    backgroundColor: '#007AFF',
-    paddingVertical: 14,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-  },
-});
+const ShopStats = ({ shop }) => (
+  <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 10 }}>
+    <StatBox label="Puan" value={shop.rating} />
+    <StatBox label="Takipçi" value={shop.subscriberCount} />
+    <StatBox label="Yorum" value={shop.commentCount} />
+  </View>
+);
+
+const StatBox = ({ label, value }) => (
+  <View style={{ alignItems: 'center' }}>
+    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{value}</Text>
+    <Text style={{ fontSize: 12, color: 'gray' }}>{label}</Text>
+  </View>
+);
+
+const ShopActions = ({ shop }) => {
+  const [subscribed, setSubscribed] = useState(shop.isSubscribed);
+
+  const handleSubscribe = () => {
+    // TODO: API çağrısı ile takip işlemi yapılabilir
+    setSubscribed(!subscribed);
+  };
+
+  return (
+    <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 16 }}>
+      <TouchableOpacity style={buttonStyle} onPress={handleSubscribe}>
+        <Text style={buttonText}>{subscribed ? 'Takiptesin' : 'Takip Et'}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={buttonStyle}>
+        <Text style={buttonText}>Yorum Yaz</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={buttonStyle}>
+        <Text style={buttonText}>Haritada Gör</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const ShopAddress = ({ address }) => (
+  <View style={{ padding: 16 }}>
+    <Text style={{ fontWeight: 'bold' }}>Adres:</Text>
+    <Text>{address?.line}</Text>
+    <Text>{`${address?.districtName}, ${address?.provinceName}`}</Text>
+  </View>
+);
+
+// ------------------- Stil Tanımları -------------------
+
+const buttonStyle = {
+  backgroundColor: '#007AFF',
+  paddingHorizontal: 16,
+  paddingVertical: 8,
+  borderRadius: 8,
+};
+
+const buttonText = {
+  color: 'white',
+  fontWeight: 'bold',
+};
 
 export default ShopDashboard;

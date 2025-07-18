@@ -105,12 +105,14 @@ const TopBar = ({
                 setShowSearchPopup(false);
               }}
               style={styles.closeButton}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }} // Tıklanabilir alanı büyüttük
             >
-              <MaterialIcons name="close" size={24} color="#999" />
+              <MaterialIcons name="close" size={20} color="#666" />
             </TouchableOpacity>
           </View>
         </View>
       )}
+
 
 
       {/* 3 Nokta Menüsü */}

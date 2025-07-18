@@ -3,14 +3,20 @@ import CustomThems from '../../../shared/styles/CustomThems';
 
 export default StyleSheet.create({
   card: {
-    flexDirection: 'row',
     backgroundColor: CustomThems.colors.white,
     borderRadius: 12,
     elevation: 2,
     padding: 12,
     marginVertical: 6,
     alignItems: 'flex-start',
+    width: '100%',
+    flexDirection: 'column', // isteğe bağlı, aslında default bu
   },
+  topRow: {
+  flexDirection: 'row',
+  alignItems: 'flex-start',
+  width: '100%',
+},
   avatarContainer: {
     alignItems: 'center',
     marginRight: 12,
@@ -24,12 +30,12 @@ export default StyleSheet.create({
   verticalLine: {
     width: 60,
     height: 5,
-    // backgroundColor: CustomThems.colors.secondary,
     marginTop: 10,
     borderRadius: 2,
   },
   infoContainer: {
     flex: 1,
+    width: '100%', // Bilgi container tam genişlikte olsun
   },
   headerRow: {
     flexDirection: 'row',
@@ -113,82 +119,72 @@ export default StyleSheet.create({
     paddingVertical: 8,
   },
   menuLabel: {
-    marginLeft: 10,
+    marginLeft: 15,
     fontSize: 14,
     color: CustomThems.colors.darkGray,
   },
   subscribedLabel: {
-  fontSize: 12,
-  color: CustomThems.colors.success,
-  marginTop: 2,
+    fontSize: 12,
+    color: CustomThems.colors.success,
+    marginTop: 2,
+  },
+
+  // Expanded Content kısmı
+  
+expandedContent: {
+  marginTop: 12,
+  padding: 12,
+  backgroundColor: '#f7f7f7',
+  borderRadius: 8,
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.1,
+  shadowRadius: 4,
+  // elevation: 3,
+  width: '100%',
 },
-expandedArea: {
-  paddingHorizontal: 16,
-  paddingBottom: 12,
-  backgroundColor: '#f9f9f9',
-  borderTopWidth: 1,
-  borderTopColor: '#eee',
+separator: {
+  height: 1,
+  backgroundColor: '#ccc',
+  marginVertical: 10,
+  alignSelf: 'stretch',
 },
 
+descriptionContainer: {
+  marginBottom: 8,
+},
 description: {
   fontSize: 14,
   color: '#444',
-  marginVertical: 8,
 },
-
-buttonRow: {
+contactContainer: {
   flexDirection: 'row',
-  flexWrap: 'wrap',
   justifyContent: 'space-between',
+  alignItems: 'center',
 },
-
-actionButton: {
+phoneRow: {
   flexDirection: 'row',
   alignItems: 'center',
-  marginVertical: 4,
-  width: '48%',
-  paddingVertical: 6,
+  gap: 6,
 },
-
-actionText: {
-  fontSize: 14,
+phone: {
   marginLeft: 6,
-  color: CustomThems.colors.primary,
-},
-expandedArea: {
-  paddingHorizontal: 16,
-  paddingBottom: 12,
-  backgroundColor: '#f9f9f9',
-  borderTopWidth: 1,
-  borderTopColor: '#eee',
-},
-
-description: {
   fontSize: 14,
-  color: '#444',
-  marginVertical: 8,
+  color: '#222',
 },
-
-buttonRow: {
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between',
-},
-
-actionButton: {
+mapButton: {
   flexDirection: 'row',
   alignItems: 'center',
-  marginVertical: 4,
-  width: '48%',
+  backgroundColor: CustomThems.colors.primary,
+  paddingHorizontal: 12,
   paddingVertical: 6,
+  borderRadius: 20,
 },
-
-actionText: {
-  fontSize: 14,
+mapButtonText: {
+  color: '#fff',
+  fontWeight: '600',
   marginLeft: 6,
-  color: CustomThems.colors.primary,
+  fontSize: 14,
 },
-
-
 
 });

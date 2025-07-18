@@ -18,6 +18,8 @@ import { useTranslation } from 'react-i18next';
 const MarketScreen = () => {
   const [shops, setShops] = useState([]);
   const [searchText, setSearchText] = useState('');
+  const [debouncedSearchText, setDebouncedSearchText] = useState('');
+  const [expandedShopId, setExpandedShopId] = useState(null);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
@@ -43,7 +45,6 @@ const MarketScreen = () => {
   };
 
   const mergeUniqueShops = (oldShops, newShops) => {
-    // Map kullanarak id bazlı benzersizleştir
     const map = new Map();
     [...oldShops, ...newShops].forEach(shop => {
       if (shop?.id) map.set(shop.id, shop);
@@ -52,8 +53,7 @@ const MarketScreen = () => {
   };
 
   const loadShops = useCallback(async () => {
-    if (!userId) return;
-    if (loading) return;
+    if (!userId || loading) return;
 
     setLoading(true);
     setError(null);
@@ -62,33 +62,43 @@ const MarketScreen = () => {
       const result = await fetchAllShops({
         userId,
         page,
-        limit: 5,
-        searchQuery: searchText,
+        limit: 20,
+        searchQuery: debouncedSearchText,
         languageCode,
       });
-
       if (page === 0) {
         setShops(result);
       } else {
         setShops((prev) => mergeUniqueShops(prev, result));
       }
 
-      setHasMore(result.length === 5);
+      setHasMore(result.length === 20);
     } catch (err) {
       setError(err);
     } finally {
       setLoading(false);
     }
-  }, [userId, page, searchText, languageCode, loading]);
+  }, [userId, page, debouncedSearchText, languageCode]);
 
+  // DEBOUNCE SEARCH
   useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebouncedSearchText(searchText.trim());
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, [searchText]);
+
+  // FETCH ON SEARCH TEXT CHANGE
+  useEffect(() => {
+    if (!userId) return;
+    setPage(0);
+    setHasMore(true);
     loadShops();
-  }, [loadShops]);
+  }, [debouncedSearchText]);
 
   const handleSearch = (text) => {
     setSearchText(text);
-    setPage(0);
-    setHasMore(true);
   };
 
   const handleLoadMore = () => {
@@ -106,8 +116,8 @@ const MarketScreen = () => {
       const result = await fetchAllShops({
         userId,
         page: 0,
-        limit: 5,
-        searchQuery: searchText,
+        limit: 20,
+        searchQuery: debouncedSearchText,
         languageCode,
       });
       setShops(result);
@@ -136,6 +146,11 @@ const MarketScreen = () => {
     );
   };
 
+  
+const handleToggleExpand = (shopId) => {
+  setExpandedShopId(prev => (prev === shopId ? null : shopId));
+};
+
   return (
     <SafeAreaView style={styles.container}>
       <TopBar
@@ -149,7 +164,13 @@ const MarketScreen = () => {
           data={shops}
           keyExtractor={(item, index) => item?.id?.toString() || `fallback-${index}`}
           renderItem={({ item }) => (
-            <ShopCard shop={item} t={t} onShopStatusChange={handleShopStatusChange} />
+          <ShopCard
+            shop={item}
+            t={t}
+            onShopStatusChange={handleShopStatusChange}
+            isExpanded={expandedShopId === item.id}
+            onToggleExpand={() => handleToggleExpand(item.id)}
+          />
           )}
           contentContainerStyle={styles.list}
           showsVerticalScrollIndicator={false}

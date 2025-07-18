@@ -36,17 +36,24 @@ const styles = StyleSheet.create({
   popupContainer: {
     marginHorizontal: 10,
     marginTop: 12,
-    padding: 15,
+    paddingVertical: 8,
+    paddingHorizontal: 12,
     borderRadius: 8,
-    backgroundColor: COLORS.background || '#fff',
+    backgroundColor: CustomTheme.colors.background || '#fff',
     shadowColor: '#000',
     shadowOpacity: 0.08,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 5,
     elevation: 3,
   },
+
   searchInput: {
-    width: '100%',
+    flex: 1,                // Arama inputu genişleyip alanı kaplasın
+    paddingVertical: 6,     // Dikey padding iyileştirme
+    paddingHorizontal: 12,
+    borderRadius: 6,
+    backgroundColor: CustomTheme.colors.white,
+    fontSize: 16,
   },
   modalOverlay: {
     flex: 1,
@@ -79,16 +86,20 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: COLORS.primary,
   },
-searchRow: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  paddingHorizontal: 10,
-},
-
-closeButton: {
-  marginLeft: 8,
-  padding: 6,
-},
+  searchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 6,      // Dikey boşluk eklendi
+  },
+  closeButton: {
+    marginLeft: 8,
+    padding: 8,
+    borderRadius: 20,
+    backgroundColor: '#eee',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
 });
 

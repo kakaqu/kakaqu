@@ -21,11 +21,12 @@ export default function ProfileMenu({ navigation }) {
 
   const handleGoToShop = () => {
     if (shop?.id) {
-      navigation.navigate('ShopDashboard');
+      navigation.navigate('ShopDashboard', { shopId: shop.id });
     } else {
       navigation.navigate('AddShop');
     }
   };
+
 
   return (
     <View style={styles.menuSection}>
