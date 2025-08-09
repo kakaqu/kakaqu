@@ -53,6 +53,7 @@ export default function SendGoldByPhoneForm() {
           type: 'error',
           title: t('validation.userNotFound'),
           message: t('validation.invalid_phone'),
+          submitText: t('form.ok'),
         });
       }
     } catch (error) {
@@ -60,6 +61,7 @@ export default function SendGoldByPhoneForm() {
         type: 'error',
         title: t('info.error'),
         message: error.message || t('info.repeat'),
+        submitText: t('form.ok'),
       });
     } finally {
       dispatch(hideLoading());

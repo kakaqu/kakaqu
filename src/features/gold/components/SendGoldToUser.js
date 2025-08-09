@@ -62,6 +62,7 @@ export default function SendGoldToUser({ user, onClose }) {
           type: 'success',
           title: t('info.success'),
           message: t('sendGold.success_message'),
+          submitText: t('form.ok'),
         });
 
         // Başarılı işlemden sonra modalı kapat
@@ -79,6 +80,7 @@ export default function SendGoldToUser({ user, onClose }) {
         type: 'error',
         title: t('info.error'),
         message: err.message,
+        submitText: t('form.ok'),
       });
     } finally {
       dispatch(hideLoading());

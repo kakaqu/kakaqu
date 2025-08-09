@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { LoginPage, OTPPage, OnboardingScreen }  from '../../features/auth/screens/Index';
+import { LoginPage, OTPPage }  from '../../features/auth/screens/Index';
 import { AddUserPage } from '../../features/user/screens/Index';
 const Stack = createNativeStackNavigator();
 const AuthStack = () => {

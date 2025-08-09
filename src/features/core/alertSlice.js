@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   visible: false,
+  mode: 'alert', // 'alert' | 'toast' — yeni eklendi
   type: 'info', // 'success' | 'error' | 'warning' | 'info'
   title: '',
   message: '',
@@ -18,6 +19,7 @@ const alertSlice = createSlice({
       const payload = action.payload || {};
       Object.assign(state, {
         visible: true,
+        mode: payload.mode || 'alert', // varsayılan: alert
         ...payload,
       });
     },

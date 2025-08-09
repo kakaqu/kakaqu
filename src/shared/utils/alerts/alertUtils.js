@@ -14,6 +14,7 @@ export const dispatchAlert = (dispatch, {
   cancelText = 'İptal',
   onSubmit,
   onCancel,
+  mode = 'alert', // varsayılan alert, toast da olabilir
 }) => {
   alertCallbacks = { onSubmit, onCancel }; // sadece burada tutulur
 
@@ -24,6 +25,7 @@ export const dispatchAlert = (dispatch, {
     showCancel,
     submitText,
     cancelText,
+    mode,  
   }));
 };
 

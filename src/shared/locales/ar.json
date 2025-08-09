@@ -46,7 +46,7 @@
     "invalid_prefix": "يجب أن يبدأ رقم الهاتف بـ 7.",
     "own_phone": "لا يمكنك إرسال آلتین إلى رقمك الخاص.",
     "userNotFound": "لم يتم العثور على الحساب.",
-    
+
     "amount_required": "المبلغ مطلوب.",
     "amount_invalid": "مبلغ غير صالح.",
     "min_amount": "يجب إرسال آلتين واحد على الأقل.",
@@ -56,12 +56,11 @@
     "description_required": "الوصف مطلوب.",
     "description_short": "يجب أن يكون الوصف ٥ أحرف على الأقل.",
 
-    
     "name_short_shop": "يجب أن يحتوي اسم المتجر على 3 أحرف على الأقل.",
     "category_required": "يرجى اختيار فئة.",
     "location_required": "يجب اختيار معلومات الموقع.",
     "address_required": "يرجى إدخال العنوان.",
-    
+
     "empty": "لا يمكن ترك هذا الحقل فارغًا.",
     "minLength": "يجب إدخال 15 حرفًا على الأقل."
   },
@@ -146,18 +145,18 @@
     "success_message": "تم إرسال الآلتين بنجاح.",
     "fail_message": "فشل في إرسال الآلتين."
   },
-"transactions": {
-  "sent_to": "أرسلت {{amount}} {{gold}} إلى {{name}}",
-  "received_from": "{{name}} أرسل إليك {{amount}} {{gold}}",
-  "system_transaction": "معاملة النظام",
-  "title": "المعاملات السابقة",
-  "seeAll": "عرض الكل",
-  "nothingFound": "لم يتم العثور على بيانات"
-},
+  "transactions": {
+    "sent_to": "أرسلت {{amount}} {{gold}} إلى {{name}}",
+    "received_from": "{{name}} أرسل إليك {{amount}} {{gold}}",
+    "system_transaction": "معاملة النظام",
+    "title": "المعاملات السابقة",
+    "seeAll": "عرض الكل",
+    "nothingFound": "لم يتم العثور على بيانات"
+  },
   "shop_register": {
     "name": "اسم المتجر",
     "name_placeholder": "أدخل اسم المتجر",
-    "shop_mobile":  "رقم هاتف المتجر:",
+    "shop_mobile": "رقم هاتف المتجر:",
     "category": "الفئة:",
     "choose_location": "اختر الموقع من الخريطة",
     "registration_successful": "تم تسجيل المتجر بنجاح.",
@@ -170,7 +169,7 @@
     "Followers": "متابعون",
     "Rating": "تقييم",
     "viewOnMap": "عرض على الخريطة",
-    
+
     "blockSuccess": "تم حظر المتجر بنجاح.",
     "reportSuccess": "تم الإبلاغ عن المتجر بنجاح.",
     "unfollowSuccess": "تم إلغاء المتابعة.",
@@ -200,12 +199,62 @@
     "no_shops": "لم يتم العثور على متاجر.",
     "loading_error": "فشل في تحميل المتاجر.",
     "search_placeholder": "ابحث في المتاجر..."
+  },
+  "shopDashboard": {
+    "comment": "تعليق",
+    "followers": "متابعون",
+    "rating": "تقييم"
+  },
+  "comment": {
+    "view_profile": "عرض الملف الشخصي",
+    "reply": "الرد",
+    "report": "الإبلاغ",
+    "copy": "نسخ",
+    "hide": "إخفاء التعليق",
+    "delete": "حذف التعليق",
+    "edit": "تعديل",
+    "block_user": "حظر المستخدم"
+  },
+  "shop": {
+    "comments": "التعليقات",
+    "no_comments": "لا توجد تعليقات حتى الآن",
+    "write_a_comment": "أضف تعليقًا...",
+    "comment_placeholder": "اكتب تعليقك هنا...",
+    "reply_placeholder": "اكتب ردك هنا...",
+    "write_comment_title": "إضافة تعليق",
+    "reply_title": "الرد",
+    "write_comment_desc": "أضف تعليقًا لـ {{shopName}}",
+    "replying_to": "ردًا على",
+    "write_reply_desc": "تقوم بالرد على {{username}}",
+    "view_more_replies": "عرض {{count}} رد إضافي...",
+    "edit_title": "تعديل التعليق",
+    "edit_reply_title": "تعديل الرد",
+
+    "edit_description": "قم بتحديث تعليقك",
+    "edit_reply_description": "قم بتحديث ردك",
+
+    "edit_placeholder": "اكتب النص المعدل هنا...",
+    "edit_reply_placeholder": "اكتب الرد المعدل هنا..."
+  },
+  "shop_comment": {
+    "user_reported": "تم الإبلاغ عن المستخدم بنجاح.",
+    "comment_copied": "تم نسخ التعليق.",
+    "delete_comment_title": "حذف التعليق",
+    "delete_reply_title": "حذف الرد",
+    "delete_comment_message": "هل أنت متأكد من حذف هذا التعليق؟",
+    "delete_reply_message": "هل أنت متأكد من حذف هذا الرد؟",
+    "hide_comment_title": "إخفاء التعليق",
+    "hide_reply_title": "إخفاء الرد",
+    "hide_comment_message": "هل أنت متأكد من إخفاء هذا التعليق؟",
+    "hide_reply_message": "هل أنت متأكد من إخفاء هذا الرد؟",
+    "submit_delete": "حذف",
+    "cancel": "إلغاء",
+    "error_title": "خطأ",
+    "error_message": "حدث خطأ أثناء العملية.",
+    "block_comment_author_title": "حظر صاحب التعليق",
+    "block_reply_author_title": "حظر صاحب الرد",
+    "block_comment_author_message": "هل أنت متأكد من رغبتك في حظر المستخدم {{name}} الذي كتب التعليق؟",
+    "block_reply_author_message": "هل أنت متأكد من رغبتك في حظر المستخدم {{name}} الذي كتب الرد؟",
+    "block_submit": "حظر"
   }
-
-
-
-
-
-
-
 }

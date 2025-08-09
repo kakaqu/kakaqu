@@ -8,6 +8,7 @@ import SendGoldModal from '../../../features/gold/modals/SendGoldModal';
 import { hideModal } from '../../slices/globalModalSlice';
 import LastGoldTransactions from '../../../features/gold/modals/LastGoldTransactionsModal';
 import ShopReasonModal from '../../../features/shops/modals/ShopReasonModal';
+import ShopStatsModal from '../../../features/shops/modals/ShopStatsModal';
 
 
 export default function AppModal() {
@@ -22,6 +23,9 @@ export default function AppModal() {
         return <LastGoldTransactions {...props} />;
       case 'SHOP_REASON_MODAL': // 🔹 yeni case
         return <ShopReasonModal {...props} />;
+      case 'SHOP_STATS_MODAL':
+        return <ShopStatsModal {...props} />;
+
       default:
         return null;
     }

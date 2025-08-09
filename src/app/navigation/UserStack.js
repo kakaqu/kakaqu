@@ -9,9 +9,10 @@ import OnboardingScreen from '../../features/auth/screens/OnboardingScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage'; // 🔹 buraya da ekle
 import i18n from '../../shared/locales/i18n';
 import getLanguageCode from '../../shared/services/getLanguageCode';
-import goldTransactionsScreen from '../../features/gold/screens/goldTransactionsScreen';
 import AddShopScreen from '../../features/shops/screens/AddShopScreen';
 import ShopDashboard from '../../features/shops/screens/ShopDashboard';
+import ChatScreen from '../../features/messages/screens/ChatScreen';
+
 
 
 
@@ -49,6 +50,7 @@ export default function UserStack() {
       {/* <Stack.Screen name="transactions" component={goldTransactionsScreen} /> */}
       <Stack.Screen name="AddShop" component={AddShopScreen} />
       <Stack.Screen name="ShopDashboard" component={ShopDashboard} />
+      <Stack.Screen name="ChatScreen" component={ChatScreen} />
     </Stack.Navigator>
   );
 }

@@ -21,6 +21,8 @@
     },
     "android": {
       "package": "com.iweb.busenden",
+      "softwareKeyboardLayoutMode": "pan",      
+      "windowSoftInputMode": "adjustNothing",
       "permissions": [
         "CAMERA"
       ],

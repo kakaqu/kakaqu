@@ -46,7 +46,7 @@
     "invalid_prefix": "تلیفون شمېره باید له ۷ څخه پیل شي.",
     "own_phone": "تاسو نشئ کولی خپل نمبر ته آلتین واستوئ.",
     "userNotFound": "حساب ونه موندل شو.",
-    
+
     "amount_required": "مقدار باید ورکړل شي.",
     "amount_invalid": "ناسم مقدار.",
     "min_amount": "لږ تر لږه ۱ آلتین باید ولیږل شي.",
@@ -56,12 +56,11 @@
     "description_required": "تشریح باید ورکړل شي.",
     "description_short": "تشریح باید لږ تر لږه ۵ توری ولري.",
 
-    
     "name_short_shop": "دکان نوم باید لږ تر لږه ۳ توري ولري.",
     "category_required": "مهرباني وکړئ یوه وېشنيزه وټاکئ.",
     "location_required": "د ځای معلومات باید وټاکل شي.",
     "address_required": "مهرباني وکړئ پته وليکئ.",
-    
+
     "empty": "دا ځای باید ډک شي.",
     "minLength": "لږ تر لږه ۱۵ توری ولیکئ."
   },
@@ -146,14 +145,14 @@
     "success_message": "آلتین په بریالیتوب سره واستول شو.",
     "fail_message": "د آلتین لیږلو هڅه ناکامه شوه."
   },
-"transactions": {
-  "sent_to": "تا {{name}} ته {{amount}} {{gold}} واستول",
-  "received_from": "{{name}} درته {{amount}} {{gold}} واستول",
-  "system_transaction": "د سیستم معامله",
-  "title": "تېرې لیږدونې",
-  "seeAll": "ټول وګورئ",
-  "nothingFound": "هیڅ معلومات ونه موندل شول"
-},
+  "transactions": {
+    "sent_to": "تا {{name}} ته {{amount}} {{gold}} واستول",
+    "received_from": "{{name}} درته {{amount}} {{gold}} واستول",
+    "system_transaction": "د سیستم معامله",
+    "title": "تېرې لیږدونې",
+    "seeAll": "ټول وګورئ",
+    "nothingFound": "هیڅ معلومات ونه موندل شول"
+  },
   "shop_register": {
     "name": "دکان نوم",
     "name_placeholder": "د دکان نوم ولیکئ",
@@ -171,7 +170,6 @@
     "Rating": "درجه بندي",
     "viewOnMap": "نقشه کې وګورئ",
 
-    
     "blockSuccess": "پلورنځی په بریالیتوب سره بند شو.",
     "reportSuccess": "پلورنځی په بریالیتوب سره راپور شو.",
     "unfollowSuccess": "د تعقیب څخه ووتل.",
@@ -201,9 +199,55 @@
     "no_shops": "هیڅ پلورنځي ونه موندل شول.",
     "loading_error": "پلورنځي بارول ونه شول.",
     "search_placeholder": "پلورنځي ولټوه..."
+  },
+  "comment": {
+    "view_profile": "پروفایل وګورئ",
+    "reply": "ځواب ولیکئ",
+    "report": "شکایت وکړئ",
+    "copy": "کاپي کړئ",
+    "hide": "تبصره پټه کړئ",
+    "delete": "تبصره ړنګه کړئ",
+    "edit": "سمونه وکړئ",
+    "block_user": "کاروونکی بند کړئ"
+  },
+  "shop": {
+    "comments": "نظرونه",
+    "no_comments": "تر اوسه هیڅ نظر نشته",
+    "write_a_comment": "نظر ولیکئ...",
+    "comment_placeholder": "خپل نظر دلته ولیکئ...",
+    "reply_placeholder": "خپل ځواب دلته ولیکئ...",
+    "write_comment_title": "نظر ولیکئ",
+    "reply_title": "ځواب ولیکئ",
+    "write_comment_desc": "د {{shopName}} لپاره نظر ولیکئ",
+    "replying_to": "ته ځواب ورکول",
+    "write_reply_desc": "{{username}} ته ځواب ولیکئ",
+    "view_more_replies": "نور {{count}} ځوابونه وښایاست...",
+    "edit_title": "نظر سمون",
+    "edit_reply_title": "ځواب سمون",
+    "edit_description": "خپل نظر تازه کړئ",
+    "edit_reply_description": "خپل ځواب تازه کړئ",
+    "edit_placeholder": "تازه شوی نظر دلته دننه کړئ...",
+    "edit_reply_placeholder": "تازه شوی ځواب دلته دننه کړئ..."
+  },
+  "shop_comment": {
+    "user_reported": "کاروونکی په بریالیتوب راپور شو.",
+    "comment_copied": "نظر کاپي شو.",
+    "delete_comment_title": "نظر ړنګول",
+    "delete_reply_title": "ځواب ړنګول",
+    "delete_comment_message": "آیا ډاډه یاست چې غواړئ دا نظر ړنګ کړئ؟",
+    "delete_reply_message": "آیا ډاډه یاست چې غواړئ دا ځواب ړنګ کړئ؟",
+    "hide_comment_title": "نظر پټه کړئ",
+    "hide_reply_title": "ځواب پټ کړئ",
+    "hide_comment_message": "آیا ډاډه یاست چې غواړئ دا نظر پټه کړئ؟",
+    "hide_reply_message": "آیا ډاډه یاست چې غواړئ دا ځواب پټ کړئ؟",
+    "submit_delete": "ڼړول",
+    "cancel": "لغوه کول",
+    "error_title": "تېروتنه",
+    "error_message": "د عملیاتو پر مهال تېروتنه وشوه.",
+    "block_comment_author_title": "د نظر لیکونکي بندول",
+    "block_reply_author_title": "د ځواب لیکونکي بندول",
+    "block_comment_author_message": "ایا ډاډه یاست چې غواړئ هغه کاروونکی {{name}} بند کړئ چې نظر یې ورکړی؟",
+    "block_reply_author_message": "ایا ډاډه یاست چې غواړئ هغه کاروونکی {{name}} بند کړئ چې ځواب یې ورکړی؟",
+    "block_submit": "بندول"
   }
-
-
-
 }
-

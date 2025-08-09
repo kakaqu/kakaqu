@@ -16,6 +16,8 @@ import { getLastTransactions } from '../../user/services/gets/getLastTransaction
 import CustomButton from '../../../shared/components/buttons/CustomButton';
 import { convertToAfghanDate, formatTime12Hour } from '../../../shared/utils/date/dateConverter';
 import { useNavigation } from '@react-navigation/native';
+import getLanguageCode from '../../../shared/services/getLanguageCode';
+
 
 
 
@@ -23,8 +25,9 @@ export default function LastGoldTransactionsModal() {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
-  const userId = useSelector((state) => state.user.id);
-  const languageId = useSelector((state) => state.user.languageId);
+  const userId = useSelector((state) => state.user.id);  
+  const languageId = useSelector((state) => state.user?.languageId);
+  const languageCode = getLanguageCode(languageId);
   const { items, loading, error } = useSelector((state) => state.transactions);
   const navigation = useNavigation();
 
@@ -52,7 +55,7 @@ export default function LastGoldTransactionsModal() {
         <View style={styles.descriptionContainer}>
           <Text style={styles.description}>{item.description}</Text>
           <Text style={styles.date}>
-            {formatTime12Hour(item.date)}  ___  {convertToAfghanDate(item.date)}
+            {formatTime12Hour(item.date)}  ___  {convertToAfghanDate(item.date, languageCode)}
           </Text>
         </View>
       </View>

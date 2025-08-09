@@ -1,162 +1,158 @@
 {
-"form": {
-  "phoneSubmit": "Doğrulama kodu al",
-  "send": "Gönder",
-  "cancel": "İptal",
-  "next": "İleri",
-  "back": "Geri",
-  "upload": "Fotoğraf yükle",
-  "search": "ara",
-  "ok": "Tamam",  
-  "continue": "Devam Et"
+  "form": {
+    "phoneSubmit": "Doğrulama kodu al",
+    "send": "Gönder",
+    "cancel": "İptal",
+    "next": "İleri",
+    "back": "Geri",
+    "upload": "Fotoğraf yükle",
+    "search": "ara",
+    "ok": "Tamam",
+    "continue": "Devam Et"
+  },
+  "fields": {
+    "phone": "Telefon numarası:"
+  },
+  "messages": {
+    "success": "Başarıyla kaydedildi.",
+    "error": "Hata oldu.",
+    "loading": "Yükleniyor...",
+    "warning": "Uyarı",
+    "tryAgainMessage": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "successMessage": "Altın gönderildi.",
+    "errorMessage": "Altın gönderimi başarısız oldu."
+  },
+  "login": {
+    "welcome": "Online pazara hoş geldiniz",
+    "enter_phone": "Lütfen telefon numaranızı girin",
+    "have_account": "Hesabınız yok mu? Kayıt olun",
+    "terms": "Devam ederek,",
+    "terms_link": "Kullanım Şartları",
+    "privacy_link": "Gizlilik Politikası",
+    "accepted": "kabul ettiğinizi beyan edersiniz.",
+    "and": "ve"
+  },
+  "validation": {
+    "required": "Bu alan zorunludur.",
+    "email": "Lütfen geçerli bir e-posta adresi girin.",
+    "phone": "Geçerli bir telefon numarası girin.",
+    "numeric": "Sadece sayılar girilebilir.",
+    "invalid_format": "Format geçersiz.",
+    "invalid_phone": "Lütfen 9 haneli geçerli bir numara girin.",
+    "name_short": "İsim en az 3 karakter olmalı.",
+    "province": "Lütfen bir vilayet seçin.",
+    "district": "Lütfen bir ilçe seçin.",
+    "fake_phone": "Lütfen gerçek bir numara girin.",
+    "invalid_prefix": "Telefon numarası 7 ile başlamalıdır.",
+    "own_phone": "Kendi numaranıza Altin gönderemezsiniz.",
+    "userNotFound": "Hesab bulunamadı.",
 
-},
-"fields": {
-  "phone": "Telefon numarası:"
-},
-"messages": {
-  "success": "Başarıyla kaydedildi.",
-  "error": "Hata oldu.",
-  "loading": "Yükleniyor...",
-  "warning": "Uyarı",
-  "tryAgainMessage": "Bir hata oluştu. Lütfen tekrar deneyin.",
-  "successMessage": "Altın gönderildi.",
-  "errorMessage": "Altın gönderimi başarısız oldu."
-},
-"login": {
-  "welcome": "Online pazara hoş geldiniz",
-  "enter_phone": "Lütfen telefon numaranızı girin",
-  "have_account": "Hesabınız yok mu? Kayıt olun",
-  "terms": "Devam ederek,",
-  "terms_link": "Kullanım Şartları",
-  "privacy_link": "Gizlilik Politikası",
-  "accepted": "kabul ettiğinizi beyan edersiniz.",
-  "and": "ve"
-},
-"validation": {
-  "required": "Bu alan zorunludur.",
-  "email": "Lütfen geçerli bir e-posta adresi girin.",
-  "phone": "Geçerli bir telefon numarası girin.",
-  "numeric": "Sadece sayılar girilebilir.",
-  "invalid_format": "Format geçersiz.",
-  "invalid_phone": "Lütfen 9 haneli geçerli bir numara girin.",
-  "name_short": "İsim en az 3 karakter olmalı.",
-  "province": "Lütfen bir vilayet seçin.",
-  "district": "Lütfen bir ilçe seçin.",
-  "fake_phone": "Lütfen gerçek bir numara girin.",
-  "invalid_prefix": "Telefon numarası 7 ile başlamalıdır.",
-  "own_phone": "Kendi numaranıza Altin gönderemezsiniz.",
-  "userNotFound": "Hesab bulunamadı.",
+    "amount_required": "Miktar boş geçilemez.",
+    "amount_invalid": "Geçersiz miktar.",
+    "min_amount": "En az 1 altın gönderebilirsiniz.",
+    "max_amount": "En fazla 1000 altın gönderebilirsiniz.",
+    "daily_limit_exceeded": "Günlük 5000 altın gönderme limitini aşamazsınız.",
+    "insufficient_balance": "Altın bakiyeniz yetersiz.",
+    "description_required": "Açıklama boş geçilemez.",
+    "description_short": "Açıklama en az 5 karakter olmalıdır.",
 
-  "amount_required": "Miktar boş geçilemez.",
-  "amount_invalid": "Geçersiz miktar.",
-  "min_amount": "En az 1 altın gönderebilirsiniz.",
-  "max_amount": "En fazla 1000 altın gönderebilirsiniz.",    
-  "daily_limit_exceeded": "Günlük 5000 altın gönderme limitini aşamazsınız.",
-  "insufficient_balance": "Altın bakiyeniz yetersiz.",
-  "description_required": "Açıklama boş geçilemez.",
-  "description_short": "Açıklama en az 5 karakter olmalıdır.",
+    "name_short_shop": "Dükkan adı en az 3 karakter olmalı.",
+    "category_required": "Kategori seçimi zorunludur.",
+    "location_required": "Konum bilgisi seçilmelidir.",
+    "address_required": "Adres bilgisi giriniz.",
 
-  
-  "name_short_shop": "Dükkan adı en az 3 karakter olmalı.",
-  "category_required": "Kategori seçimi zorunludur.",
-  "location_required": "Konum bilgisi seçilmelidir.",
-  "address_required": "Adres bilgisi giriniz.",
-
-
-  "empty": "Bu alan boş bırakılamaz.",
-  "minLength": "En az 15 karakter girmelisiniz."
-
-},
-"otp": {
-  "title": "Telefon Numarası Doğrulama",
-  "enter_code": "Gönderilen altı haneli kodu giriniz",
-  "checking": "Kontrol ediliyor...",
-  "confirm": "Kodu Doğrula",
-  "time_left": "⏱ Kalan süre:",
-  "expired": "⏱ Süre doldu",
-  "seconds": "saniye",
-  "resend": "Kodu tekrar gönder",
-  "invalid_code": "Girilen kod yanlış.",
-  "enter_6_digits": "Lütfen 6 haneli bir kod giriniz."
-},
-"user_register": {
-  "title": "Yeni Hesap Oluştur",
-  "full_name": "Ad / Soyad:",
-  "full_name_placeholder": "Adınızı ve soyadınızı girin",
-  "district": "İlçe:",
-  "province": "İl:",
-  "province_placeholder": "Seçiniz",
-  "address": "Adres:",
-  "address_placeholder": "Kısa adres",
-  "submit_button": "Kaydet",
-  "fill_all_fields": "Lütfen tüm alanları doldurun.",
-  "registration_failed": "Kayıt başarısız oldu.",
-  "registration_successful": "Kayıt başarılı oldu."
-},
-"onboardingItem": {
-  "title": "Online Pazara Hoş Geldiniz",
-  "description": "Kolayca alışveriş yapabilir, satış yapabilir ve ihtiyaçlarınızı bulabilirsiniz.",
-  "details": "Ürün ve hizmetlere kolayca ulaşın, satıcılarla hızlı ve güvenli şekilde iletişim kurun; favori ürünlerinizi kaydedip daha sonra kolayca bulun ve ilgi alanlarınıza göre size özel önerilerle alışveriş deneyiminizi kişiselleştirin.",
-  "button_text": "Başla →",
-  "sikip": "Geç →"
-},
-"info": {
-  "error": "Hata",
-  "repeat": "Lütfen tekrar deneyin.",
-  "submit": "Gönderildi.",
-  "warning": "Uyarı",
-  "loading": "Yükleniyor...",
-  "success": "başarılı oldu",
-  "no_data": "Kayıt bulunamadı",
-  "view_all": "Tümünü Gör"
-},
-"wallet": {
-  "title": "Cüzdanım",
-  "gold_unit": "Altın",
-  "history": "Hareketler",
-  "send": "Altın Gönder"
-},
-"profileMenu": {
-  "goToShop": "Dükkana Git",
-  "shopStats": "Mağaza İstatistikleri",
-  "favorites": "Favorilerim",
-  "myListings": "İlanlarım",
-  "myOrders": "Siparişlerim",
-  "settings": "Ayarlar",
-  "help": "Yardım",
-  "logout": "Çıkış Yap"
-},
-"bottomTabs": {
-  "home": "Anasayfa",
-  "market": "Pazar",
-  "messages": "Mesajlar",
-  "profile": "Profil"
-},
-"sendGold": {
-  "title": "Altın Gönder",
-  "method_qr": "QR Kod",
-  "method_phone": "Telefon",
-  "qr_title": "QR ile Gönder",
-  "qr_scan": "QR Kodunu Tara",
-  "phone_title": "Telefon numarası ile Altın Gönder",
-  "check_account": "Hesabı Kontrol Et" ,
-  "amount_label": "Miktar:",
-  "amount_placeholder": "Altın miktarı",
-  "description_label": "Açıklama:",
-  "description_placeholder": "Açıklama girin",
-  "send_button": "Altın Gönder",
-  "success_message": "Altın başarıyla gönderildi.",
-  "fail_message": "Altın gönderme işlemi başarısız oldu."
-},
-"transactions": {
+    "empty": "Bu alan boş bırakılamaz.",
+    "minLength": "En az 15 karakter girmelisiniz."
+  },
+  "otp": {
+    "title": "Telefon Numarası Doğrulama",
+    "enter_code": "Gönderilen altı haneli kodu giriniz",
+    "checking": "Kontrol ediliyor...",
+    "confirm": "Kodu Doğrula",
+    "time_left": "⏱ Kalan süre:",
+    "expired": "⏱ Süre doldu",
+    "seconds": "saniye",
+    "resend": "Kodu tekrar gönder",
+    "invalid_code": "Girilen kod yanlış.",
+    "enter_6_digits": "Lütfen 6 haneli bir kod giriniz."
+  },
+  "user_register": {
+    "title": "Yeni Hesap Oluştur",
+    "full_name": "Ad / Soyad:",
+    "full_name_placeholder": "Adınızı ve soyadınızı girin",
+    "district": "İlçe:",
+    "province": "İl:",
+    "province_placeholder": "Seçiniz",
+    "address": "Adres:",
+    "address_placeholder": "Kısa adres",
+    "submit_button": "Kaydet",
+    "fill_all_fields": "Lütfen tüm alanları doldurun.",
+    "registration_failed": "Kayıt başarısız oldu.",
+    "registration_successful": "Kayıt başarılı oldu."
+  },
+  "onboardingItem": {
+    "title": "Online Pazara Hoş Geldiniz",
+    "description": "Kolayca alışveriş yapabilir, satış yapabilir ve ihtiyaçlarınızı bulabilirsiniz.",
+    "details": "Ürün ve hizmetlere kolayca ulaşın, satıcılarla hızlı ve güvenli şekilde iletişim kurun; favori ürünlerinizi kaydedip daha sonra kolayca bulun ve ilgi alanlarınıza göre size özel önerilerle alışveriş deneyiminizi kişiselleştirin.",
+    "button_text": "Başla →",
+    "sikip": "Geç →"
+  },
+  "info": {
+    "error": "Hata",
+    "repeat": "Lütfen tekrar deneyin.",
+    "submit": "Gönderildi.",
+    "warning": "Uyarı",
+    "loading": "Yükleniyor...",
+    "success": "başarılı oldu",
+    "no_data": "Kayıt bulunamadı",
+    "view_all": "Tümünü Gör"
+  },
+  "wallet": {
+    "title": "Cüzdanım",
+    "gold_unit": "Altın",
+    "history": "Hareketler",
+    "send": "Altın Gönder"
+  },
+  "profileMenu": {
+    "goToShop": "Dükkana Git",
+    "shopStats": "Mağaza İstatistikleri",
+    "favorites": "Favorilerim",
+    "myListings": "İlanlarım",
+    "myOrders": "Siparişlerim",
+    "settings": "Ayarlar",
+    "help": "Yardım",
+    "logout": "Çıkış Yap"
+  },
+  "bottomTabs": {
+    "home": "Anasayfa",
+    "market": "Pazar",
+    "messages": "Mesajlar",
+    "profile": "Profil"
+  },
+  "sendGold": {
+    "title": "Altın Gönder",
+    "method_qr": "QR Kod",
+    "method_phone": "Telefon",
+    "qr_title": "QR ile Gönder",
+    "qr_scan": "QR Kodunu Tara",
+    "phone_title": "Telefon numarası ile Altın Gönder",
+    "check_account": "Hesabı Kontrol Et",
+    "amount_label": "Miktar:",
+    "amount_placeholder": "Altın miktarı",
+    "description_label": "Açıklama:",
+    "description_placeholder": "Açıklama girin",
+    "send_button": "Altın Gönder",
+    "success_message": "Altın başarıyla gönderildi.",
+    "fail_message": "Altın gönderme işlemi başarısız oldu."
+  },
+  "transactions": {
     "sent_to": "{{name}}'e {{amount}} {{gold}} gönderdin",
     "received_from": "{{name}} sana {{amount}} {{gold}} gönderdi",
     "system_transaction": "Sistem işlemi",
     "title": "Geçmiş işlemler",
     "seeAll": "Tümünü Gör",
     "nothingFound": "veri bulunamadı"
-},
+  },
   "shop_register": {
     "name": "Dükkan Adı",
     "name_placeholder": "Dükkan adınızı girin",
@@ -174,7 +170,7 @@
     "Followers": "Takipçiler",
     "Rating": "Puan",
     "viewOnMap": "Haritada görüntüle",
-    
+
     "blockSuccess": "Dükkan başarıyla engellendi.",
     "reportSuccess": "Dükkan başarıyla şikayet edildi.",
     "unfollowSuccess": "Takipten çıkıldı.",
@@ -204,7 +200,60 @@
     "no_shops": "Mağaza bulunamadı.",
     "loading_error": "Dükkanlar yüklenemedi.",
     "search_placeholder": "Mağaza ara..."
+  },
+  "shopDashboard": {
+    "comments": "Yorumlar",
+    "followers": "Takipçiler",
+    "ratings": "Puanlar"
+  },
+  "comment": {
+    "view_profile": "Profili gör",
+    "reply": "Yanıt yaz",
+    "report": "Şikayet et",
+    "copy": "Kopyala",
+    "hide": "Yorumu gizle",
+    "delete": "Yorumu sil",
+    "edit": "Düzenle",
+    "block_user": "Kullanıcıyı engelle"
+  },
+  "shop": {
+    "comments": "Yorumlar",
+    "no_comments": "Henüz yorum yok",
+    "write_a_comment": "Yorum yaz...",
+    "comment_placeholder": "Yorumunuzu buraya yazın...",
+    "reply_placeholder": "Yanıtınızı buraya yazın...",
+    "write_comment_title": "Yorum Yaz",
+    "reply_title": "Yanıt Yaz",
+    "write_comment_desc": "{{shopName}} için yorum yap",
+    "replying_to": "kullanıcısına yanıt",
+    "write_reply_desc": "{{username}} kullanıcısına yanıt yaz",
+    "view_more_replies": "{{count}} yanıtı daha göster...",
+    "edit_title": "Yorumu Düzenle",
+    "edit_reply_title": "Yanıtı Düzenle",
+    "edit_description": "Yorumunuzu güncelleyin",
+    "edit_reply_description": "Yanıtınızı güncelleyin",
+    "edit_placeholder": "Düzenlenmiş metni buraya girin...",
+    "edit_reply_placeholder": "Düzenlenmiş yanıtı buraya girin..."
+  },
+  "shop_comment": {
+    "user_reported": "Kullanıcı başarıyla rapor edildi.",
+    "comment_copied": "Yorum kopyalandı.",
+    "delete_comment_title": "Yorumu Sil",
+    "delete_reply_title": "Yanıtı Sil",
+    "delete_comment_message": "Bu yorumu silmek istediğinize emin misiniz?",
+    "delete_reply_message": "Bu yanıtı silmek istediğinize emin misiniz?",
+    "hide_comment_title": "Yorumu Gizle",
+    "hide_reply_title": "Yanıtı Gizle",
+    "hide_comment_message": "Bu yorumu gizlemek istediğinize emin misiniz?",
+    "hide_reply_message": "Bu yanıtı gizlemek istediğinize emin misiniz?",
+    "submit_delete": "Sil",
+    "cancel": "Vazgeç",
+    "error_title": "Hata",
+    "error_message": "İşlem sırasında bir hata oluştu.",
+    "block_comment_author_title": "Yorum Sahibini Engelle",
+    "block_reply_author_title": "Yanıt Sahibini Engelle",
+    "block_comment_author_message": "{{name}} adlı yorumu yazan kullanıcıyı engellemek istediğinize emin misiniz?",
+    "block_reply_author_message": "{{name}} adlı yanıtı yazan kullanıcıyı engellemek istediğinize emin misiniz?",
+    "block_submit": "Engelle"
   }
-
-
 }

@@ -1,21 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, ActivityIndicator, Image, TouchableOpacity } from 'react-native';
-import { useRoute } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
+import {
+  View,
+  Text,
+  ActivityIndicator,
+  Image,
+  Alert,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+  FlatList,
+} from 'react-native';
+import { useRoute, useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 import { getShopById } from '../services/get/getShopById';
+import { followShop } from '../services/blockShop';
+import { unfollowShop } from '../services/unfollowShop';
 import getLanguageCode from '../../../shared/services/getLanguageCode';
 
+import ShopCardStats from '../components/ShopCard/ShopCardStats';
+import ShopDetail from '../components/ShopCard/ShopDetail';
+import ShopDashboardMenu from '../components/ShopDashboardMenu';
+import FollowButton from '../../../shared/components/buttons/FollowButton';
+import MessageButton from '../../../shared/components/buttons/MessageButton';
+import ShopStatsModal from '../modals/ShopStatsModal';
+
+import CustomTheme from '../../../shared/styles/CustomThems';
 
 const ShopDashboard = () => {
   const route = useRoute();
+  const navigation = useNavigation();
   const { shopId } = route.params;
 
   const [shop, setShop] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showStatsModal, setShowStatsModal] = useState(false);
 
   const userId = useSelector((state) => state.user?.id);
   const languageId = useSelector((state) => state.user?.languageId);
   const languageCode = getLanguageCode(languageId);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const loadShop = async () => {
@@ -24,105 +49,204 @@ const ShopDashboard = () => {
       setShop(result);
       setLoading(false);
     };
-
     loadShop();
   }, [shopId]);
 
+  const handleFollow = async () => {
+    if (!userId) return Alert.alert(t('shop.login_required'));
+    try {
+      await followShop(shopId, userId);
+      setShop({
+        ...shop,
+        isSubscribed: true,
+        subscriberCount: (shop.subscriberCount || 0) + 1,
+      });
+      Alert.alert(t('shop.follow_success'));
+    } catch {
+      Alert.alert(t('shop.follow_error'));
+    }
+  };
+
+  const handleUnfollow = async () => {
+    if (!userId) return Alert.alert(t('shop.login_required'));
+    try {
+      await unfollowShop(shopId, userId);
+      setShop({
+        ...shop,
+        isSubscribed: false,
+        subscriberCount: (shop.subscriberCount || 1) - 1,
+      });
+      Alert.alert(t('shop.unfollow_success'));
+    } catch {
+      Alert.alert(t('shop.unfollow_error'));
+    }
+  };
+
+  const handleMessage = () => {
+    if (!userId) return Alert.alert(t('shop.login_required'));
+    navigation.navigate('ChatScreen', { shopId, shopName: shop.name });
+  };
+
   if (loading) return <ActivityIndicator size="large" style={{ marginTop: 50 }} />;
+
   if (!shop) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Mağaza bulunamadı.</Text>
+      <View style={styles.centered}>
+        <Text>{t('shop.not_found')}</Text>
       </View>
     );
   }
 
-  return (
-    <ScrollView style={{ flex: 1 }}>
-      <ShopHeader shop={shop} />
-      <ShopStats shop={shop} />
-      <ShopActions shop={shop} />
-      <ShopAddress address={shop.address} />
-    </ScrollView>
-  );
-};
+  const ListHeader = () => (
+    <>
+      {shop.cover ? (
+        <Image source={{ uri: shop.cover }} style={styles.coverImage} />
+      ) : (
+        <View style={[styles.coverImage, styles.coverPlaceholder]}>
+          <Text style={styles.placeholderText}>{t('shop.no_cover')}</Text>
+        </View>
+      )}
 
-// ------------------- Alt Bileşenler -------------------
-
-const ShopHeader = ({ shop }) => (
-  <View>
-    {shop.cover && (
-      <Image source={{ uri: shop.cover }} style={{ width: '100%', height: 180 }} resizeMode="cover" />
-    )}
-    <View style={{ flexDirection: 'row', padding: 16 }}>
-      <Image source={{ uri: shop.logo }} style={{ width: 80, height: 80, borderRadius: 40 }} />
-      <View style={{ marginLeft: 16, justifyContent: 'center' }}>
-        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{shop.name}</Text>
-        <Text style={{ fontSize: 14, color: 'gray' }}>{shop.category}</Text>
+      <View style={styles.topSection}>
+        <Image source={{ uri: shop.logo }} style={styles.logoImage} />
+        <View style={styles.infoSection}>
+          <Text style={styles.shopName}>{shop.name}</Text>
+          <Text style={styles.shopCategory}>{shop.category}</Text>
+        </View>
+        <View style={styles.menuWrapper}>
+          <ShopDashboardMenu
+            isSubscriber={shop.isSubscribed}
+            onSelectOption={(key) => {
+              if (key === 'follow') shop.isSubscribed ? handleUnfollow() : handleFollow();
+              if (key === 'message') handleMessage();
+              if (['comment', 'rate', 'share', 'report', 'block'].includes(key))
+                Alert.alert(t(`shopCard.${key}`));
+            }}
+          />
+        </View>
       </View>
-    </View>
-    <Text style={{ paddingHorizontal: 16, fontSize: 14, marginBottom: 8 }}>{shop.description}</Text>
-  </View>
-);
 
-const ShopStats = ({ shop }) => (
-  <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 10 }}>
-    <StatBox label="Puan" value={shop.rating} />
-    <StatBox label="Takipçi" value={shop.subscriberCount} />
-    <StatBox label="Yorum" value={shop.commentCount} />
-  </View>
-);
+      <View style={styles.actionRow}>
+        <View style={styles.buttonWrapper}>
+          <FollowButton isFollowing={shop.isSubscribed} onPress={shop.isSubscribed ? handleUnfollow : handleFollow} />
+        </View>
+        <View style={styles.buttonWrapperLast}>
+          <MessageButton onPress={handleMessage} />
+        </View>
+      </View>
 
-const StatBox = ({ label, value }) => (
-  <View style={{ alignItems: 'center' }}>
-    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{value}</Text>
-    <Text style={{ fontSize: 12, color: 'gray' }}>{label}</Text>
-  </View>
-);
+      <View style={styles.card}>
+        <TouchableOpacity onPress={() => setShowStatsModal(true)}>
+          <ShopCardStats shop={shop} t={t} />
+        </TouchableOpacity>
+      </View>
 
-const ShopActions = ({ shop }) => {
-  const [subscribed, setSubscribed] = useState(shop.isSubscribed);
+      <View style={styles.card}>
+        <ShopDetail shop={shop} t={t} />
+      </View>
 
-  const handleSubscribe = () => {
-    // TODO: API çağrısı ile takip işlemi yapılabilir
-    setSubscribed(!subscribed);
-  };
+    </>
+  );
 
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-around', paddingVertical: 16 }}>
-      <TouchableOpacity style={buttonStyle} onPress={handleSubscribe}>
-        <Text style={buttonText}>{subscribed ? 'Takiptesin' : 'Takip Et'}</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={buttonStyle}>
-        <Text style={buttonText}>Yorum Yaz</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={buttonStyle}>
-        <Text style={buttonText}>Haritada Gör</Text>
-      </TouchableOpacity>
+    <View style={styles.container}>
+      <FlatList data={[]} keyExtractor={() => 'dummy'} ListHeaderComponent={<ListHeader />} />
+      <ShopStatsModal
+        visible={showStatsModal}
+        onClose={() => setShowStatsModal(false)}
+        shopId={shopId}
+        t={t}
+        isOwner={!!shop?.user_id && shop.user_id === userId}
+        isSubscribed={shop.isSubscribed}
+        shopName={shop.name}
+      />
     </View>
   );
 };
 
-const ShopAddress = ({ address }) => (
-  <View style={{ padding: 16 }}>
-    <Text style={{ fontWeight: 'bold' }}>Adres:</Text>
-    <Text>{address?.line}</Text>
-    <Text>{`${address?.districtName}, ${address?.provinceName}`}</Text>
-  </View>
-);
-
-// ------------------- Stil Tanımları -------------------
-
-const buttonStyle = {
-  backgroundColor: '#007AFF',
-  paddingHorizontal: 16,
-  paddingVertical: 8,
-  borderRadius: 8,
-};
-
-const buttonText = {
-  color: 'white',
-  fontWeight: 'bold',
-};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: CustomTheme.colors.white,
+  },
+  coverImage: {
+    width: '100%',
+    height: 150,
+  },
+  coverPlaceholder: {
+    backgroundColor: CustomTheme.colors.lightGray,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  placeholderText: {
+    color: CustomTheme.colors.darkGray,
+    fontSize: 13,
+  },
+  topSection: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    paddingHorizontal: 16,
+    marginTop: -30,
+  },
+  logoImage: {
+    width: 90,
+    height: 90,
+    borderRadius: 16,
+    borderWidth: 3,
+    borderColor: CustomTheme.colors.white,
+    backgroundColor: CustomTheme.colors.lightGray,
+  },
+  infoSection: {
+    flex: 1,
+    marginLeft: 12,
+    justifyContent: 'center',
+    marginTop: 40,
+  },
+  shopName: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: CustomTheme.colors.primary,
+  },
+  shopCategory: {
+    fontSize: 14,
+    color: CustomTheme.colors.darkGray,
+    marginTop: 2,
+  },
+  menuWrapper: {
+    paddingTop: 48,
+  },
+  actionRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    marginVertical: 16,
+  },
+  buttonWrapper: {
+    flex: 1,
+    marginRight: 8,
+  },
+  buttonWrapperLast: {
+    flex: 1,
+    marginRight: 0,
+  },
+  card: {
+    backgroundColor: CustomTheme.colors.white,
+    padding: 16,
+    marginHorizontal: 16,
+    marginBottom: 16,
+    borderRadius: 12,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    elevation: 2,
+  },
+  centered: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default ShopDashboard;

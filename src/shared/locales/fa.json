@@ -1,55 +1,54 @@
 {
-"form": {
-  "phoneSubmit":"گرفتن کد تأیید",
-  "send": "ارسال",
-  "cancel": "لغو",
-  "next": "بعدی",
-  "back": "قبلی",
-  "upload": "آپلود عکس",
-  "search": "جستجو",
-  "ok": "تأیید",
-  "continue": "ادامه"
-},
-"fields": {
-  "phone": "شماره تماس:"  
-},
-"messages": {
-  "success": "موفقانه ثبت گردید.",
-  "error": "اشتباه رخ داد.",
-  "warning": "هشدار",
-  "loading": "در حال انتظار...",
-  "tryAgainMessage": "خطایی رخ داد. لطفاً دوباره تلاش کنید.",
-  "successMessage": "آلتین با موفقیت ارسال شد.",
-  "errorMessage": "ارسال آلتین ناموفق بود."
-},
-"info":{
-"submit": "ثبت گردید.",
-"warning": "اشتباه رخ داد.",
-"repeat": "تکرار کوشش کنید.",
-"error": "خطأ",
-"loading": "در حال بارگذاری...",
-"success": "موفق شد",
-"no_data": "هیچ سابقه‌ای یافت نشد",
-"view_all": "مشاهده همه"
-},
-"login": {
-"welcome": "به بازار آنلاین خوش آمدید",
-"enter_phone": "لطفا شماره تماس خود را وارد کنید",
-"have_account": "حساب ندارید؟ ثبت نام کنید",
-"terms": "با ادامه دادن، شما موافقت خود را با",
-"terms_link": "شرایط استفاده",
-"privacy_link": "سیاست حفظ حریم خصوصی",
-"accepted": "اعلام میکنید.",
-"and": "و"
-
-},
-"validation": {
+  "form": {
+    "phoneSubmit": "گرفتن کد تأیید",
+    "send": "ارسال",
+    "cancel": "لغو",
+    "next": "بعدی",
+    "back": "قبلی",
+    "upload": "آپلود عکس",
+    "search": "جستجو",
+    "ok": "تأیید",
+    "continue": "ادامه"
+  },
+  "fields": {
+    "phone": "شماره تماس:"
+  },
+  "messages": {
+    "success": "موفقانه ثبت گردید.",
+    "error": "اشتباه رخ داد.",
+    "warning": "هشدار",
+    "loading": "در حال انتظار...",
+    "tryAgainMessage": "خطایی رخ داد. لطفاً دوباره تلاش کنید.",
+    "successMessage": "آلتین با موفقیت ارسال شد.",
+    "errorMessage": "ارسال آلتین ناموفق بود."
+  },
+  "info": {
+    "submit": "ثبت گردید.",
+    "warning": "اشتباه رخ داد.",
+    "repeat": "تکرار کوشش کنید.",
+    "error": "خطأ",
+    "loading": "در حال بارگذاری...",
+    "success": "موفق شد",
+    "no_data": "هیچ سابقه‌ای یافت نشد",
+    "view_all": "مشاهده همه"
+  },
+  "login": {
+    "welcome": "به بازار آنلاین خوش آمدید",
+    "enter_phone": "لطفا شماره تماس خود را وارد کنید",
+    "have_account": "حساب ندارید؟ ثبت نام کنید",
+    "terms": "با ادامه دادن، شما موافقت خود را با",
+    "terms_link": "شرایط استفاده",
+    "privacy_link": "سیاست حفظ حریم خصوصی",
+    "accepted": "اعلام میکنید.",
+    "and": "و"
+  },
+  "validation": {
     "required": "این فیلد ضروری است.",
     "email": "لطفاً یک ایمیل معتبر وارد کنید.",
     "phone": "شماره معتبر وارد کنید.",
     "numeric": "فقط عدد مجاز است.",
     "invalid_format": "فرمت نادرست است.",
-    "invalid_phone": "لطفا یک شماره معتبر ۹ رقمی وارد کنید.",        
+    "invalid_phone": "لطفا یک شماره معتبر ۹ رقمی وارد کنید.",
     "name_short": "نام باید حداقل ۳ حرف باشد.",
     "province": "لطفا ولایت را انتخاب کنید.",
     "district": "لطفا ولسوالی را انتخاب کنید.",
@@ -66,17 +65,16 @@
     "description_required": "توضیحات نباید خالی باشد.",
     "description_short": "توضیحات باید حداقل ۵ حرف باشد.",
 
-    
     "name_short_shop": "نام فروشگاه باید حداقل ۳ حرف باشد.",
     "category_required": "لطفاً یک بسته را انتخاب کنید.",
-    
+
     "location_required": "اطلاعات موقعیت باید انتخاب شود.",
     "address_required": "لطفاً آدرس را وارد کنید.",
-    
+
     "empty": "این بخش نمی‌ تواند خالی باشد.",
     "minLength": "حداقل باید ۱۵ حرف نوشته کنید."
-},
-"otp": {
+  },
+  "otp": {
     "title": "تأیید شماره تماس",
     "enter_code": "کد شش‌ رقمی ارسال‌شده را وارد کنید",
     "checking": "در حال بررسی...",
@@ -87,51 +85,51 @@
     "resend": "ارسال مجدد کد",
     "invalid_code": "کد وارد شده اشتباه است.",
     "enter_6_digits": "لطفاً یک کد ۶ رقمی وارد کنید."
-},
-"user_register": {
-"title": "ایجاد حساب جدید",
-"full_name": "اسم / وتخلص:",
-"full_name_placeholder": "اسم و تخلص",
-"district": "ولسوالی:",
-"province": "ولایت:",
-"province_placeholder": "انتخاب کنید",
-"address": "آدرس:",
-"address_placeholder": "آدرس کوتا",
-"submit_button": "ثبت کنید",        
-"fill_all_fields": "لطفا تمام فیلدها را پر کنید.",
-"registration_failed": "ثبت نام موفق نبود.",
-"registration_successful": "ثبت نام موفقانه انجام شد."
-},
-"onboardingItem": {
-"title": "به بازار آنلاین خوش آمدید",
-"description": "شما می‌ توانید به‌ سادگی خرید و فروش کنید و نیازهای خود را پیدا کنید.",
-"details": "به محصولات و خدمات به‌سادگی دسترسی پیدا کنید، با فروشندگان به‌صورت سریع و امن ارتباط بگیرید؛ محصولات مورد علاقه‌تان را ذخیره کرده و بعداً به‌آسانی پیدا کنید، و با پیشنهادهای ویژه مطابق علاقه‌مندی‌های خود، تجربه خریدتان را شخصی‌سازی کنید.",
-"button_text": "شروع →",
-"sikip": "رد کردن →"
-},
-"wallet": {
-"title": "کیف پول من",
-"gold_unit": "آلتین",
-"history": "گذشته ها",
-"send": "ارسال آلتین"
-},
-"profileMenu": {
-"goToShop": "رفتن به فروشگاه",
-"shopStats": "آمار فروشگاه",
-"favorites": "علاقه‌ مندی‌ها",
-"myListings": "اعلان های",
-"myOrders": "سفارش‌ های",
-"settings": "تنظیمات",
-"help": "راهنما",
-"logout": "خروج"
-},
-"bottomTabs": {
-"home": "خانه",
-"market": "بازار",
-"messages": "پیام‌ها",
-"profile": "پروفایل"
-},
-"sendGold": {
+  },
+  "user_register": {
+    "title": "ایجاد حساب جدید",
+    "full_name": "اسم / وتخلص:",
+    "full_name_placeholder": "اسم و تخلص",
+    "district": "ولسوالی:",
+    "province": "ولایت:",
+    "province_placeholder": "انتخاب کنید",
+    "address": "آدرس:",
+    "address_placeholder": "آدرس کوتا",
+    "submit_button": "ثبت کنید",
+    "fill_all_fields": "لطفا تمام فیلدها را پر کنید.",
+    "registration_failed": "ثبت نام موفق نبود.",
+    "registration_successful": "ثبت نام موفقانه انجام شد."
+  },
+  "onboardingItem": {
+    "title": "به بازار آنلاین خوش آمدید",
+    "description": "شما می‌ توانید به‌ سادگی خرید و فروش کنید و نیازهای خود را پیدا کنید.",
+    "details": "به محصولات و خدمات به‌سادگی دسترسی پیدا کنید، با فروشندگان به‌صورت سریع و امن ارتباط بگیرید؛ محصولات مورد علاقه‌تان را ذخیره کرده و بعداً به‌آسانی پیدا کنید، و با پیشنهادهای ویژه مطابق علاقه‌مندی‌های خود، تجربه خریدتان را شخصی‌سازی کنید.",
+    "button_text": "شروع →",
+    "sikip": "رد کردن →"
+  },
+  "wallet": {
+    "title": "کیف پول من",
+    "gold_unit": "آلتین",
+    "history": "گذشته ها",
+    "send": "ارسال آلتین"
+  },
+  "profileMenu": {
+    "goToShop": "رفتن به فروشگاه",
+    "shopStats": "آمار فروشگاه",
+    "favorites": "علاقه‌ مندی‌ها",
+    "myListings": "اعلان های",
+    "myOrders": "سفارش‌ های",
+    "settings": "تنظیمات",
+    "help": "راهنما",
+    "logout": "خروج"
+  },
+  "bottomTabs": {
+    "home": "خانه",
+    "market": "بازار",
+    "messages": "پیام‌ها",
+    "profile": "پروفایل"
+  },
+  "sendGold": {
     "title": "ارسال آلتین",
     "method_qr": "کد QR",
     "method_phone": "تلفن",
@@ -146,15 +144,15 @@
     "send_button": "ارسال آلتین",
     "success_message": "آلتین با موفقیت ارسال شد.",
     "fail_message": "ارسال آلتین ناموفق بود."
-},
-"transactions": {
+  },
+  "transactions": {
     "sent_to": "{{amount}} {{gold}} برای {{name}} فرستادید",
     "received_from": "{{name}} برای شما {{amount}} {{gold}} فرستاد",
     "system_transaction": "معامله سیستمی",
     "title": "معاملات گذشته",
     "seeAll": "مشاهده همه",
     "nothingFound": "دیتا پیدا نشد"
-},
+  },
   "shop_register": {
     "name": "نام فروشگاه:",
     "name_placeholder": "نام فروشگاه",
@@ -168,10 +166,10 @@
   },
   "shop_cart": {
     "Comment": "نظر",
-    "Followers": "دنبال‌ کنند",
+    "Followers": "دنبال‌ کننده",
     "Rating": "رتبه‌ بندی",
     "viewOnMap": "مشاهده در نقشه",
-    
+
     "blockSuccess": "فروشگاه با موفقیت مسدود شد.",
     "reportSuccess": "فروشگاه با موفقیت گزارش شد.",
     "unfollowSuccess": "لغو دنبال‌کردن انجام شد.",
@@ -201,8 +199,61 @@
     "no_shops": "هیچ فروشگاهی پیدا نشد.",
     "loading_error": "بارگذاری فروشگاه‌ها انجام نشد.",
     "search_placeholder": "جستجوی فروشگاه..."
+  },
+  "shopDashboard": {
+    "comment": "نظر",
+    "followers": "دنبال‌ کنندگان",
+    "rating": "رتبه‌ بندی"
+  },
+
+  "comment": {
+    "view_profile": "مشاهده پروفایل",
+    "reply": "پاسخ دادن",
+    "report": "گزارش",
+    "copy": "کپی",
+    "hide": "مخفی کردن نظر",
+    "delete": "حذف نظر",
+    "edit": "ویرایش",
+    "block_user": "مسدود کردن استفاده کننده"
+  },
+  "shop": {
+    "comments": "نظرات",
+    "no_comments": "هنوز نظری ثبت نشده است",
+    "write_a_comment": "نظر بنویسید...",
+    "comment_placeholder": "نظر خود را اینجا بنویسید...",
+    "reply_placeholder": "پاسخ خود را اینجا بنویسید...",
+    "write_comment_title": "نوشتن نظر",
+    "reply_title": "پاسخ دادن",
+    "write_comment_desc": "برای {{shopName}} نظر بنویسید",
+    "replying_to": "در پاسخ به",
+    "write_reply_desc": "در حال پاسخ به {{username}}",
+    "view_more_replies": "نمایش {{count}} پاسخ دیگر...",
+    "edit_title": "ویرایش نظر",
+    "edit_reply_title": "ویرایش پاسخ",
+    "edit_description": "نظر خود را ویرایش کنید",
+    "edit_reply_description": "پاسخ خود را ویرایش کنید",
+    "edit_placeholder": "متن ویرایش شده را اینجا بنویسید...",
+    "edit_reply_placeholder": "پاسخ ویرایش شده را اینجا بنویسید..."
+  },
+  "shop_comment": {
+    "user_reported": "استفاده کننده با موفقیت گزارش شد.",
+    "comment_copied": "نظر کپی شد.",
+    "delete_comment_title": "حذف نظر",
+    "delete_reply_title": "حذف پاسخ",
+    "delete_comment_message": "آیا مطمئن هستید که می‌خواهید این نظر را حذف کنید؟",
+    "delete_reply_message": "آیا مطمئن هستید که می‌خواهید این پاسخ را حذف کنید؟",
+    "hide_comment_title": "مخفی کردن نظر",
+    "hide_reply_title": "مخفی کردن پاسخ",
+    "hide_comment_message": "آیا مطمئن هستید که می‌خواهید این نظر را مخفی کنید؟",
+    "hide_reply_message": "آیا مطمئن هستید که می‌خواهید این پاسخ را مخفی کنید؟",
+    "submit_delete": "حذف",
+    "cancel": "لغو",
+    "error_title": "خطا",
+    "error_message": "در حین عملیات خطایی رخ داد.",
+    "block_comment_author_title": "مسدود کردن نویسنده نظر",
+    "block_reply_author_title": "مسدود کردن نویسنده پاسخ",
+    "block_comment_author_message": "می‌خواهید کاربر {{name}} که نظر را نوشته مسدود کنید؟",
+    "block_reply_author_message": "می‌خواهید کاربر {{name}} که پاسخ را نوشته مسدود کنید؟",
+    "block_submit": "مسدود کن"
   }
-
-
-
 }

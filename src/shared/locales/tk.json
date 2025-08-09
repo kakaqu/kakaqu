@@ -54,7 +54,6 @@
     "description_required": "آچقلاما بوش بولماز.",
     "description_short": "آچقلاما ۵ حرف‌ دن آز بولماز.",
 
-    
     "name_short_shop": "دوكان آدی اینگ آزیندان ۳ حرف بولمالی.",
     "category_required": "لطفاً بیر بولوم ساییلانگ.",
     "location_required": "دوکانینگ یرلشیان یرینلی بللی بولسین .",
@@ -144,50 +143,50 @@
     "success_message": "آلتین باشاری لی گؤندرلدی.",
     "fail_message": "آلتین گؤندرمه‌ده خاتالیق بولدی."
   },
-"transactions": {
-  "sent_to": "{{name}} {{amount}} {{gold}} ایبردینگ",
-  "received_from": "{{name}} سنگه {{amount}} {{gold}} ایبردی",
-  "system_transaction": "سیستم معامله سی",
-  "title": "گچن معامله لر",
-  "seeAll": "همه سینی گؤر",
-  "nothingFound": "هیچ ذات تابلمادی"
-},
-"shop_register": {
-  "category": "بولوم لر:",
-  "name": "دوكانینگ آدی:",
-  "name_placeholder": "دوكان آدینگی یزینگ",
-  "shop_mobile": "دوکان تلفون نمبری:",
-  "choose_location": "نقشه‌دن جای‌ ساییلانگ",
-  "registration_successful": "دوكان باشارلی ثبت بولدی.",
-  "step1_description": "دوكان معلوماتلرینگر گیرنگ، مشتری لرینگ سیزی تانیماسی و تاپیب بلماسی اچین.",
-  "avatar_hint": "دوكان لوگوتىپى قوشۇڭ، مشتېرىلەر سىزى آسان تاناسىن.",
-  "step2_description": "مشتری لارینگ سیزی انگ  ساد تپماسی اچین بر بولوم و آدرس بولمالی."
-},
-"shop_cart": {
-  "Comment": "دوشنجه لر",
-  "Followers": "ایزلیون لر",
-  "Rating": "درجه لمه",
-  "viewOnMap": "نقشه‌ دان گؤر",
-  
-  "blockSuccess": "دوکان باشارلی بر شکلنده غید ادلدی.",
-  "reportSuccess": "دوکان باشارلی بر شکلنده حبر برلدی.",
-  "unfollowSuccess": "دوکانی ایزلیما دان چقدینگ.",
-  "followSuccess": "دوکان ایزلیما الندی.",
-  "error": "ینگلیش لیق اوتا گلدی ینه دان دنگه."
-},
-"shop_reason_modal": {
-  "blockQuestion": "دوکانی غیداتماک استیورسنگز می?",
-  "reportQuestion": "بو دوکان حبر برمگ استیورسنگز می?",
-  "blockLabel": "غیداتماک سببی:",
-  "reportLabel": "خبر برمگ سببی:",
-  "blockPlaceholder": "غیداتماک سببی یازینیگ...",
-  "reportPlaceholder": "حبر برمگ سببی نی یازینیگ...",
-  "cancelButton": "ایزه غیتر",
-  "confirmButton": "قبول ات"
-},
+  "transactions": {
+    "sent_to": "{{name}} {{amount}} {{gold}} ایبردینگ",
+    "received_from": "{{name}} سنگه {{amount}} {{gold}} ایبردی",
+    "system_transaction": "سیستم معامله سی",
+    "title": "گچن معامله لر",
+    "seeAll": "همه سینی گؤر",
+    "nothingFound": "هیچ ذات تابلمادی"
+  },
+  "shop_register": {
+    "category": "بولوم لر:",
+    "name": "دوكانینگ آدی:",
+    "name_placeholder": "دوكان آدینگی یزینگ",
+    "shop_mobile": "دوکان تلفون نمبری:",
+    "choose_location": "نقشه‌دن جای‌ ساییلانگ",
+    "registration_successful": "دوكان باشارلی ثبت بولدی.",
+    "step1_description": "دوكان معلوماتلرینگر گیرنگ، مشتری لرینگ سیزی تانیماسی و تاپیب بلماسی اچین.",
+    "avatar_hint": "دوكان لوگوتىپى قوشۇڭ، مشتېرىلەر سىزى آسان تاناسىن.",
+    "step2_description": "مشتری لارینگ سیزی انگ  ساد تپماسی اچین بر بولوم و آدرس بولمالی."
+  },
+  "shop_cart": {
+    "Comment": "دوشنجه لر",
+    "Followers": "ایزلیون لر",
+    "Rating": "درجه لمه",
+    "viewOnMap": "نقشه‌ دان گؤر",
+
+    "blockSuccess": "دوکان باشارلی بر شکلنده غید ادلدی.",
+    "reportSuccess": "دوکان باشارلی بر شکلنده حبر برلدی.",
+    "unfollowSuccess": "دوکانی ایزلیما دان چقدینگ.",
+    "followSuccess": "دوکان ایزلیما الندی.",
+    "error": "ینگلیش لیق اوتا گلدی ینه دان دنگه."
+  },
+  "shop_reason_modal": {
+    "blockQuestion": "دوکانی غیداتماک استیورسنگز می?",
+    "reportQuestion": "بو دوکان حبر برمگ استیورسنگز می?",
+    "blockLabel": "غیداتماک سببی:",
+    "reportLabel": "خبر برمگ سببی:",
+    "blockPlaceholder": "غیداتماک سببی یازینیگ...",
+    "reportPlaceholder": "حبر برمگ سببی نی یازینیگ...",
+    "cancelButton": "ایزه غیتر",
+    "confirmButton": "قبول ات"
+  },
   "shop_options": {
     "viewProfile": "پروفایل گور",
-    "follow": "ایزلیما بشلا",  
+    "follow": "ایزلیما بشلا",
     "following": "ایزلنیور",
     "share": "پیلاش",
     "report": "شکایت ات",
@@ -198,5 +197,57 @@
     "no_shops": "دوکان تاپیلمادی",
     "loading_error": "دوکان لر گلمادی",
     "search_placeholder": "دوکان گوزله..."
+  },
+  "comment": {
+    "view_profile": "پروفایل گور",
+    "reply": "جواب یاز",
+    "report": "شکایت ات",
+    "copy": "نۆسخه ال",
+    "hide": "گزله",
+    "delete": "غلدر",
+    "edit": "دوزلت",
+    "block_user": "کولانیجی غیدات"
+  },
+  "shop": {
+    "comments": "دوشنجه لر",
+    "no_comments": "دوشنجه لر یوْق",
+    "write_a_comment": "دوشنجه یزینگ...",
+    "comment_placeholder": "دوشنجه لارینگزی یازینیگ...",
+    "reply_placeholder": "جوابی شویره یازینیگ...",
+    "write_comment_title": "دوشنجه یزینگ",
+    "reply_title": "جواب یزینگ",
+    "write_comment_desc": "{{shopName}} اوچین دوشنجه یزینگ",
+    "replying_to": "جوابی نی یزینگ",
+    "write_reply_desc": "{{username}} جوابی نی یازینیگ",
+    "view_more_replies": "ینه دا {{count}} جوابی گورکز...",
+    "edit_title": "دوشنجه دوزلت",
+    "edit_reply_title": "جوابی دوزلت",
+
+    "edit_description": "دوشنجه تازه دان یاز.",
+    "edit_reply_description": "جوابی تازه دان یاز.",
+
+    "edit_placeholder": "بویرا یازینیگ...",
+    "edit_reply_placeholder": "بویرا یازینیگ..."
+  },
+  "shop_comment": {
+    "user_reported": "کولانیجی باشارلی بر شکلنده راپور ادلدی.",
+    "comment_copied": "دوشنجه کوپیالاندی.",
+    "delete_comment_title": "دوشنجه اوچر",
+    "delete_reply_title": "جوابی اوچر",
+    "delete_comment_message": "بو دوشنجه اوچرماک استیورسنگز می؟",
+    "delete_reply_message": "بو جوابی اوچرماک استیورسنگز می؟",
+    "hide_comment_title": "دوشنجه گیزله",
+    "hide_reply_title": "جوابی گیزله",
+    "hide_comment_message": "بو دوشنجه گیزله مک استیورسنگز می؟",
+    "hide_reply_message": "بو جوابی گیزله مک استیورسنگز می؟",
+    "submit_delete": "اوچر",
+    "cancel": "ایزه غیتر",
+    "error_title": "حطاء",
+    "error_message": "ایشلیون پلان بر حطاء اوتا گلدی",
+    "block_comment_author_title": "دوشنجه ایسینی غیدات",
+    "block_reply_author_title": "جواب ایسینی غیدات",
+    "block_comment_author_message": "{{name}} کولانیجی نی غیدات ائت‌مک استیورسنگز می؟?",
+    "block_reply_author_message": "{{name}} کولانیجی نی غیدات ائت‌مک استیورسنگز می؟",
+    "block_submit": "غیدات"
   }
 }

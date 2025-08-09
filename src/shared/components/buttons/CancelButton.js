@@ -16,7 +16,7 @@ const CancelButton = ({ buttonText, onPress }) => {
       onPressIn={() => setIsPressed(true)}
       onPressOut={() => setIsPressed(false)}
     >
-      <Text style={styles.loginButtonText}>{buttonText}</Text>
+      <Text style={[styles.loginButtonText, {color : isPressed ? CustomTheme.colors.white : CustomTheme.colors.darkGray },]}>{buttonText}</Text>
     </Pressable>
   );
 };

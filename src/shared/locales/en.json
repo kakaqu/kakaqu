@@ -41,12 +41,12 @@
     "invalid_phone": "Please enter a valid 9-digit phone number.",
     "name_short": "Name must be at least 3 characters long.",
     "province": "Please select a province.",
-    "district": "Please select a district.",  
+    "district": "Please select a district.",
     "fake_phone": "Please enter a real phone number.",
     "invalid_prefix": "Phone number must start with 7.",
     "own_phone": "You cannot send Altin to your own number.",
     "userNotFound": "Account not found.",
-    
+
     "amount_required": "Amount cannot be empty.",
     "amount_invalid": "Invalid amount.",
     "min_amount": "You must send at least 1 Altin.",
@@ -56,12 +56,11 @@
     "description_required": "Description cannot be empty.",
     "description_short": "Description must be at least 5 characters.",
 
-    
     "name_short_shop": "Shop name must be at least 3 characters long.",
     "category_required": "Category selection is required.",
     "location_required": "Location information must be selected.",
     "address_required": "Please enter an address.",
-  
+
     "empty": "This field cannot be empty.",
     "minLength": "You must enter at least 15 characters."
   },
@@ -91,7 +90,7 @@
     "registration_failed": "Registration failed.",
     "registration_successful": "Registration successful."
   },
-    "onboardingItem": {
+  "onboardingItem": {
     "title": "Welcome to the Online Marketplace",
     "description": "You can easily buy, sell, and find what you need.",
     "details": "Easily access products and services, communicate with sellers quickly and securely; save your favorite items to find them later, and personalize your shopping experience with tailored recommendations based on your interests.",
@@ -146,14 +145,14 @@
     "success_message": "Altin sent successfully.",
     "fail_message": "Failed to send Altin."
   },
-"transactions": {
-  "sent_to": "You sent {{amount}} {{gold}} to {{name}}",
-  "received_from": "{{name}} sent you {{amount}} {{gold}}",
-  "system_transaction": "System transaction",
-  "title": "Past Transactions",
-  "seeAll": "See All",
-  "nothingFound": "No data found"
-},
+  "transactions": {
+    "sent_to": "You sent {{amount}} {{gold}} to {{name}}",
+    "received_from": "{{name}} sent you {{amount}} {{gold}}",
+    "system_transaction": "System transaction",
+    "title": "Past Transactions",
+    "seeAll": "See All",
+    "nothingFound": "No data found"
+  },
   "shop_register": {
     "name": "Shop Name",
     "name_placeholder": "Enter shop name",
@@ -164,14 +163,13 @@
     "step1_description": "Enter your store details to help customers recognize and reach you with confidence.",
     "avatar_hint": "Add a store logo to help customers identify you more easily.",
     "step2_description": "Choose the most suitable category and location to help customers reach you easily."
-
   },
   "shop_cart": {
     "Comment": "Comment",
     "Followers": "Followers",
     "Rating": "Rating",
     "viewOnMap": "View on map",
-    
+
     "blockSuccess": "The shop has been successfully blocked.",
     "reportSuccess": "The shop has been successfully reported.",
     "unfollowSuccess": "Unfollowed successfully.",
@@ -201,5 +199,60 @@
     "no_shops": "No shops found.",
     "loading_error": "Failed to load shops.",
     "search_placeholder": "Search shops..."
+  },
+  "shopDashboard": {
+    "comments": "Comments",
+    "followers": "Followers",
+    "ratings": "Ratings"
+  },
+  "comment": {
+    "view_profile": "View Profile",
+    "reply": "Reply",
+    "report": "Report",
+    "copy": "Copy",
+    "hide": "Hide Comment",
+    "delete": "Delete Comment",
+    "edit": "Edit",
+    "block_user": "Block User"
+  },
+  "shop": {
+    "comments": "Comments",
+    "no_comments": "No comments yet",
+    "write_a_comment": "Write a comment...",
+    "comment_placeholder": "Write your comment here...",
+    "reply_placeholder": "Write your reply here...",
+    "write_comment_title": "Write a Comment",
+    "reply_title": "Reply",
+    "write_comment_desc": "Leave a comment for {{shopName}}",
+    "replying_to": "in reply to",
+    "write_reply_desc": "Replying to {{username}}",
+    "view_more_replies": "View {{count}} more {{suffix}}...",
+    "edit_title": "Edit Comment",
+    "edit_reply_title": "Edit Reply",
+    "edit_description": "Update your comment",
+    "edit_reply_description": "Update your reply",
+    "edit_placeholder": "Enter the updated text here...",
+    "edit_reply_placeholder": "Enter the updated reply here..."
+  },
+  "shop_comment": {
+    "user_reported": "User has been successfully reported.",
+    "comment_copied": "Comment copied.",
+    "delete_comment_title": "Delete Comment",
+    "delete_reply_title": "Delete Reply",
+    "delete_comment_message": "Are you sure you want to delete this comment?",
+    "delete_reply_message": "Are you sure you want to delete this reply?",
+    "hide_comment_title": "Hide Comment",
+    "hide_reply_title": "Hide Reply",
+    "hide_comment_message": "Are you sure you want to hide this comment?",
+    "hide_reply_message": "Are you sure you want to hide this reply?",
+    "submit_delete": "Delete",
+    "cancel": "Cancel",
+    "error_title": "Error",
+    "error_message": "An error occurred during the operation.",
+    "block_comment_author_title": "Block Comment Author",
+    "block_reply_author_title": "Block Reply Author",
+    "block_comment_author_message": "Are you sure you want to block the user {{name}} who wrote the comment?",
+    "block_reply_author_message": "Are you sure you want to block the user {{name}} who wrote the reply?",
+    "block_submit": "Block"
   }
 }

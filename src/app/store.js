@@ -10,6 +10,7 @@ import storage from "../shared/utils/storage/storage";
 import loadingReducer from "../shared/slices/loadingSlice";
 import globalModalReducer from "../shared/slices/globalModalSlice";
 import shopReducer from "../features/shops/slices/shopSlice";
+import toastAlertReducer from "../shared/slices/toastAlertSlice";
 
 
 
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   loading: loadingReducer,
   globalModal: globalModalReducer,
   transactions: transactionsReducer,
-  shop: shopReducer
+  shop: shopReducer,
+  toastAlert: toastAlertReducer,
 });
 
 const persistConfig = {
