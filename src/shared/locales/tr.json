@@ -160,7 +160,6 @@
     "category": "Kategori:",
     "choose_location": "Haritadan konum seçin",
     "registration_successful": "Dükkan başarıyla kaydedildi.",
-
     "step1_description": "Mağaza bilgilerinizi girerek müşterilerin sizi tanımasını ve güvenle ulaşmasını sağlayın.",
     "avatar_hint": "Mağaza logosunu ekleyerek müşterilerin sizi daha kolay tanımasını sağlayın.",
     "step2_description": "Size en uygun kategori ve konumu seçerek müşterilerin size kolayca ulaşmasını sağlayabilirsiniz."
@@ -170,7 +169,6 @@
     "Followers": "Takipçiler",
     "Rating": "Puan",
     "viewOnMap": "Haritada görüntüle",
-
     "blockSuccess": "Dükkan başarıyla engellendi.",
     "reportSuccess": "Dükkan başarıyla şikayet edildi.",
     "unfollowSuccess": "Takipten çıkıldı.",
@@ -214,7 +212,7 @@
     "hide": "Yorumu gizle",
     "delete": "Yorumu sil",
     "edit": "Düzenle",
-    "block_user": "Kullanıcıyı engelle"
+    "block_user": "engelle"
   },
   "shop": {
     "comments": "Yorumlar",
@@ -254,6 +252,21 @@
     "block_reply_author_title": "Yanıt Sahibini Engelle",
     "block_comment_author_message": "{{name}} adlı yorumu yazan kullanıcıyı engellemek istediğinize emin misiniz?",
     "block_reply_author_message": "{{name}} adlı yanıtı yazan kullanıcıyı engellemek istediğinize emin misiniz?",
-    "block_submit": "Engelle"
+    "block_submit": "Engelle",
+    "last_comments": "Son yorumlar"
+  },
+  "shop_subscriber": {
+    "followers": "Takipçiler",
+    "no_followers": "Henüz takipçi yok",
+    "last_followers": "Son takipçiler",
+    "user_blocked": "Kullanıcı engellendi"
+  },
+  "shop_rating": {
+    "load_failed": "Puanlar yüklenemedi",
+    "rating_added": "{{rating}} puan verdiniz",
+    "ratings": "Değerlendirmeler",
+    "latest": "Son puanlar",
+    "no_ratings": "Henüz puan yok",
+    "give_rating": "Puan ver"
   }
 }

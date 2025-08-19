@@ -214,7 +214,7 @@
     "hide": "مخفی کردن نظر",
     "delete": "حذف نظر",
     "edit": "ویرایش",
-    "block_user": "مسدود کردن استفاده کننده"
+    "block_user": "مسدود کردن"
   },
   "shop": {
     "comments": "نظرات",
@@ -254,6 +254,21 @@
     "block_reply_author_title": "مسدود کردن نویسنده پاسخ",
     "block_comment_author_message": "می‌خواهید کاربر {{name}} که نظر را نوشته مسدود کنید؟",
     "block_reply_author_message": "می‌خواهید کاربر {{name}} که پاسخ را نوشته مسدود کنید؟",
-    "block_submit": "مسدود کن"
+    "block_submit": "مسدود کن",
+    "last_comments": "آخرین نظرها"
+  },
+  "shop_subscriber": {
+    "followers": "دنبال‌ کنند گان",
+    "no_followers": "هنوز دنبال‌ کننده‌ای وجود ندارد",
+    "last_followers": "آخرین دنبال‌کنندگان",
+    "user_blocked": "کاربر مسدود شد"
+  },
+  "shop_rating": {
+    "load_failed": "رتبه‌ها بارگذاری نشد",
+    "rating_added": "شما {{rating}} ستاره دادید",
+    "ratings": "رتبه‌ها",
+    "latest": "آخرین رتبه‌ها",
+    "no_ratings": "هنوز رتبه‌ای ثبت نشده",
+    "give_rating": "رتبه بدهید"
   }
 }

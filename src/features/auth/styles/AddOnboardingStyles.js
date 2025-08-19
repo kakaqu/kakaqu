@@ -30,15 +30,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    backgroundColor: CustomTheme.colors.primary,
-    borderRadius: 5,
-    paddingVertical: 10,
-    paddingHorizontal: 30,
-  },
-  buttonText: {
-    color: CustomTheme.colors.white,
-    fontSize: 16,
-    fontWeight: 'bold',
+    width: '100%',
+    paddingVertical: 15,
   },
 });
 

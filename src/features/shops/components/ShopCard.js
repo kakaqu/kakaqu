@@ -23,6 +23,7 @@ import { blockShop } from '../services/blockShop';
 import { followShop } from '../services/followShop';
 import { unfollowShop } from '../services/unfollowShop';
 import CancelButton from '../../../shared/components/buttons/CancelButton';
+import CustomButton from '../../../shared/components/buttons/CustomButton';
 
 
 const ShopCard = ({ shop, t, onShopStatusChange, isExpanded, onToggleExpand }) => {
@@ -185,19 +186,18 @@ const ShopCard = ({ shop, t, onShopStatusChange, isExpanded, onToggleExpand }) =
 
       {isExpanded && (
         <>
-        <ShopDetail
-          shop={shop}
-          t={t}
-        />        
-          <View style={{ flex: 0.4 , width: '100%'}}>
-            <CancelButton
-              onPress={() => handleOptionPress({ key: 'viewProfile' })}
-              buttonText={t('shop_options.viewProfile')}
+          <ShopDetail shop={shop} t={t} />
+          <View style={{ flex: 0.4, width: "100%" }}>
+
+            <CustomButton
+              buttonText={t("shop_options.viewProfile", "profili gör")}
+              type="lightGray"
+              iconName="user"
+              iconLibrary="Feather"
+              onPress={() => handleOptionPress({ key: "viewProfile" })}
             />
           </View>
         </>
-
-        
       )}
 
       <ShopCardMenu

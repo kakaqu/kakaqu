@@ -36,7 +36,10 @@ skipText: {
   textAlign: 'left',
   fontStyle: 'undeline'
 },
-
+  button: {
+    width: '70%',
+    paddingVertical: 15,
+  },
 
 });
 

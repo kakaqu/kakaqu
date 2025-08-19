@@ -7,6 +7,7 @@ import {
   Dimensions,
   findNodeHandle,
   UIManager,
+  RefreshControl,
 } from "react-native";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +18,6 @@ import CommentMenu from "../../../../shared/components/options/CommentMenu";
 import { getCommentMenuOptions } from "../../../../shared/components/options/getCommentMenuOptions";
 
 import CommentItem from "../../components/ShopComments/CommentItem";
-import CommentInputBar from "../../components/ShopComments/CommentInputBar";
 import WriteCommentModalWrapper from "../../components/ShopComments/WriteCommentModalWrapper";
 
 import styles from "../../styles/commentStyles";
@@ -25,13 +25,14 @@ import { dispatchAlert } from "../../../../shared/utils/alerts/alertUtils";
 import { handleDeleteOrHide, getDeleteOrHideAlertOptions, isReply } from "../../actions/commentActions";
 import { blockUser } from "../../services/blockUser";
 import CustomTheme from "../../../../shared/styles/CustomThems";
+import { Feather } from "@expo/vector-icons";
+import CustomButton from "../../../../shared/components/buttons/CustomButton";
 
 
 
 
 const ShopCommentList = ({ shopId, page = 0, limit = 10, isOwner, shopName }) => {
   const [comments, setComments] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true); // sadece ilk yükleme      // pull-to-refresh
   const [loadingMore, setLoadingMore] = useState(false);      // infinite scroll
 
@@ -86,39 +87,39 @@ const ShopCommentList = ({ shopId, page = 0, limit = 10, isOwner, shopName }) =>
 
 
   // Yorumları yükleme
-async function loadComments(pageToLoad) {
-  if ((pageToLoad === 0 && refreshing) || (pageToLoad > 0 && loadingMore)) return;
-
-  if (pageToLoad === 0) {
-    if (!refreshing) setInitialLoading(true);
-  } else {
-    setLoadingMore(true);
-  }
-
-  try {
-    const newComments = await fetchShopComments({ shopId, page: pageToLoad, limit });
-
-    if (newComments.length < limit) setHasMore(false);
+  async function loadComments(pageToLoad) {
+    if ((pageToLoad === 0 && refreshing) || (pageToLoad > 0 && loadingMore)) return;
 
     if (pageToLoad === 0) {
-      setComments(newComments);
+      if (!refreshing) setInitialLoading(true);
     } else {
-      setComments((prev) => [...prev, ...newComments]);
+      setLoadingMore(true);
     }
 
-    setCurrentPage(pageToLoad);
-  } catch (error) {
-    console.error("Yorumlar yüklenirken hata:", error);
-    Alert.alert("Hata", "Yorumlar yüklenirken bir hata oluştu.");
-  } finally {
-    if (pageToLoad === 0) {
-      setInitialLoading(false);
-      setRefreshing(false);
-    } else {
-      setLoadingMore(false);
+    try {
+      const newComments = await fetchShopComments({ shopId, page: pageToLoad, limit });
+
+      if (newComments.length < limit) setHasMore(false);
+
+      if (pageToLoad === 0) {
+        setComments(newComments);
+      } else {
+        setComments((prev) => [...prev, ...newComments]);
+      }
+
+      setCurrentPage(pageToLoad);
+    } catch (error) {
+      console.error("Yorumlar yüklenirken hata:", error);
+      Alert.alert("Hata", "Yorumlar yüklenirken bir hata oluştu.");
+    } finally {
+      if (pageToLoad === 0) {
+        setInitialLoading(false);
+        setRefreshing(false);
+      } else {
+        setLoadingMore(false);
+      }
     }
   }
-}
 
   const openMenu = ({ comment, commentId, parentCommentId }) => {
     const ref = iconRefs.current[commentId];
@@ -308,51 +309,94 @@ async function loadComments(pageToLoad) {
       <View style={styles.container}>
         <Text style={styles.title}>{t("shop.comments") || "Yorumlar"}</Text>
 
-     <FlatList
-        data={comments}
-        keyExtractor={(item) => item.id.toString()}
-        refreshing={refreshing}
-        onRefresh={onRefresh}
-        renderItem={({ item }) => (
-          <CommentItem
-            comment={item}
-            languageCode={languageCode}
-            expandedReplies={expandedReplies}
-            onReplyPress={(comment) => {
-              setReplyToComment(comment);
-              setShowCommentModal(true);
-            }}
-            onMenuPress={openMenu}
-            onExpandReplies={(id) =>
-              setExpandedReplies((prev) => ({ ...prev, [id]: true }))
-            }
-            iconRefs={iconRefs}
-          />
-        )}
-        onEndReached={() => {
-          if (hasMore && !loadingMore) loadComments(currentPage + 1);
-        }}
-        onEndReachedThreshold={0.3}
-        showsVerticalScrollIndicator={false}
-        nestedScrollEnabled
-        ListFooterComponent={
-          loadingMore ? (
-            <ActivityIndicator style={{ marginVertical: 15 }} size="small" color={CustomTheme.colors.primary} />
-          ) : null
-        }
-        ListEmptyComponent={<Text>{t("shop.no_comments")}</Text>}
-        keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{ paddingBottom: 70 }}
-      />
+        <FlatList
+          data={comments}
+          keyExtractor={(item) => item.id.toString()}
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={onRefresh}
+              colors={[CustomTheme.colors.primary]} // Android için
+              tintColor={CustomTheme.colors.primary} // iOS için
+            />
+          }
+          renderItem={({ item }) => (
+            <CommentItem
+              comment={item}
+              languageCode={languageCode}
+              expandedReplies={expandedReplies}
+              onReplyPress={(comment) => {
+                setReplyToComment(comment);
+                setShowCommentModal(true);
+              }}
+              onMenuPress={openMenu}
+              onExpandReplies={(id) =>
+                setExpandedReplies((prev) => ({ ...prev, [id]: true }))
+              }
+              iconRefs={iconRefs}
+            />
+          )}
+          onEndReached={() => {
+            if (hasMore && !loadingMore) loadComments(currentPage + 1);
+          }}
+          onEndReachedThreshold={0.3}
+          showsVerticalScrollIndicator={false}
+          nestedScrollEnabled
+          ListFooterComponent={
+            <>
+              {loadingMore ? (
+                <ActivityIndicator
+                  style={{ marginVertical: 15 }}
+                  size="small"
+                  color={CustomTheme.colors.primary}
+                />
+              ) : null}
+
+              {!loadingMore && comments.length > 0 ? (
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: "bold",
+                    color: CustomTheme.colors.darkGray,
+                    textAlign: "center",
+                    paddingVertical: 12,
+                  }}
+                >
+                  {t("shop_comment.last_comments") || "Son yorumlar"}
+                  
+                </Text>
+              ) : null}
+            </>
+          }
+          ListEmptyComponent={
+            <View style={styles.empty}>
+              <Feather name="message-square" size={64} color={CustomTheme.colors.secondary} />
+              <Text style={styles.emptyText}>
+                {t("shop.no_comments") || "Henüz yorum yok"}
+              </Text>
+            </View>
+          }
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{ paddingBottom: 20 }}
+        />
       </View>
 
       <View style={styles.inputContainer}>
-        <CommentInputBar
+        <CustomButton
+          buttonText={t("shop.write_a_comment") || "Yorum yaz..."}
+          iconName="message-square"
+          type="lightGray_outline"
+          iconLibrary="Feather"
           onPress={() => {
             setReplyToComment(null);
             setShowCommentModal(true);
           }}
-          placeholder={t("shop.write_a_comment") || "Yorum yaz..."}
+          style={{
+            borderRadius: 25,
+            paddingVertical: 9,
+          }}
         />
       </View>
 
@@ -374,18 +418,17 @@ async function loadComments(pageToLoad) {
         setExpandedReplies={setExpandedReplies}
       />
 
-    <CommentMenu
-      visible={menuVisible}
-      comment={selectedComment}
-      position={menuPosition}
-      currentUserId={currentUserId}
-      isOwner={isOwner}
-      t={t}
-      onClose={() => setMenuVisible(false)}
-      onOptionPress={handleOptionPress}
-      getOptions={getCommentMenuOptions}
-    />
-
+      <CommentMenu
+        visible={menuVisible}
+        comment={selectedComment}
+        position={menuPosition}
+        currentUserId={currentUserId}
+        isOwner={isOwner}
+        t={t}
+        onClose={() => setMenuVisible(false)}
+        onOptionPress={handleOptionPress}
+        getOptions={getCommentMenuOptions}
+      />
     </View>
   );
 };

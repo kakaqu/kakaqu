@@ -208,7 +208,7 @@
     "hide": "تبصره پټه کړئ",
     "delete": "تبصره ړنګه کړئ",
     "edit": "سمونه وکړئ",
-    "block_user": "کاروونکی بند کړئ"
+    "block_user": "بند کړئ"
   },
   "shop": {
     "comments": "نظرونه",
@@ -248,6 +248,21 @@
     "block_reply_author_title": "د ځواب لیکونکي بندول",
     "block_comment_author_message": "ایا ډاډه یاست چې غواړئ هغه کاروونکی {{name}} بند کړئ چې نظر یې ورکړی؟",
     "block_reply_author_message": "ایا ډاډه یاست چې غواړئ هغه کاروونکی {{name}} بند کړئ چې ځواب یې ورکړی؟",
-    "block_submit": "بندول"
+    "block_submit": "بندول",
+    "last_comments": "وروستي نظرونه"
+  },
+  "shop_subscriber": {
+    "followers": "پیروان",
+    "no_followers": "تر اوسه هیڅ پیروان نشته",
+    "last_followers": "وروستون تعقیب کوونکي",
+    "user_blocked": "کارن بند شو"
+  },
+  "shop_rating": {
+    "load_failed": "درجه بندي نه شوه بارولای",
+    "rating_added": "تاسو {{rating}} ستوري ورکړل",
+    "ratings": "درجه بندۍ",
+    "latest": "وروستۍ درجه بندۍ",
+    "no_ratings": "لا تر اوسه درجه بندي نشته",
+    "give_rating": "درجه ورکړئ"
   }
 }

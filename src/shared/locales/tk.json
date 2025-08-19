@@ -206,7 +206,7 @@
     "hide": "گزله",
     "delete": "غلدر",
     "edit": "دوزلت",
-    "block_user": "کولانیجی غیدات"
+    "block_user": "غیدات"
   },
   "shop": {
     "comments": "دوشنجه لر",
@@ -248,6 +248,21 @@
     "block_reply_author_title": "جواب ایسینی غیدات",
     "block_comment_author_message": "{{name}} کولانیجی نی غیدات ائت‌مک استیورسنگز می؟?",
     "block_reply_author_message": "{{name}} کولانیجی نی غیدات ائت‌مک استیورسنگز می؟",
-    "block_submit": "غیدات"
+    "block_submit": "غیدات",
+    "last_comments": "اینگ سونقی دوشنجه لر"
+  },
+  "shop_subscriber": {
+    "followers": "ایزلیون لر",
+    "no_followers": "ایزلیون لر یوْق",
+    "last_followers": "اینگ سونقی ایزلیون",
+    "user_blocked": "کولانیجی غید ادلدی"
+  },
+  "shop_rating": {
+    "load_failed": "درجه لمه یوکلانمادی",
+    "rating_added": "{{rating}} درجه بردینگز",
+    "ratings": "درجه لر",
+    "latest": "سونقی درجه لر",
+    "no_ratings": "حالا درجه یوْق",
+    "give_rating": "درجه بر"
   }
 }

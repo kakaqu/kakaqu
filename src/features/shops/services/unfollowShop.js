@@ -18,3 +18,4 @@ export async function unfollowShop(shopId, userId) {
 
   return true;
 }
+

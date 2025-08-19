@@ -3,7 +3,7 @@ import { Pressable, Text, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import CustomTheme from '../../styles/CustomThems';
 
-const MessageButton = ({ onPress }) => {
+const MessageButton = ({buttonText, onPress }) => {
   const [pressed, setPressed] = useState(false);
 
   return (
@@ -33,7 +33,7 @@ const MessageButton = ({ onPress }) => {
           { color: pressed ? '#fff' : CustomTheme.colors.primary },
         ]}
       >
-        Mesaj yaz
+        {buttonText}
       </Text>
     </Pressable>
   );

@@ -1,9 +1,7 @@
 import React from 'react';
-import { ActivityIndicator, TouchableOpacity, Text, View } from 'react-native';
+import {TouchableOpacity, Text, View } from 'react-native';
 import CustomInput from '../../../shared/components/forms/CustomInput';
 import CustomButton from '../../../shared/components/buttons/CustomButton';
-import CustomTheme from '../../../shared/styles/CustomThems';
-import { useSelector } from 'react-redux';
 
 
 const LoginForm = ({
@@ -31,12 +29,16 @@ const LoginForm = ({
             : ''
         }
       />
-        <CustomButton
-          buttonText={t('form.phoneSubmit')}
-          onPress={handleLogin}
-          style={styles.button}
-          textStyle={styles.buttonText}
-        />
+
+      <CustomButton
+        buttonText={t("form.phoneSubmit", "Login")}
+        type="primary"
+        iconName="unlock"
+        iconLibrary="Feather"
+        onPress={handleLogin}        
+        style={styles.button}
+      />
+
       <TouchableOpacity
         onPress={() => navigation.navigate('Register')}
         style={styles.registerBox}

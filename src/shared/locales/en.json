@@ -253,6 +253,21 @@
     "block_reply_author_title": "Block Reply Author",
     "block_comment_author_message": "Are you sure you want to block the user {{name}} who wrote the comment?",
     "block_reply_author_message": "Are you sure you want to block the user {{name}} who wrote the reply?",
-    "block_submit": "Block"
+    "block_submit": "Block",
+    "last_comments": "Recent comments"
+  },
+  "shop_subscriber": {
+    "followers": "Followers",
+    "no_followers": "No followers yet",
+    "last_followers": "Last followers",
+    "user_blocked": "User blocked"
+  },
+  "shop_rating": {
+    "load_failed": "Failed to load ratings",
+    "rating_added": "You gave {{rating}} stars",
+    "ratings": "Ratings",
+    "latest": "Latest ratings",
+    "no_ratings": "No ratings yet",
+    "give_rating": "Give a rating"
   }
 }

@@ -16,7 +16,7 @@ const ProvinceDistrictPicker = ({
   validateDistrict,
 }) => {
   return (
-    <View style={{ flexDirection: 'row', gap: 10 }}>
+    <View style={{ flexDirection: 'row', gap: 10, marginBottom:15 }}>
       {/* İlçe ComboBox */}
       <View style={{ flex: 1 }}>
         <CustomComboBox

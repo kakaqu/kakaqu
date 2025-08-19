@@ -28,12 +28,17 @@ const OTPForm = ({
       </View>
 
       <View style={styles.buttonWrapper}>
-        <CustomButton
-          style={styles.button}
-          buttonText={loading ? t('otp.checking') : t('otp.confirm')}
-          onPress={onSubmit}
-          disabled={loading}
-        />
+
+      <CustomButton
+        buttonText={loading ? t('otp.checking') : t('otp.confirm')}
+        type="primary"
+        iconName="check-circle"
+        iconLibrary="Feather"
+        onPress={onSubmit}
+        disabled={loading}       
+        style={styles.button}
+      />
+
       </View>
 
       <Text style={styles.timerText}>

@@ -133,7 +133,14 @@ const AddUserPage = ({ navigation }) => {
             validateDistrict={validateDistrict}
           />
 
-          <CustomButton buttonText={t('user_register.submit_button')} onPress={handleSubmit} />
+          <CustomButton 
+            buttonText={t('user_register.submit_button')} 
+            onPress={handleSubmit}           
+            type="primary"
+            iconName="person-add-outline"
+            iconLibrary="Ionicons"
+            style={styles.button}
+          />
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>

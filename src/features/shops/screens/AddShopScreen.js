@@ -40,12 +40,6 @@ const AddShopScreen = ({ navigation }) => {
   const [addressLine, setAddressLine] = useState('');
   const [location, setLocation] = useState({ latitude: null, longitude: null });
 
-  // useEffect(() => {
-  //   supabase
-  //     .from('provinces')
-  //     .select('id, name')
-  //     .then(({ data }) => setProvinces(data || []));
-  // }, []);
   useEffect(() => {
     const fetchInitialData = async () => {
       try {

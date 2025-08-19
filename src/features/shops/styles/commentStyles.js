@@ -24,20 +24,20 @@ const commentStyles = StyleSheet.create({
     width: 35,
     height: 35,
     borderRadius: 24,
-    backgroundColor: "#ccc",
+    backgroundColor: CustomTheme.colors.lightGray,
   },
   avatarSmall: {
     width: 25,
     height: 25,
     borderRadius: 16,
-    backgroundColor: "#ccc",
+    backgroundColor: CustomTheme.colors.lightGray,
   },
   commentContent: {
     flex: 1,
     marginLeft: 12,
     padding: 8,
     borderRadius: 8,
-    backgroundColor: "#F0F0F0",
+    backgroundColor: CustomTheme.colors.lightGray,
   },
   headerRow: {
     flexDirection: "row",
@@ -69,7 +69,7 @@ const commentStyles = StyleSheet.create({
     marginTop: 8,
     paddingLeft: 12,
     borderLeftWidth: 1,
-    borderLeftColor: "#ddd",
+    borderLeftColor: CustomTheme.colors.lightGray,
   },
   replyContainer: {
     flexDirection: "row",
@@ -85,9 +85,9 @@ const commentStyles = StyleSheet.create({
   },
   inputContainer: {
     padding: 2,
-    backgroundColor: "#fff",
+    backgroundColor: CustomTheme.colors.white,
     borderTopWidth: 1,
-    borderColor: "#ddd",
+    borderColor: CustomTheme.colors.lightGray,
   },
   commentInputButton: {
     flexDirection: "row",
@@ -123,18 +123,29 @@ const commentStyles = StyleSheet.create({
     flex: 1,
     flexWrap: "nowrap",
     fontSize: 13,
-    color: "#444",
+    color: CustomTheme.colors.darkGray,
     marginHorizontal: 6,
   },
   replyPreviewUser: {
     fontWeight: "500",
-    color: "#222",
+    color: CustomTheme.colors.black,
   },
   viewMoreRepliesText: {
     color: CustomTheme.colors.primary,
     marginLeft: 26,
     marginTop: 2,
     fontSize: 13,
+  },
+    empty: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: 50,
+  },
+  emptyText: {
+    marginTop: 10,
+    fontSize: 15,
+    color: CustomTheme.colors.darkGray,
   },
 });
 

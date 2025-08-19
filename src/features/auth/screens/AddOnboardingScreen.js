@@ -82,52 +82,64 @@ const AddOnboardingScreen = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 40 : 0}
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 40 : 0}
       >
-        <ScrollView contentContainerStyle={styles.scrollView} keyboardShouldPersistTaps="handled">
+        <ScrollView
+          contentContainerStyle={styles.scrollView}
+          keyboardShouldPersistTaps="handled"
+        >
           <View style={styles.content}>
             <TouchableOpacity onPress={pickImage}>
               <Image
-                source={avatar ? { uri: avatar } : require('../../../assets/photo/photo_avatar.png')}
+                source={
+                  avatar
+                    ? { uri: avatar }
+                    : require("../../../assets/photo/photo_avatar.png")
+                }
                 style={styles.avatar}
               />
             </TouchableOpacity>
 
             <CustomInput
-              label={t('onboarding.title')}
-              placeholder={t('placeholders.title')}
+              label={t("onboarding.title")}
+              placeholder={t("placeholders.title")}
               value={title}
               setValue={setTitle}
               iconName="edit"
             />
             <CustomInput
-              label={t('onboarding.description')}
-              placeholder={t('placeholders.description')}
+              label={t("onboarding.description")}
+              placeholder={t("placeholders.description")}
               value={description}
               setValue={setDescription}
               iconName="notes"
             />
             <CustomInput
-              label={t('onboarding.details')}
-              placeholder={t('placeholders.details')}
+              label={t("onboarding.details")}
+              placeholder={t("placeholders.details")}
               value={details}
               setValue={setDetails}
               multiline
               numberOfLines={5}
-              inputStyle={{ minHeight: 100, textAlignVertical: 'top' }}
+              inputStyle={{ minHeight: 100, textAlignVertical: "top" }}
               iconName="description"
             />
 
             <View style={styles.buttonContainer}>
               {loading ? (
-                <ActivityIndicator size="large" color={CustomTheme.colors.primary} />
+                <ActivityIndicator
+                  size="large"
+                  color={CustomTheme.colors.primary}
+                />
               ) : (
                 <CustomButton
-                  buttonText={t('buttons.save')}
-                  onPress={handleSubmit}
                   style={styles.button}
-                  textStyle={styles.buttonText}
+                  buttonText={t("buttons.save")}
+                  type="primary_outline"
+                  iconName="document-scanner"
+                  iconLibrary="MaterialIcons"
+                  onPress={handleSubmit}
                 />
               )}
             </View>

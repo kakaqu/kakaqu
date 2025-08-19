@@ -213,7 +213,7 @@
     "hide": "إخفاء التعليق",
     "delete": "حذف التعليق",
     "edit": "تعديل",
-    "block_user": "حظر المستخدم"
+    "block_user": "حظر"
   },
   "shop": {
     "comments": "التعليقات",
@@ -255,6 +255,21 @@
     "block_reply_author_title": "حظر صاحب الرد",
     "block_comment_author_message": "هل أنت متأكد من رغبتك في حظر المستخدم {{name}} الذي كتب التعليق؟",
     "block_reply_author_message": "هل أنت متأكد من رغبتك في حظر المستخدم {{name}} الذي كتب الرد؟",
-    "block_submit": "حظر"
+    "block_submit": "حظر",
+    "last_comments": "آخر التعليقات"
+  },
+  "shop_subscriber": {
+    "followers": "المتابعون",
+    "no_followers": "لا يوجد متابعون بعد",
+    "last_followers": "آخر المتابعين",
+    "user_blocked": "تم حظر المستخدم"
+  },
+  "shop_rating": {
+    "load_failed": "فشل تحميل التقييمات",
+    "rating_added": "لقد منحت {{rating}} نجوم",
+    "ratings": "التقييمات",
+    "latest": "أحدث التقييمات",
+    "no_ratings": "لا توجد تقييمات بعد",
+    "give_rating": "أضف تقييمًا"
   }
 }

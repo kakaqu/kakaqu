@@ -149,29 +149,34 @@ const OnboardingScreen = () => {
         scrollEventThrottle={16}
         renderItem={({ item }) => <OnboardingItem item={item} />}
       />
-      
-       {/* Geç Butonu (PaginationDots hizasında, sol alt) */}
+
+      {/* Geç Butonu (PaginationDots hizasında, sol alt) */}
       {!isLoading && (
         <Animated.View style={[styles.skipTextWrapper, animatedSikipStyle]}>
           <TouchableOpacity onPress={handleSikipPress}>
-            <Text style={styles.skipText}>{t('onboardingItem.sikip')}</Text>
+            <Text style={styles.skipText}>{t("onboardingItem.sikip")}</Text>
           </TouchableOpacity>
         </Animated.View>
       )}
 
-
-
-      {/* Pagination Dots */}     
+      {/* Pagination Dots */}
       {!isLoading && (
-      <Animated.View style={[styles.paginationContainer, animatedPaginationDotsStyle]}>
-        <PaginationDots scrollX={scrollX} count={screens.length} />
-      </Animated.View>
+        <Animated.View
+          style={[styles.paginationContainer, animatedPaginationDotsStyle]}
+        >
+          <PaginationDots scrollX={scrollX} count={screens.length} />
+        </Animated.View>
       )}
 
       {/* Başla Butonu */}
       {!isLoading && (
         <Animated.View style={[styles.startButton, animatedStartButtonStyle]}>
-          <CustomButton buttonText={t('onboardingItem.button_text')} onPress={handlePress} />
+          <CustomButton
+            style={styles.button}
+            buttonText={t("onboardingItem.button_text")}
+            onPress={handlePress}
+            type="primary"
+          />
         </Animated.View>
       )}
     </View>

@@ -27,6 +27,7 @@ import MessageButton from '../../../shared/components/buttons/MessageButton';
 import ShopStatsModal from '../modals/ShopStatsModal';
 
 import CustomTheme from '../../../shared/styles/CustomThems';
+import CustomButton from '../../../shared/components/buttons/CustomButton';
 
 const ShopDashboard = () => {
   const route = useRoute();
@@ -127,13 +128,32 @@ const ShopDashboard = () => {
       </View>
 
       <View style={styles.actionRow}>
+        {/* Takip Et / Takiptesin Butonu */}
         <View style={styles.buttonWrapper}>
-          <FollowButton isFollowing={shop.isSubscribed} onPress={shop.isSubscribed ? handleUnfollow : handleFollow} />
+          <CustomButton
+            buttonText={t(
+              shop.isSubscribed ? "shop.following" : "shop.follow",
+              shop.isSubscribed ? "Takiptesin" : "Takip Et"
+            )}
+            iconName={shop.isSubscribed ? "user-check" : "user-plus"}
+            type={shop.isSubscribed ? "primary_outline" : "primary"}
+            iconLibrary="Feather"
+            onPress={shop.isSubscribed ? handleUnfollow : handleFollow}
+          />
         </View>
+
+        {/* Mesaj Butonu */}
         <View style={styles.buttonWrapperLast}>
-          <MessageButton onPress={handleMessage} />
+          <CustomButton
+            buttonText={t("shop.message", "Mesaj Yaz")}
+            type="primary_outline"
+            iconName="message-circle"
+            iconLibrary="Feather"
+            onPress={handleMessage}
+          />
         </View>
       </View>
+
 
       <View style={styles.card}>
         <TouchableOpacity onPress={() => setShowStatsModal(true)}>
@@ -147,6 +167,7 @@ const ShopDashboard = () => {
 
     </>
   );
+  
 
   return (
     <View style={styles.container}>

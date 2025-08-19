@@ -96,9 +96,10 @@ export default function LastGoldTransactionsModal() {
           buttonText={t('transactions.seeAll') || "Tümünü Gör"}
           onPress={() => {
             dispatch(hideModal());
-          }}
-
-          style={styles.showAllCustomButton}
+          }}          
+          type="lightGray"
+          iconName="arrow-down-circle"
+          iconLibrary="Ionicons"
         />
       </>
     );
@@ -192,10 +193,5 @@ const styles = StyleSheet.create({
     marginTop: 12,
     fontSize: 14,
     color: '#777',
-  },
-  showAllCustomButton: {
-    marginTop: 12,
-    alignSelf: 'center',
-    width: '100%',
   },
 });

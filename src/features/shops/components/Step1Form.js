@@ -1,12 +1,12 @@
-// 📁 components/AddShop/Step1Form.js
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import CustomInput from '../../../shared/components/forms/CustomInput';
 import CustomButton from '../../../shared/components/buttons/CustomButton';
 import AvatarPicker from './AvatarPicker';
 import { setName, setDescription, setMobile, setAvatar } from '../slices/shopSlice';
+import styles from '../styles/step1FormStyles';
 
 const Step1Form = ({ submitted, errors, onNext }) => {
   const dispatch = useDispatch();
@@ -64,11 +64,16 @@ const Step1Form = ({ submitted, errors, onNext }) => {
       />
 
       <CustomButton
+        style={styles.button}
         buttonText={t('form.continue')}
         onPress={handleContinue}
+        type="primary"
+        iconName="arrow-back-sharp"
+        iconLibrary="Ionicons"
       />
     </View>
   );
 };
+
 
 export default Step1Form;

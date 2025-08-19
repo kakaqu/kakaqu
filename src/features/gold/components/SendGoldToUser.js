@@ -116,8 +116,8 @@ export default function SendGoldToUser({ user, onClose }) {
       <CustomButton
         buttonText={t('sendGold.send_button')}
         onPress={handleSend}
-        style={styles.button}
-        textStyle={styles.buttonText}
+        style={styles.button}        
+        type="primary"
       />
     </View>
   );
@@ -125,19 +125,7 @@ export default function SendGoldToUser({ user, onClose }) {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: CustomTheme.colors.primary,
-    paddingVertical: 5,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  buttonText: {
-    color: CustomTheme.colors.white,
-    fontWeight: '600',
-    fontSize: 16,
-    textAlign: 'center',
+    width: '100%',
+    paddingVertical: 15,
   },
 });

@@ -12,7 +12,7 @@ export default StyleSheet.create({
   card: {
     width: '100%',
     maxWidth: 380,
-    backgroundColor: '#fff',
+    backgroundColor: CustomTheme.colors.white,
     padding: 28,
     borderRadius: 24,
     shadowColor: '#000',
@@ -30,7 +30,7 @@ export default StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    color: '#7F8C8D',
+    color: CustomTheme.colors.darkGray,
     textAlign: 'center',
     marginBottom: 24,
   },
@@ -44,16 +44,12 @@ export default StyleSheet.create({
   },
   button: {
     width: '100%',
-    maxWidth: 200,
-    backgroundColor: CustomTheme.colors.primary || '#3498DB',
-    borderRadius: 14,
-    paddingVertical: 14,
-    paddingHorizontal: 16,
+    paddingVertical: 15,
   },
   timerText: {
     fontSize: 13,
     color: CustomTheme.colors.secondary || '#e74c3c',
-    backgroundColor: '#fdecea',
+    backgroundColor: CustomTheme.colors.lightGray,
     textAlign: 'center',
     paddingHorizontal: 12,
     paddingVertical: 6,

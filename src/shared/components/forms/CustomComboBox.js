@@ -105,7 +105,7 @@ const CustomComboBox = ({
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: CustomTheme.spacing.medium,
+    marginBottom: CustomTheme.spacing.xsmall,
     width: '100%',
   },
   label: {

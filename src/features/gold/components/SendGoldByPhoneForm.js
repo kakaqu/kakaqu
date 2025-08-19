@@ -94,8 +94,8 @@ export default function SendGoldByPhoneForm() {
           <CustomButton
             buttonText={t('sendGold.check_account')}
             onPress={handleVerify}
-            style={styles.button}
-            textStyle={styles.buttonText}
+            style={styles.button}            
+            type="primary"
           />
         </>
       ) : (
@@ -113,20 +113,8 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   button: {
-    backgroundColor: CustomTheme.colors.primary,
-    paddingVertical: 14,
-    borderRadius: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  buttonText: {
-    color: CustomTheme.colors.white,
-    fontWeight: '600',
-    fontSize: 16,
-    textAlign: 'center',
+    width: '100%',
+    paddingVertical: 15,
   },
   title: {
     fontSize: 20,
